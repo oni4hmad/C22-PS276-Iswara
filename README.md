@@ -4,3 +4,4 @@ Bangkit Capstone 2022 Repository for Iswara App
 * Mellina
 * Oktavia Safitri
 * Cahyadesthian
+* Ulfi
