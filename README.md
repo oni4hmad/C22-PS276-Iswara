@@ -6,3 +6,23 @@ Bangkit Capstone 2022 Repository for Iswara App
 * Cahyadesthian
 * Ulfi
 * Dea Felycia
+* Mellina
+* Oktavia Safitri
+* Cahyadesthian
+* Ulfi
+* Dea Felycia
+* Mellina
+* Oktavia Safitri
+* Cahyadesthian
+* Ulfi
+* Dea Felycia
+* Mellina
+* Oktavia Safitri
+* Cahyadesthian
+* Ulfi
+* Dea Felycia
+* Mellina
+* Oktavia Safitri
+* Cahyadesthian
+* Ulfi
+* Dea Felycia
