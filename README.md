@@ -5,3 +5,4 @@ Bangkit Capstone 2022 Repository for Iswara App
 * Oktavia Safitri
 * Cahyadesthian
 * Ulfi
+* Dea Felycia
