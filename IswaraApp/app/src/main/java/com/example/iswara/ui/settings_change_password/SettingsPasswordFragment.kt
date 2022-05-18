@@ -1,4 +1,4 @@
-package com.example.iswara.ui.register
+package com.example.iswara.ui.settings_change_password
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.iswara.R
 
-class RegisterFragment : Fragment() {
+class SettingsPasswordFragment : Fragment() {
 
     companion object {
-        fun newInstance() = RegisterFragment()
+        fun newInstance() = SettingsPasswordFragment()
     }
 
-    private lateinit var viewModel: RegisterViewModel
+    private lateinit var viewModel: SettingsPasswordViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_register, container, false)
+        return inflater.inflate(R.layout.fragment_settings_password, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SettingsPasswordViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
