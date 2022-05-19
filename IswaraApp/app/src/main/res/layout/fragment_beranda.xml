@@ -21,6 +21,78 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardview_outer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gl_half_horizontal"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardView.Cut">
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ilustration_ara"
+                android:src="@drawable/ara_mvp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="-20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottom_app_bar"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                app:fabCradleMargin="12dp"
+                app:fabCradleRoundedCornerRadius="36dp"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottom_nav_view_menu"
+                    app:menu="@menu/bottom_nav_menu"
+                    android:layout_marginEnd="16dp"
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_chatbot_ara"
+                android:src="@drawable/araface"
+                app:layout_anchor="@id/bottom_app_bar"
+                android:backgroundTint="@color/orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
     <ImageView
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/gl_imagehelper"
@@ -32,7 +104,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv_user_profile"
-        app:cardElevation="12dp"
+        app:cardElevation="4dp"
         android:layout_marginTop="12dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
@@ -145,74 +217,75 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardview_outer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:cardElevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gl_half_horizontal"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardView.Cut">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_helper_btn"
+        app:layout_constraintGuide_percent="0.72"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
+    <LinearLayout
+        android:id="@+id/linlayout_button_feature"
+        app:layout_constraintTop_toBottomOf="@id/gl_imagehelper"
+        app:layout_constraintStart_toStartOf="@id/cv_user_profile"
+        app:layout_constraintBottom_toTopOf="@id/gl_helper_btn"
+        android:orientation="vertical"
+        android:elevation="6dp"
+        app:layout_constraintEnd_toEndOf="@id/cv_user_profile"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_konsultasi"
+            app:cardCornerRadius="16dp"
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/ilustration_ara"
-                android:src="@drawable/ara_mvp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="-40dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:padding="0dp"
-            android:layout_margin="0dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/bottom_app_bar"
-                android:background="@color/white"
-                android:backgroundTint="@color/white"
-                app:fabCradleMargin="12dp"
-                app:fabCradleRoundedCornerRadius="36dp"
-                android:layout_gravity="bottom"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
-                <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:id="@+id/bottom_nav_view_menu"
-                    app:menu="@menu/bottom_nav_menu"
-                    android:layout_marginEnd="16dp"
-                    android:background="@android:color/transparent"
+                <ImageView
+                    android:id="@+id/iv_bg_btn_konsultasi"
+                    android:src="@drawable/talk_konsultasi"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
-            </com.google.android.material.bottomappbar.BottomAppBar>
+                <ImageView
+                    android:id="@+id/src_gradient_blue"
+                    app:layout_constraintEnd_toEndOf="@id/iv_bg_btn_konsultasi"
+                    app:layout_constraintStart_toStartOf="@id/iv_bg_btn_konsultasi"
+                    app:layout_constraintTop_toTopOf="@id/iv_bg_btn_konsultasi"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_bg_btn_konsultasi"
+                    android:src="@drawable/blue_gradient"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_chatbot_ara"
-                android:src="@drawable/araface"
-                app:layout_anchor="@id/bottom_app_bar"
-                android:backgroundTint="@color/orange"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                <TextView
+                    android:textStyle="bold"
+                    android:text="Konsultasi"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
