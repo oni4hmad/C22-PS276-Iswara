@@ -8,7 +8,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frame_container"
-        android:name="com.example.iswara.ui.settings.SettingsFragment"
+        android:name="com.example.iswara.ui.beranda.BerandaFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

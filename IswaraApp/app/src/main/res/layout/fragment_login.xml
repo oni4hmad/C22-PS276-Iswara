@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/mitr"
-        android:text="Iswara"
+        android:text="@string/iswara"
         android:textColor="@color/orange"
         android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/login_form"
