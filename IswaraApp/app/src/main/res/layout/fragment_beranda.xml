@@ -93,6 +93,8 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+
+
     <ImageView
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/gl_imagehelper"
@@ -101,6 +103,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:contentDescription="beach image" />
+
+    <ImageView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gl_imagehelper"
+        android:src="@drawable/orange_gradient"
+        android:scaleType="fitXY"
+        android:id="@+id/src_gradient_orange"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv_user_profile"
