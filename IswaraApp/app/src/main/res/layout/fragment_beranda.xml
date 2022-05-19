@@ -239,6 +239,7 @@
             android:id="@+id/cv_konsultasi"
             app:cardCornerRadius="16dp"
             android:layout_weight="1"
+            android:layout_marginBottom="3dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -267,9 +268,147 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
+                <ImageView
+                    android:id="@+id/iv_ic_konsultasi"
+                    android:src="@drawable/ic_round_mark_chat_unread_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="36dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"/>
+
                 <TextView
                     android:textStyle="bold"
                     android:text="Konsultasi"
+                    app:layout_constraintStart_toEndOf="@id/iv_ic_konsultasi"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_ruangan"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="6dp"
+            app:cardCornerRadius="16dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_bg_btn_ruangan"
+                    android:src="@drawable/texting_bicara"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/src_gradient_redishblue"
+                    app:layout_constraintEnd_toEndOf="@id/iv_bg_btn_ruangan"
+                    app:layout_constraintStart_toStartOf="@id/iv_bg_btn_ruangan"
+                    app:layout_constraintTop_toTopOf="@id/iv_bg_btn_ruangan"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_bg_btn_ruangan"
+                    android:src="@drawable/redishblue_gradient"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/iv_ic_ruangan"
+                    android:src="@drawable/ic_baseline_layers_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="36dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"/>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:text="Ruang Cerita"
+                    app:layout_constraintStart_toEndOf="@id/iv_ic_ruangan"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_darurat"
+            app:cardCornerRadius="16dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_bg_btn_darurat"
+                    android:src="@drawable/darurat"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/src_gradient_red"
+                    app:layout_constraintEnd_toEndOf="@id/iv_bg_btn_darurat"
+                    app:layout_constraintStart_toStartOf="@id/iv_bg_btn_darurat"
+                    app:layout_constraintTop_toTopOf="@id/iv_bg_btn_darurat"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_bg_btn_darurat"
+                    android:src="@drawable/red_gradient"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/iv_ic_darurat"
+                    android:src="@drawable/ic_round_warning_amber_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="36dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"/>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:text="Darurat"
+                    app:layout_constraintStart_toEndOf="@id/iv_ic_darurat"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="20sp"
                     android:textColor="@color/white"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"/>
