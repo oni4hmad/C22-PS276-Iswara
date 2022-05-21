@@ -74,7 +74,7 @@
             android:id="@+id/line_change_password"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#e1dfd9"
+            android:background="@color/light_grey"
             android:visibility="gone" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -138,7 +138,7 @@
             android:id="@+id/line_show_report"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#e1dfd9"
+            android:background="@color/light_grey"
             android:visibility="gone" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -202,7 +202,7 @@
             android:id="@+id/line_logout"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#e1dfd9"
+            android:background="@color/light_grey"
             android:visibility="gone" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
