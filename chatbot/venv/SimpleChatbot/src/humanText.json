@@ -1,12 +1,12 @@
 {"intents": [
     {"tag": "salam",
         "patterns": ["Halo Ara", "Halo", "Halo", "Selamat Pagi", "Selamat Siang", "Selamat Malam", "Selamat Sore", "Salam"],
-        "responses": ["Halo! disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Pelecehan Seksual terhadap siapa yang ingin kamu laporkan?", "Halo, apakah anda akan melaporkan kasus pelecehan seksual yang orang lain atau anda alami sebagai korban?", "Halo", "Hai Kawan"]
+        "responses": ["Halo! disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Pelecehan Seksual siapa yang ingin kamu laporkan?", "Halo, apakah ada laporan pelecehan seksual?", "Halo, apakah anda akan melaporkan kasus pelecehan seksual yang orang lain atau anda alami sebagai korban?", "Halo", "Hai Kawan"]
     },
     {"tag": "kasusDiri",
-        "patterns": ["iya", "betul", "Ingin melaporkan"],
-        "responses": ["Ara ingin membantu, pertama Ara ingin mengetahui identitas kamu korban pelecehan seksual. Jadi kamu dapat menjawabnya sesuai konteks yang terjadi. Apakah kamu mengenal pelaku dan siapakah namanya?",
-        ]
+        "patterns": ["iya", "betul", "saya ingin melaporkan kasus pelecehan yang saya alami", "ingin melaporkan kasus saya", "pelecehan saya sendiri", "pelecehan pada saya", "saya mengalami pelecehan sekual", "ada seseorang melecehkan saya"],
+        "responses": ["Ara ingin membantu, pertama Ara ingin mengetahui identitas kamu korban pelecehan seksual. Apakah kamu mengenal pelaku dan siapakah namanya?",
+        "Apakah kamu mengetahui identitas pelaku?", "Apakah kamu mengenal pelaku?"]
 
     }
     {"tag": "bye",
