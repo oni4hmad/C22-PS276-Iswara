@@ -11,4 +11,5 @@
     <!-- iswara color -->
     <color name="orange">#F97316</color>
     <color name="navy">#11233E</color>
+    <color name="light_grey">#E1DFD9</color>
 </resources>
