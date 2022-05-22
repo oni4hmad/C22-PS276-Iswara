@@ -1,0 +1,55 @@
+{"intents": [
+    {"tag": "salam",
+        "patterns": ["Halo Ara", "Halo", "Halo", "Selamat Pagi", "Selamat Siang", "Selamat Malam", "Selamat Sore", "Salam"],
+        "responses": ["Halo! disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Siapa korban Pelecehan Seksual yang ingin kamu laporkan?", "Selamat siang disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah ada laporan pelecehan seksual?", "Selamat pagi disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah anda akan melaporkan kasus pelecehan seksual yang korbannya orang lain atau anda sendiri?"]
+    },
+    {"tag": "laporDiri",
+        "patterns": ["iya", "betul", "gue", "saya ingin melaporkan kasus pelecehan yang saya alami", "kasus aku sendiri", "kasus gue sendiri", "pelecehan gue sendiri", "pelecehanku", "saya mengalami pelecehan sekual", "ada seseorang berusaha melecehkan saya", "diri saya"],
+        "responses": ["Ara ingin membantu, pertama Ara ingin mengetahui identitas kamu korban pelecehan seksual. Apakah kamu mengenal pelaku dan siapakah namanya?","Apakah kamu mengetahui identitas pelaku?", "Apakah kamu mengenal identitas pelaku?", "Apakah kamu mengetahui siapa namanya"]
+    },
+    {"tag": "laporOrang",
+        "patterns": ["orang lain, seorang perempuan penumpang bus", "orang lain, seorang perempuan yang sedang menyapu", "orang lain, seorang anak perempuan berinisial", "wong liyo, seorang anak perempuan", "orang lain, seorang perempuan", "orang lain, seorang gadis berinisial", "orang lain, seorang anak laki-laki difabel inisial S", "orang lain, korbannya mahasiswi asal Toraja, EL", "orang lain, mahasiswa jawa tengah", "orang lain, korbannya bocah berisial AJ", "orang lain, korbannya seorang pria pengguna jasa layanan ojek online berinisial R", "orang lain, korbannya merupakan calon penumpang berinisial R", "orang lain, korbannya penyanyi Brisia Jodie ", "orang lain, seorang perempuan berinisial N yang menjadi korban pelecehan seksual", "korbannya seorang murid perempuan", "korbannya teman gue", "orang lain ga kenal", "saudara gue korbannya", "adik aku korbannya", "iparku korbannya", "kakakku korbannya", "ibuku korbannya", "ayahku korbannya", "rekan sekolah", "korbannya penumpang bus", "korbannya teman kerja", "korbannya teman sejawatku"],
+        "responses": ["Ara ingin membantu, pertama Ara ingin mengetahui identitas kamu korban pelecehan seksual. Apakah kamu mengenal pelaku dan siapakah namanya?", "Apakah kamu mengenal identitas siapa pelaku tersebut?"]
+    },
+    {"tag": "hubungan",
+        "patterns": ["kenal, ayah tirinya", "tidak kenal identitasnya, pelakunya seorang pengendara sepeda motor datang dari arah belakang langsung memegang pantat korban", "iya aku mengenal identitasnya, pelaku pelecehan seksualnya tetangganya sendiri", "tidak kenal identitasnya, tapi pelakunya salah satu tokoh warga masyarakat desa", "pelakunya memiliki kelainan seks karena menyukai sesama jenis", "tidak mengenal identitasnya, pelaku seorang pria penumpang bus", "tentu mengenal, pelakunya tetangganya sendiri", "tidak mengenal, pelakunya pengemudi ojek online ojol", "kenal betul, pelakunya ayah tirinya", "kenal, pelakunya ayahku", "kenal, pelakunya ayahnya", "pelakunya kakeknya sendiri", "pelakunya salah satu Kru TV, Rekan kerja", "pelakunya pengendara pengemudi sepeda motor tidak dikenal", "kenal, pelakunya Asisten Pengajar Singapore American School"],
+        "responses": ["Okai, selanjutnya coba beri tahu Ara, terkait pekerjaan keseharian pelaku dan korban", "Apa pekerjaan keseharian pelaku?", "Apa kalian memiliki pekerjaan yang sama? Apakah itu?"]
+    },
+    {"tag": "pekerjaan",
+        "patterns": ["pekerjaannya pelaku pengemudi ojek online ojol", "pekerjaan pelaku asisten pengajar", "pekerjaan pelaku", "gue ga ngerti pekerjaannya dia", "pekerjaannya seorang makelar pencari penumpang baju merah", "pekerjaannya ojek online", "pekerjaannya seorang pengacara", "pekerjaannya berdagang di pasar"],
+        "responses": ["Apakah kamu mengetahui usia pelakunya, namun apabila kamu tidak mengetahui kamu bisa memperkirakan saja"]
+    },
+    {"tag": "usiaPelaku",
+        "patterns": ["umurnya adalah 46 tahun", "usianya 30 tahun", "umur 40 thn", "usia pelaku 50 tahun", "usia 46 thn", "usianya 30 tahun", "usia 27 tahun"],
+        "responses": ["Apa pendidikan yang ditempuh terakhir oleh pelaku?"]
+    },
+    {"tag": "pendidikanPelaku",
+        "patterns": ["Pendidikan terakhir pelaku SMA", "Pendidikan pelaku SD", "Tidak tahu pendidikannya", "Ga ngerti pendidikan pelaku"],
+        "responses": ["Berapakah usia korban saat mengalami pelecehan tersebut?", "Apa pendidikan terakhir yang pernah korban tempuh?"]
+    },
+    {"tag": "pendidikanKorban",
+        "patterns": ["Korban berusia 19 tahun", "Korban berusia 17 tahun", "Korban berumur masih SD", "Korban duduk di bangku SD", "Korman masih dibangku SMP", "Korban dibangku kuliah", "Korban dibangku SMA", "Korban lulus SMA", "korban lulusan SMP", "Korban masih SD"],
+        "responses": ["Adakah korban lain pada waktu itu? Beri tahu Ara"]
+    },
+    {"tag": "adaKorbanLain",
+        "patterns": ["iya, ada dua korban lain", "aku lihat ada satu korban lainnya", "gue lihat ada korban lain", "ada korban lain", "aku melihat ada korban lainnya"],
+        "responses": ["Siapakah korban lainnya tersebut. Apakah kamu mengenal korban lainnya?", "Apakah kamu mengenal korban lainnya?", "Apakah kamu mengenal korban bersamamu?"]
+    },
+    {"tag": "korbanLain",
+        "patterns": ["aku tidak mengenal korban lainnya", "Muridnya menjadi korban lainnya", "Korban lain tetangganya", "penumpang lain juga menjadi korban", "Nama korban lainnya", "Mengenal korban lainnya", "Korban lainnya"],
+        "responses": ["Baik selanjutnya, kamu dapat menceritakan kronologis/cerita singkat kejadian (apa yang terjadi, kapan, dimana dan bagaimana terjadinya?"]
+    },
+    {"tag": "tidakadaKorbanLain",
+        "patterns": ["tidak ada korban lainnya", "ga ada korban lainnya", "tidak ada korban lain"],
+        "responses": ["Baik selanjutnya, kamu dapat menceritakan kronologis/cerita singkat kejadian (apa yang terjadi, kapan, dimana dan bagaimana terjadinya?"]
+    },
+    {"tag": "kronologi",
+        "patterns": ["Keluarga awalnya curiga karena perilaku anak ini berubah. Biasanya ceria, tiba-tiba pendiam dan murung. Ditanya kenapa sama keluarga, ceritalah korban, pelaku melakukan aksinya selama kurun waktu", "Malam kejadian, korban diantar pelaku ke rumah orangtuanya. Pelaku menyebutkan bahwa korban ditiduri oleh pria berinisial JT. Namun, orangtua korban tak mudah percaya. Setelah pelaku pulang, korban ditanya dan ternyata pengakuan korban yang menidurinya adalah pelaku", "tersangka Ar mengaku melakukan perbuatan itu pertama kali saat melihat korban S sedang jajan di warung tak jauh dari rumahnya. Ia kemudian berpura-pura mengajak korban makan dan membawanya ke rumah untuk dicabuli. Saat itu, korban mendapat kekerasan dari pelaku karena menolak dicabuli", "kejadian berawal saat adiknya naik bus dari Makassar menuju Toraja. Namun, pada saat di perjalanan bus mengalami mogok. Kemudian penumpang dipindahkan ke bus lainnya dan korban duduk disamping pelaku.Dalam perjalanan suasana berjalan normal, korban sempat berbincang dengan pelaku tentang keluarganya. Pelaku sempat bercerita kalau dia juga punya anak yang seumuran dengan korban. Tak lama setelah itu, korban tidur dan pelaku beraksi dengan cara meraba-raba bagian paha dan alat vital korban. Setelah tersadar korban syok dan tak tahu harus berbuat apa. Dalam kondisi tidur, tiba-tiba ia bangun karena merasa di aba-raba sama pelaku yang duduk di sampingnya. Adik saya langsung menghindar. Dia mau minta tolong tapi katanya tidak bisa, mungkin karena syok,d ucap Fidelis. Saat bus tiba di persinggahan, korban menyampaikan ke sopir tentang kejadian yang dialaminya, sehingga korban dipindahkan duduk kursi samping sopir. Setelah tiba di Toraja, korban bersama keluarganya langsung melapor ke Polres Toraja Utara. Namun laporan korban ditolak oleh Polisi.", "Mulanya korban keluar rumah sejak Kamis pagi. Namun, setelah pergi lama dan belum kembali, ibu korban pun langsung mencari. Setelah mencari ke tetangga, ibu korban melihat sandal anaknya ada di depan rumah pelaku. Lalu ibunya korban langsung mengetuk-mengetuk rumah pelaku. Namun, pelaku tidak membuka pintu rumahnya. Ibu korban kemudian memanggil-manggil korban agar keluar karena terdengar suara jeritan.", "Saya awalnya iseng nyalain aplikasi di Pasar Minggu habis dari rumah teman. Terus dapat order ke arah Cipete Utara. Saya klik dan diterima orderan-nya. Calon penumpang itu mengakui lewat percakapan di aplikasi bahwa orderannya bodong. Calon penumpang berinisial R itu bukan memesan layanan ojek online untuk diantar ke suatu tempat. R justru mengajak J untuk berhubungan badan. Lantas, J pun menanggapi pelecehan itu dengan mengajak R ke kantor polisi. Lalu saya balas chat-nya, ayo ke polsek terdekat saja. Selamat Anda terlacak dan masuk Daftar Pencarian Orang. Eh enggak dibalas.", "Saat ia sedang menunggu giliran untuk bernyanyi di atas panggung. Jodie hendak membawakan lagu duetnya bersama Arsy, 'Rindu Dalam Hati'. Jadi Arsy di panggung duluan, kan nyanyi part pertama Rindu Dalam Hati tuh, terus kan aku lagi nunggu di belakang. Saat Jodie menunggu giliran bernyanyi, seorang floor director (FD) berbicara padanya. Mulanya hanya basa-basi tak menyangka bahwa sosok di balik layar adalah dirinya. Namun kru TV itu lanjut menyinggung soal berat badan Jodie hingga mengarah pada pelecehan seksual verbal.", "Saat itu korban lagi nyapu, itu kan di gang, tiba-tiba pelaku masuk ke gang itu, terus melakukan hal itu (memegang pantat korban) lalu pergi", "MN diperkosa oleh JP saat istrinya pergi ke pasar untuk berjualan. Saat kejadian, MN dipaksa melayani hawa nafsunya dengan iming-iming akan dibelikan kuota internet. Saat korban menolak, pelaku masih tetap memaksa. Dari keterangan korban, dia sudah berulang kali diperkosa ayah tirinya. Dia tega memperkosa anak tirinya karena sudah lama tidak berhubungan badan dengan istrinya. Setiap saya minta jatah tidak dikasih dan selalu marah-marah. Jadi saya melakukan seperti ini"],
+        "responses": ["Ara masih belum mengetahui letak kejadiannya, dimana alamat tempat tinggal atau tempat kejadian? Dapat berupa kecamatan dan kabupatennya"]
+    },
+    {"tag": "bye",
+        "patterns": ["Terima kasih", "Terimakasih Ara", "Thenkyou", "Thenks", "Dadah", "Selamat Tinggal", "Dah", "Daah", "Semoga harimu menyenangkan", "Ok makasih", "Ok bye"],
+        "responses": ["Terimakasih sudah melaporkan tindakan pelecehan seksual yang terjadi. Let's being this world better, no more silence and stop the violence", "Kalau ada masalah dan enggan menceritakan ke orang lain, hubungi Ara lagi ya. World be better if we no more silence and stop the violence", "Semangat, semoga harimu kedepannya lebih baik! I believe you can be best version peson"]
+    }
+]
+}
