@@ -1,0 +1,55 @@
+{"intents": [
+    {"tag": "salam",
+        "patterns": ["Halo Ara", "Halo", "Halo", "Selamat Pagi", "Selamat Siang", "Selamat Malam", "Selamat Sore", "Salam"],
+        "responses": ["Halo! disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Siapa korban Pelecehan Seksual yang ingin kamu laporkan?", "Selamat siang disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah ada laporan pelecehan seksual?", "Selamat pagi disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah anda akan melaporkan kasus pelecehan seksual yang korbannya orang lain atau anda sendiri?"]
+    },
+    {"tag": "laporDiri",
+        "patterns": ["iya", "betul", "gue", "saya ingin melaporkan kasus pelecehan yang saya alami", "ingin melaporkan kasus gue", "pelecehan gue sendiri", "pelecehanku", "saya mengalami pelecehan sekual", "ada seseorang berusaha melecehkan saya", "diri saya "],
+        "responses": ["Ara ingin membantu, pertama Ara ingin mengetahui identitas kamu korban pelecehan seksual. Apakah kamu mengenal pelaku dan siapakah namanya?","Apakah kamu mengetahui identitas pelaku?", "Apakah kamu mengenal pelaku?", "Apakah kamu mengetahui siapa namanya"]
+    },
+    {"tag": "laporOrang",
+        "patterns": ["korbannya seorang anak perempuan berinisial","korbannya seorang anak perempuan", "korbannya seorang perempuan", "korbannya seorang gadis berinisial", "korbannya seorang anak laki-laki difabel inisial S", "korbannya mahasiswi asal Toraja, EL", "korbannya mahasiswa jawa tengah", "korban bocah berisial AJ", "korban seorang pria pengguna jasa layanan ojek online berinisial R", "korban merupakan calon penumpang berinisial R", "Penyanyi Brisia Jodie ", "Seorang perempuan berinisial N yang menjadi korban pelecehan seksual", "seorang murid perempuan", "teman", "orang lain", "saudara", "adik", "ipar", "kakak", "ibu", "ayah", "rekan sekolah", "teman sekolah", "teman kerja", "rekan kerja"],
+        "responses": ["Ara ingin membantu, pertama Ara ingin mengetahui identitas kamu korban pelecehan seksual. Apakah kamu mengenal pelaku dan siapakah namanya?", "Apakah kamu mengenal pelaku tersebut?", "Apakah kamu mengetahui identitas pelaku?", "Apakah kamu mengetahui siapa pelaku?", "Apa pekerjaan keseharian pelaku?"]
+    },
+    {"tag": "hubungan",
+        "patterns": ["iya mengenal pelaku, pelaku pelecehan seksualnya tetangganya sendiri","tidak mengenal, tapi pelakunya salah satu tokoh warga masyarakat desa", "pelakunya memiliki kelainan seks karena menyukai sesama jenis", "tidak mengenal, tapi pelaku seorang pria penumpang bus", "pelakunya tetangganya sendiri", "pelakunya pengemudi ojek online ojol", "pelakunya ayah tirinya", "pelaku ayahnya", "pelakunya kakeknya sendiri", "Kru TV, Rekan kerja", "pengendara pengemudi sepeda motor", "Asisten Pengajar Singapore American School"],
+        "responses": ["Okai, selanjutnya coba beri tahu Ara, terkait pekerjaan keseharian pelaku dan korban", "Apa kalian memiliki pekerjaan yang sama?"]
+    },
+    {"tag": "pekerjaan",
+        "patterns": ["pekerjaan pelaku pengemudi ojek online ojol", "pekerjaan pelaku asisten pengajar", "pekerjaan pelaku", "gue ga ngerti pekerjaan dia"],
+        "responses": ["Apakah kamu mengetahui usia pelakunya, namun apabila kamu tidak mengetahui kamu bisa memperkirakan saja"]
+    },
+    {"tag": "usiaPelaku",
+        "patterns": ["umur pelaku adalah 46 tahun", "usia pelaku 30 tahun", "umur 40 thn", "usia pelaku 50 tahun", "usia 46 thn"],
+        "responses": ["Apa pendidikan yang ditempuh terakhir oleh pelaku?"]
+    },
+    {"tag": "pendidikanPelaku",
+        "patterns": ["Pendidikan terakhir pelaku SMA", "Pendidikan pelaku SD", "Tidak tahu pendidikannya", "Ga ngerti pendidikan pelaku"],
+        "responses": []
+    },
+    {"tag": "pendidikanKorban",
+        "patterns": [],
+        "responses": []
+    }
+    {"tag": "korbanLain",
+        "patterns": [],
+        "responses": ["Adakah korban lainnya pada waktu itu? Beri tahu Ara"]
+    },
+    {"tag": "adaKorbanLain",
+        "patterns": ["iya, ada", "ada, korban lain"],
+        "responses": []
+    },
+    {"tag": "tidakadaKorbanLain",
+        "patterns": [],
+        "responses": []
+    },
+    {"tag": "sarcasm",
+        "patterns": [],
+        "responses": []
+    },
+    {"tag": "bye",
+        "patterns": ["Terima kasih", "Terimakasih Ara", "Thenkyou", "Thenks", "Dadah", "Selamat Tinggal", "Dah", "Daah", "Semoga harimu menyenangkan", "Ok makasih", "Ok bye"],
+        "responses": ["Terimakasih sudah melaporkan tindakan pelecehan seksual yang terjadi. Let's being this world better, no more silence and stop the violence", "Kalau ada masalah dan enggan menceritakan ke orang lain, hubungi Ara lagi ya. World be better if we no more silence and stop the violence", "Semangat, semoga harimu kedepannya lebih baik! I believe you can be best version peson"]
+    }
+]
+}
