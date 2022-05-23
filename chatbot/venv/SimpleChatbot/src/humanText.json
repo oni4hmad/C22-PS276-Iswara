@@ -1,10 +1,10 @@
 {"intents": [
     {"tag": "salam",
-        "patterns": ["Halo Ara", "Halo", "Halo", "Selamat Pagi", "Selamat Siang", "Selamat Malam", "Selamat Sore", "Salam"],
+        "patterns": ["Halo Ara", "Halo", "Halo", "Selamat Pagi", "Selamat Siang", "Selamat Malam", "Selamat Sore", "Salam", "Hai", "Hi", "Helo", "Hello", "Hei", ],
         "responses": ["Halo! disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Siapa korban Pelecehan Seksual yang ingin kamu laporkan?", "Selamat siang disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah ada laporan pelecehan seksual?", "Selamat pagi disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah anda akan melaporkan kasus pelecehan seksual yang korbannya orang lain atau anda sendiri?"]
     },
     {"tag": "laporDiri",
-        "patterns": ["iya", "betul", "gue", "saya ingin melaporkan kasus pelecehan yang saya alami", "kasus aku sendiri", "kasus gue sendiri", "pelecehan gue sendiri", "pelecehanku", "saya mengalami pelecehan sekual", "ada seseorang berusaha melecehkan saya", "diri saya"],
+        "patterns": ["iya", "betul", "gue", "saya ingin melaporkan kasus pelecehan yang saya alami", "kasus aku sendiri", "kasus gue sendiri", "pelecehan gue sendiri", "pelecehanku", "saya mengalami pelecehan seksual", "ada seseorang berusaha melecehkan saya", "diri saya", "saya kak", "kasus saya sendiri", "saya baru saja dilecehkan", "pelecehan saya", ],
         "responses": ["Ara ingin membantu, pertama Ara ingin mengetahui identitas kamu korban pelecehan seksual. Apakah kamu mengenal pelaku dan siapakah namanya?","Apakah kamu mengetahui identitas pelaku?", "Apakah kamu mengenal identitas pelaku?", "Apakah kamu mengetahui siapa namanya"]
     },
     {"tag": "laporOrang",
@@ -12,7 +12,7 @@
         "responses": ["Ara ingin membantu, pertama Ara ingin mengetahui identitas kamu korban pelecehan seksual. Apakah kamu mengenal pelaku dan siapakah namanya?", "Apakah kamu mengenal identitas siapa pelaku tersebut?"]
     },
     {"tag": "hubungan",
-        "patterns": ["kenal, ayah tirinya", "tidak kenal identitasnya, pelakunya seorang pengendara sepeda motor datang dari arah belakang langsung memegang pantat korban", "iya aku mengenal identitasnya, pelaku pelecehan seksualnya tetangganya sendiri", "tidak kenal identitasnya, tapi pelakunya salah satu tokoh warga masyarakat desa", "pelakunya memiliki kelainan seks karena menyukai sesama jenis", "tidak mengenal identitasnya, pelaku seorang pria penumpang bus", "tentu mengenal, pelakunya tetangganya sendiri", "tidak mengenal, pelakunya pengemudi ojek online ojol", "kenal betul, pelakunya ayah tirinya", "kenal, pelakunya ayahku", "kenal, pelakunya ayahnya", "pelakunya kakeknya sendiri", "pelakunya salah satu Kru TV, Rekan kerja", "pelakunya pengendara pengemudi sepeda motor tidak dikenal", "kenal, pelakunya Asisten Pengajar Singapore American School"],
+        "patterns": ["kenal, ayah tirinya", "tidak kenal identitasnya, pelakunya seorang pengendara sepeda motor datang dari arah belakang langsung memegang pantat korban", "iya aku mengenal identitasnya, pelaku pelecehan seksualnya tetangganya sendiri", "tidak kenal identitasnya, tapi pelakunya salah satu tokoh warga masyarakat desa", "pelakunya memiliki kelainan seks karena menyukai sesama jenis", "tidak mengenal identitasnya, pelaku seorang pria penumpang bus", "tentu mengenal, pelakunya tetangganya sendiri", "tidak mengenal, pelakunya pengemudi ojek online ojol", "kenal betul, pelakunya ayah tirinya", "kenal, pelakunya ayahku", "kenal, pelakunya ayahnya", "pelakunya kakeknya sendiri", "pelakunya salah satu Kru TV, Rekan kerja", "pelakunya pengendara pengemudi sepeda motor tidak dikenal", "kenal, pelakunya Asisten Pengajar Singapore American School", "kenal, pelakunya adalah guru di sekolah", "iya, pelakunya dosen pembimbing", "kenal, pelakunya adalah teman sekelas"],
         "responses": ["Okai, selanjutnya coba beri tahu Ara, terkait pekerjaan keseharian pelaku dan korban", "Apa pekerjaan keseharian pelaku?", "Apa kalian memiliki pekerjaan yang sama? Apakah itu?"]
     },
     {"tag": "pekerjaan",
@@ -20,11 +20,11 @@
         "responses": ["Apakah kamu mengetahui usia pelakunya, namun apabila kamu tidak mengetahui kamu bisa memperkirakan saja"]
     },
     {"tag": "usiaPelaku",
-        "patterns": ["umurnya adalah 46 tahun", "usianya 30 tahun", "umur 40 thn", "usia pelaku 50 tahun", "usia 46 thn", "usianya 30 tahun", "usia 27 tahun"],
+        "patterns": ["umurnya adalah 46 tahun", "usianya 30 tahun", "umur 40 thn", "usia pelaku 50 tahun", "usia 46 thn", "usianya 30 tahun", "usia 27 tahun", "usianya sepantaran dengan saya", "usianya sekitar beberapa tahun di atas saya", "usianya kurang lebih seumuran dengan ayah saya", "umur sekitar 30 tahun"],
         "responses": ["Apa pendidikan yang ditempuh terakhir oleh pelaku?"]
     },
     {"tag": "pendidikanPelaku",
-        "patterns": ["Pendidikan terakhir pelaku SMA", "Pendidikan pelaku SD", "Tidak tahu pendidikannya", "Ga ngerti pendidikan pelaku"],
+        "patterns": ["Pendidikan terakhir pelaku SMA", "Pendidikan pelaku SD", "Tidak tahu pendidikannya", "Ga ngerti pendidikan pelaku", "sepertinya lulusan SMP", "pelaku sudah sarjana"],
         "responses": ["Berapakah usia korban saat mengalami pelecehan tersebut?", "Apa pendidikan terakhir yang pernah korban tempuh?"]
     },
     {"tag": "pendidikanKorban",
@@ -32,11 +32,11 @@
         "responses": ["Adakah korban lain pada waktu itu? Beri tahu Ara"]
     },
     {"tag": "adaKorbanLain",
-        "patterns": ["iya, ada dua korban lain", "aku lihat ada satu korban lainnya", "gue lihat ada korban lain", "ada korban lain", "aku melihat ada korban lainnya"],
+        "patterns": ["iya, ada dua korban lain", "aku lihat ada satu korban lainnya", "gue lihat ada korban lain", "ada korban lain", "aku melihat ada korban lainnya", "setau saya masih ada korban lain", "banyak korban lain seperti saya", "banyak, tidak hanya saya yang menjadi korban"],
         "responses": ["Siapakah korban lainnya tersebut. Apakah kamu mengenal korban lainnya?", "Apakah kamu mengenal korban lainnya?", "Apakah kamu mengenal korban bersamamu?"]
     },
     {"tag": "korbanLain",
-        "patterns": ["aku tidak mengenal korban lainnya", "Muridnya menjadi korban lainnya", "Korban lain tetangganya", "penumpang lain juga menjadi korban", "Nama korban lainnya", "Mengenal korban lainnya", "Korban lainnya"],
+        "patterns": ["aku tidak mengenal korban lainnya", "Muridnya menjadi korban lainnya", "Korban lain tetangganya", "penumpang lain juga menjadi korban", "Nama korban lainnya", "Mengenal korban lainnya", "Korban lainnya", "Teman saya juga menjadi korban"],
         "responses": ["Baik selanjutnya, kamu dapat menceritakan kronologis/cerita singkat kejadian (apa yang terjadi, kapan, dimana dan bagaimana terjadinya?"]
     },
     {"tag": "tidakadaKorbanLain",
@@ -48,7 +48,7 @@
         "responses": ["Ara masih belum mengetahui letak kejadiannya, dimana alamat tempat tinggal atau tempat kejadian? Dapat berupa kecamatan dan kabupatennya"]
     },
     {"tag": "bye",
-        "patterns": ["Terima kasih", "Terimakasih Ara", "Thenkyou", "Thenks", "Dadah", "Selamat Tinggal", "Dah", "Daah", "Semoga harimu menyenangkan", "Ok makasih", "Ok bye"],
+        "patterns": ["Terima kasih", "Terimakasih Ara", "Thenkyou", "Thenks", "Dadah", "Selamat Tinggal", "Dah", "Daah", "Semoga harimu menyenangkan", "Ok makasih", "Ok bye", "makasih banyak", "makasi"],
         "responses": ["Terimakasih sudah melaporkan tindakan pelecehan seksual yang terjadi. Let's being this world better, no more silence and stop the violence", "Kalau ada masalah dan enggan menceritakan ke orang lain, hubungi Ara lagi ya. World be better if we no more silence and stop the violence", "Semangat, semoga harimu kedepannya lebih baik! I believe you can be best version peson"]
     }
 ]
