@@ -1,10 +1,10 @@
 {"intents": [
     {"tag": "salam",
-        "patterns": ["Halo Ara", "Halo", "Halo", "Selamat Pagi", "Selamat Siang", "Selamat Malam", "Selamat Sore", "Salam", "Hai", "Hi", "Helo", "Hello", "Hei", "Malam", "Pagi", "Siang", "Sore", ],
+        "patterns": ["Halo Ara", "Halo", "Halo", "Selamat Pagi", "Selamat Siang", "Selamat Malam", "Selamat Sore", "Salam", "Hai", "Hi", "Helo", "Hello", "Hei", "Malam", "Pagi", "Siang", "Sore"],
         "responses": ["Halo! disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Siapa korban Pelecehan Seksual yang ingin kamu laporkan?", "Selamat siang disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah ada laporan pelecehan seksual?", "Selamat pagi disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah anda akan melaporkan kasus pelecehan seksual yang korbannya orang lain atau anda sendiri?", "Halo! disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah anda mengalami kasus pelecehan seksual?"]
     },
     {"tag": "laporDiri",
-        "patterns": ["iya", "betul", "gue", "saya ingin melaporkan kasus pelecehan yang saya alami", "kasus aku sendiri", "kasus gue sendiri", "pelecehan gue sendiri", "pelecehanku", "saya mengalami pelecehan seksual", "ada seseorang berusaha melecehkan saya", "diri saya", "saya kak", "kasus saya sendiri", "saya baru saja dilecehkan", "pelecehan saya", ],
+        "patterns": ["iya", "betul", "gue", "saya ingin melaporkan kasus pelecehan yang saya alami", "kasus aku sendiri", "kasus gue sendiri", "pelecehan gue sendiri", "pelecehanku", "saya mengalami pelecehan seksual", "ada seseorang berusaha melecehkan saya", "diri saya", "saya kak", "kasus saya sendiri", "saya baru saja dilecehkan", "pelecehan saya"],
         "responses": ["Ara ingin membantu, pertama Ara ingin mengetahui identitas kamu korban pelecehan seksual. Apakah kamu mengenal pelaku dan siapakah namanya?","Apakah kamu mengetahui identitas pelaku?", "Apakah kamu mengenal identitas pelaku?", "Apakah kamu mengetahui siapa namanya", "Apakah kamu memiliki hubungan dengan pelaku?", "Apakah hubungan kamu dekat dengan pelaku?", "Apakah sebelum ini, kamu memiliki masalah dengan pelaku?"]
     },
     {"tag": "laporOrang",
