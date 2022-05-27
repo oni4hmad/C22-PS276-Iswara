@@ -7,14 +7,14 @@
     tools:context=".ui.register.RegisterFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textinput_nama"
+        android:id="@+id/textinput_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:hint="Nama"
-        android:labelFor="@id/edt_nama"
+        android:labelFor="@id/edt_name"
         app:boxCornerRadiusTopEnd="12dp"
         app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,14 +22,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edt_nama"
+            android:id="@+id/edt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <com.example.iswara.customview.TextInputLayoutEmail
         android:id="@+id/textinput_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textinput_nama">
+        app:layout_constraintTop_toBottomOf="@id/textinput_name">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edt_email"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </com.example.iswara.customview.TextInputLayoutEmail>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textinput_phone_number"
