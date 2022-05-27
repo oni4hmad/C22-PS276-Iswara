@@ -6,8 +6,8 @@ import java.util.*
 
 @Parcelize
 data class TanggapanItem(
-    val idTanggapan: String,
-    val name: String,
-    val date: Date,
-    val tanggapan: String
+    var idTanggapan: String,
+    var name: String,
+    var date: Date,
+    var tanggapan: String
 ) : Parcelable

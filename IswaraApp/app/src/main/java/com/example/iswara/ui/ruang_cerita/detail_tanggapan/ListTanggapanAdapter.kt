@@ -13,11 +13,11 @@ import java.text.SimpleDateFormat
 
 class ListTanggapanAdapter(private val listTanggapan: List<TanggapanItem>) : RecyclerView.Adapter<ListTanggapanAdapter.ListViewHolder>() {
 
-    /*private lateinit var onItemClickCallback: OnItemClickCallback
+    private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
-    }*/
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val binding = ItemRowTanggapanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -45,7 +45,12 @@ class ListTanggapanAdapter(private val listTanggapan: List<TanggapanItem>) : Rec
                 formatter.format(it)
             }
             binding.tvTanggapan.text = tanggapan.tanggapan
+            binding.cvItem.setOnClickListener { onItemClickCallback.onItemClicked(tanggapan) }
         }
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(tanggapan: TanggapanItem)
     }
 
 }
