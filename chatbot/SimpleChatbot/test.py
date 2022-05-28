@@ -5,7 +5,6 @@ import random
 import pickle
 from tensorflow.keras.models import load_model
 
-with open("src/humanText.json") as data_file:
     data = json.load(data_file)
 model = load_model('modelLSTM.tf')
 le_filename = open("label_encoder.pickle", "rb")
