@@ -7,7 +7,7 @@ import java.util.*
 @Parcelize
 data class CeritaItem(
     val idCerita: String,
-    val name: String,
+    var name: String,
     val date: Date,
     val cerita: String,
     val tanggapanCount: Int,

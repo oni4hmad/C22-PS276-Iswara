@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Iswara</string>
     <string name="iswara">Iswara</string>
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hai_ambar_text_holder">Hai Ambar 👋🏻</string>
     <string name="example_quote_chars">Sorrow is knowledge, those that know the most must mourn the deepest, the tree of knowledge is not the tree of life.</string>
