@@ -53,13 +53,19 @@
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/drawable/sender_rounded.xml" value="0.1" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_beranda.xml" value="0.33" />
+        <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_darurat.xml" value="0.26313405797101447" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_detail_tanggapan.xml" value="0.26313405797101447" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_konsultasi_soon.xml" value="0.26313405797101447" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_register.xml" value="0.36666666666666664" />
+        <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_semua_cerita.xml" value="0.26313405797101447" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_settings_password.xml" value="0.36666666666666664" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_settings_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_tab_cerita.xml" value="0.26313405797101447" />
+        <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/fragment_user_cerita.xml" value="0.26313405797101447" />
+        <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/item_row_cerita.xml" value="0.26313405797101447" />
+        <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/item_row_tanggapan.xml" value="0.26313405797101447" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/layout/message_item.xml" value="0.2" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
