@@ -1,6 +1,6 @@
 {"intents": [
     {"tag": "salam",
-        "patterns": ["Halo Ara", "Halo", "Halo", "Selamat Pagi", "Selamat Siang", "Selamat Malam", "Selamat Sore", "Salam", "Hai", "Hi", "Helo", "Hello", "Hei", "Malam", "Pagi", "Siang", "Sore", "Punten", "Permisi", "Shalom", "Assalamualaikum", "Helo", "Hello", "Hallo", "Heh", "Woy", "Ara", "Hay"],
+        "patterns": ["Halo Ara", "Halo", "Halo", "Selamat Pagi", "Selamat Siang", "Selamat Malam", "Selamat Sore", "Salam", "Hai", "Hi", "Helo", "Hello", "Hei", "Malam", "Pagi", "Siang", "Sore", "Punten", "Permisi", "Shalom", "Assalamualaikum", "Helo", "Hello", "Hallo", "Heh", "Woy", "Ara", "Hay", "askum", "Guys", "aloo", "met pagi", "met siang"],
         "responses": ["Halo! disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Siapa korban Pelecehan Seksual yang ingin kamu laporkan?", "Selamat siang disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah ada laporan pelecehan seksual?", "Selamat pagi disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Apakah anda akan melaporkan kasus pelecehan seksual yang korbannya orang lain atau anda sendiri?"]
     },
     {"tag": "laporDiri",
@@ -36,11 +36,11 @@
         "responses": ["Siapakah korban lainnya tersebut. Apakah kamu mengenal korban lainnya?", "Apakah kamu mengenal korban lainnya?", "Apakah kamu mengenal korban bersamamu?"]
     },
     {"tag": "korbanLain",
-        "patterns": ["aku tidak mengenal korban lainnya", "Muridnya menjadi korban lainnya", "Korban lain tetangganya", "penumpang lain juga menjadi korban", "Nama korban lainnya", "Mengenal korban lainnya", "Korban lainnya", "Teman saya juga menjadi korban"],
+        "patterns": ["aku tidak mengenal korban lainnya", "Muridnya menjadi korban lainnya", "Korban lain tetangganya", "penumpang lain juga menjadi korban", "Nama korban lainnya", "Mengenal korban lainnya", "Korban lainnya", "Teman saya juga menjadi korban", "dua orang korban itu adalah sepupu gue sendiri", "korban itu juga temen sekampus dia", "gue ga kenal Ra", "gue gatau siapa dia, yang pasti mantan pacar dia juga", "aku tidak tau ra :'", "saudara dia sendiri yang jadi korban lainnya", "aku ga kenal dia siapa, tapi kita satu organisasi", "ga kenal ra", "gue kenal", "kalo korban lain si ga kenal, tapi denger-denger ada juga yang jadi korban dia", "pacar dia saat ini juga jadi korban", "gw kenal korban lain itu", "aku gatau nama korban lain itu", "inisialnya A", "aku gatau", "aku ga kenal", "tidak tahu ara", "kalo untuk korban lain aku gatau", "korban lain itu adik tingkatnya", "korban lain juga sama kayak aku, penumpang dia", "korban lainnya gamau speak up", "korban lain juga udah lapor ke kamu ara", "korban lain ga berani bilang", "aku tau dia, tapi maaf aku gabisa ngasih tau", "banyak banget korban lainnya", "korban lain? aku gak kenal ra", "saya tidak tau siapa saja yang jadi korban lain atas kebejatan dia", "aku kenal korban itu, dia sepupu si X", "aku tau ra", "tidak tau ara", "kenal, dia temanku", "emang bajingan dia, teman kecilnya juga jadi korban dia yang lain", "gatau ra", "g ra", "g", "iy, ak kenal mereka", "baik ra", "tentu kenal, dia sahabatku sendiri :'", "anak-anak yang sedivisi sama dia juga jadi korban"],
         "responses": ["Baik selanjutnya, kamu dapat menceritakan kronologis/cerita singkat kejadian (apa yang terjadi, kapan, dimana dan bagaimana terjadinya?"]
     },
     {"tag": "tidakadaKorbanLain",
-        "patterns": ["tidak ada korban lainnya", "ga ada korban lainnya", "tidak ada korban lain", "udah, itu aja", "cuma itu", "hanya itu", "itu aja"],
+        "patterns": ["tidak ada korban lainnya", "ga ada korban lainnya", "tidak ada korban lain", "udah, itu aja", "cuma itu", "hanya itu", "itu aja", "gaada korban lain", "korban lain tidak ada", "gaada", "gada", "tidak ada korban lain kak", "tidak kak", "tidak ada korban lain ra, hanya aku saja.", "tidak tau Ara", "setau gue gaada Ra", "kurang tau juga sih gue ra, ada korban lain apa engga", "gaada ra", "setauku gaada korban lain", "mungkin gaada ra", "keknya gada kak", "tidak ada ra", "gaada kak", "gtau", "g da ka", "ga", "tidak"],
         "responses": ["Ara masih belum mengetahui letak kejadiannya, dimana alamat tempat tinggal atau tempat kejadian? Dapat berupa kecamatan dan kabupatennya"]
     },
     {"tag": "tempat",
