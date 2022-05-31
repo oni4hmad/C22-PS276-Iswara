@@ -13,9 +13,7 @@ class UserCeritaViewModel : ViewModel() {
 
     init {
         /* populate data cerita */
-        _listCerita.value = DataDummy.getListCeritaItem(5).apply {
-            this.forEach { it.name = "Oni" }
-        }
+        _listCerita.value = DataDummy.getListCeritaItem(5, "Oni")
     }
 
 }
