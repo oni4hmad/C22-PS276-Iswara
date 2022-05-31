@@ -1,6 +1,7 @@
 package com.example.iswara.data.dummy
 
 import android.util.Log
+import com.example.iswara.ui.chatbot.ChatItem
 import com.example.iswara.ui.ruang_cerita.CeritaItem
 import com.example.iswara.ui.ruang_cerita.detail_tanggapan.TanggapanItem
 import io.github.serpro69.kfaker.Faker
@@ -30,14 +31,14 @@ object DataDummy {
         return text
     }
 
-    fun getListCeritaItem(size: Int): ArrayList<CeritaItem> {
+    fun getListCeritaItem(size: Int, nama: String? = null): ArrayList<CeritaItem> {
         val faker = Faker()
         val data = ArrayList<CeritaItem>()
         val cal = getCalendarDate()
         return data.apply {
             for (i in 1..size) {
                 val id = "$i"
-                val name = faker.name.nameWithMiddle()
+                val name = if (nama.isNullOrEmpty()) faker.name.nameWithMiddle() else nama
                 val date = cal.time
                 val cerita = getRandomText(1, 25)
                 val tanggapanCount = randomNum(1, 999)
@@ -60,6 +61,18 @@ object DataDummy {
                 val tanggapan = getRandomText(1, 4)
                 Log.d("faker_tanggapan", "$id, $name, $date, $tanggapan")
                 add(TanggapanItem(id, name, date, tanggapan))
+            }
+        }
+    }
+
+    fun getChat(isUser: Boolean, size: Int): ArrayList<ChatItem> {
+        val data = ArrayList<ChatItem>()
+        return data.apply {
+            for (i in 1..size) {
+                val id = "$i"
+                val chat = getRandomText(1, 4)
+                Log.d("faker_chat", "$id, $chat")
+                add(ChatItem(id, isUser, chat))
             }
         }
     }
