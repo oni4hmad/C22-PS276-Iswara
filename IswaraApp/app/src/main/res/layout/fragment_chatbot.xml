@@ -6,6 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".ui.chatbot.ChatbotFragment">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_laporan_action"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/light_yellow"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_end_laporan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#388E3C"
+            android:insetBottom="8dp"
+            android:minHeight="24dip"
+            android:text="Akhiri Laporan"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toStartOf="@+id/btn_cancel_laporan"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_cancel_laporan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/red_700"
+            android:insetBottom="8dp"
+            android:minHeight="24dip"
+            android:text="Batalkan Laporan"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_end_laporan"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_chat"
         android:layout_width="0dp"
@@ -13,7 +59,7 @@
         app:layout_constraintBottom_toTopOf="@id/line_chat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_laporan_action"
         tools:listitem="@layout/item_message" />
 
     <View
