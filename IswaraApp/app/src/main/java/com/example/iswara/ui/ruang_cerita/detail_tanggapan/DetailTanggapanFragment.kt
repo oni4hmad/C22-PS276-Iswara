@@ -44,10 +44,13 @@ class DetailTanggapanFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mBottomSheetBehavior = BottomSheetBehavior.from(binding.tanggapanBotomSheet).apply {
+            binding.layoutBottomSheet.apply {
+                visibility = View.GONE
+                val blackHalfAlpha = Color.parseColor("#7F000000")
+                setBackgroundColor(blackHalfAlpha)
+            }
             peekHeight = 0
-            state = BottomSheetBehavior.STATE_EXPANDED
             state = BottomSheetBehavior.STATE_COLLAPSED
-            binding.layoutBottomSheet.visibility = View.GONE
         }
 
         viewModel = ViewModelProvider(this).get(DetailTanggapanViewModel::class.java)
@@ -154,12 +157,15 @@ class DetailTanggapanFragment : Fragment() {
             doOnStart {
                 if (type == Anim.FadeIn) {
                     binding.layoutBottomSheet.visibility = View.VISIBLE
-                    mBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
                 }
             }
             doOnEnd {
-                if (type == Anim.FadeOut)
+                if (type == Anim.FadeOut) {
                     binding.layoutBottomSheet.visibility = View.GONE
+                    mBottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                } else {
+                    mBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+                }
             }
             setEvaluator(ArgbEvaluator())
             repeatMode = ValueAnimator.REVERSE
