@@ -6,26 +6,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.beginning.onboarding.FirstOnBoardingFragment">
 
-    <TextView
-        android:id="@+id/tv_first_temp"
+    <ImageView
+        android:id="@+id/iv_ilustrasi_lapor"
+        android:src="@drawable/melapor_illustrasi"
+        app:layout_constraintBottom_toTopOf="@id/gl_firstpage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="400dp"
+        android:layout_height="400dp"/>
+    
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_firstpage"
+        app:layout_constraintGuide_percent="0.7"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_second_firstpage"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/greeting_firstpage"
+        android:text="Nyaman Melapor\n bersama Ara"
         android:textAlignment="center"
+        android:textColor="@color/orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gl_second_firstpage"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="First Screen Temp" />
+        android:layout_height="wrap_content"/>
+
 
     <TextView
         android:id="@+id/tv_next_first_fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Next"
+        android:text="Selanjutnya"
+        android:textStyle="bold"
+        android:textColor="@color/orange"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="24dp"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/tv_lewati_first_fragment"
+        android:text="Lewati"
+        android:textColor="@color/orange"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

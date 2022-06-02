@@ -3,28 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/orange"
+    android:background="@color/orange"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.beginning.SplashFragment">
 
-    <ImageView
-        android:id="@+id/bgtemp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/beachbgcard"
-        android:scaleType="centerCrop"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
 
     <ImageView
-        android:id="@+id/bg_icontemp"
-        android:src="@mipmap/ic_launcher"
+        android:id="@+id/iv_logo_splash"
+        android:src="@drawable/logo_splash"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="200dp"
-        android:layout_height="220dp"/>
+        android:layout_width="300dp"
+        android:layout_height="300dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
