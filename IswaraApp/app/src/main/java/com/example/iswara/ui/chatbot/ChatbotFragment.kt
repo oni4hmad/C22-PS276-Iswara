@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.iswara.databinding.FragmentChatbotBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ChatbotFragment : Fragment() {
 
@@ -46,6 +47,28 @@ class ChatbotFragment : Fragment() {
             val chatToSend = binding.edtChat.text.toString()
             binding.edtChat.setText(String(), TextView.BufferType.EDITABLE)
             viewModel.sendChat(chatToSend)
+        }
+        binding.btnEndLaporan.setOnClickListener {
+            showDialog("Akhiri Laporan?", "Setelah diakhiri, laporan tidak ada bisa ditambah dan akan diproses lebih lanjut.", "Laporan diakhiri!")
+        }
+        binding.btnCancelLaporan.setOnClickListener {
+            showDialog("Batalkan Laporan?", "Setelah dibatalkan, laporan akan dihapus.", "Laporan dibatalkan!")
+        }
+    }
+
+    private fun showDialog(title: String, desc: String, respond: String) {
+        view?.context?.let {
+            MaterialAlertDialogBuilder(it)
+                .setTitle(title)
+                .setMessage(desc)
+                .setNegativeButton("Tidak") { dialog, which ->
+                    // Respond to negative button press
+                }
+                .setPositiveButton("Ya") { dialog, which ->
+                    // Respond to positive button press
+                    showToast(respond)
+                }
+                .show()
         }
     }
 

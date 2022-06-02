@@ -43,13 +43,6 @@ class DetailTanggapanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mBottomSheetBehavior = BottomSheetBehavior.from(binding.tanggapanBotomSheet).apply {
-            peekHeight = 0
-            state = BottomSheetBehavior.STATE_EXPANDED
-            state = BottomSheetBehavior.STATE_COLLAPSED
-            binding.layoutBottomSheet.visibility = View.GONE
-        }
-
         viewModel = ViewModelProvider(this).get(DetailTanggapanViewModel::class.java)
         viewModel.listTanggapan.observe(viewLifecycleOwner) { listTanggapan ->
             showRecyclerList(listTanggapan)
@@ -58,6 +51,16 @@ class DetailTanggapanFragment : Fragment() {
         Glide.with(binding.ivUser.context)
             .load("https://loremflickr.com/200/100")
             .into(binding.ivUser)
+
+        mBottomSheetBehavior = BottomSheetBehavior.from(binding.tanggapanBotomSheet).apply {
+            binding.layoutBottomSheet.apply {
+                visibility = View.GONE
+                val blackHalfAlpha = Color.parseColor("#7F000000")
+                setBackgroundColor(blackHalfAlpha)
+            }
+            peekHeight = 0
+            state = BottomSheetBehavior.STATE_COLLAPSED
+        }
 
         binding.edtTanggapan.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -72,33 +75,35 @@ class DetailTanggapanFragment : Fragment() {
         })
 
         binding.btnKirim.setOnClickListener {
-            binding.btnKirim.isEnabled = false
-            binding.edtTanggapan.isEnabled = false
-            val textToSend = binding.edtTanggapan.text.toString()
-            viewModel.addTanggapan(textToSend)
-            binding.edtTanggapan.setText(String(), TextView.BufferType.EDITABLE)
-            binding.btnKirim.isEnabled = true
-            binding.edtTanggapan.isEnabled = true
+            binding.apply {
+                btnKirim.isEnabled = false
+                edtTanggapan.isEnabled = false
+                val textToSend = edtTanggapan.text.toString()
+                viewModel.addTanggapan(textToSend)
+                edtTanggapan.setText(String(), TextView.BufferType.EDITABLE)
+                btnKirim.isEnabled = true
+                edtTanggapan.isEnabled = true
 
-            /* scroll to top nestedScrollView */
-            val x = binding.lineCerita.x.toInt()
-            val y = binding.lineCerita.y.toInt()
-            binding.nsvTanggapan.fling(500)
-            binding.nsvTanggapan.smoothScrollTo(x, y)
+                /* scroll to top nestedScrollView */
+                val x = lineCerita.x.toInt()
+                val y = lineCerita.y.toInt()
+                nsvTanggapan.fling(500)
+                nsvTanggapan.smoothScrollTo(x, y)
 
-            /* blink the new tanggapan */
-            binding.rvTanggapan.post {
-                /* itemCount = lastPostition karena rv dibalik (sementara) */
-                binding.rvTanggapan.adapter?.itemCount?.also { itemCount ->
-                    binding.rvTanggapan.findViewHolderForAdapterPosition(itemCount-1)?.itemView?.also {
-                        animateCard(it as CardView)
+                /* blink the new tanggapan */
+                rvTanggapan.post {
+                    /* itemCount = lastPostition karena rv dibalik (sementara) */
+                    rvTanggapan.adapter?.itemCount?.also { itemCount ->
+                        rvTanggapan.findViewHolderForAdapterPosition(itemCount-1)?.itemView?.also {
+                            animateCard(it as CardView)
+                        }
                     }
                 }
             }
         }
 
         binding.layoutBottomSheet.setOnClickListener {
-            mBottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            animateBtmSheet(binding.layoutBottomSheet, Anim.FadeOut)
         }
 
         binding.editTanggapan.setOnClickListener {
@@ -108,18 +113,6 @@ class DetailTanggapanFragment : Fragment() {
         binding.deleteTanggapan.setOnClickListener {
             showToast("delete!")
         }
-
-        mBottomSheetBehavior.addBottomSheetCallback(object : BottomSheetCallback() {
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-                    animateBtmSheet(binding.layoutBottomSheet, Anim.FadeOut)
-                }
-            }
-
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                // React to dragging events
-            }
-        })
     }
 
     private fun showRecyclerList(listTanggapan: List<TanggapanItem>) {
@@ -133,8 +126,6 @@ class DetailTanggapanFragment : Fragment() {
 
         listTanggapanAdapter.setOnItemClickCallback(object : ListTanggapanAdapter.OnItemClickCallback {
             override fun onItemClicked(tanggapan: TanggapanItem) {
-                /*tanggapan.apply { showToast("$idTanggapan, $name, $date, ${this.tanggapan}") }*/
-
                 /* show bottom sheet */
                 animateBtmSheet(binding.layoutBottomSheet, Anim.FadeIn)
             }
@@ -154,12 +145,13 @@ class DetailTanggapanFragment : Fragment() {
             doOnStart {
                 if (type == Anim.FadeIn) {
                     binding.layoutBottomSheet.visibility = View.VISIBLE
-                    mBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
-                }
+                } else mBottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
             }
             doOnEnd {
-                if (type == Anim.FadeOut)
+                if (type == Anim.FadeOut) {
                     binding.layoutBottomSheet.visibility = View.GONE
+                    mBottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                } else mBottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
             }
             setEvaluator(ArgbEvaluator())
             repeatMode = ValueAnimator.REVERSE
