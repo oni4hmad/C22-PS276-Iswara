@@ -6,15 +6,89 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.darurat.DaruratFragment">
 
-    <TextView
-        android:id="@+id/SoonDarurat"
-        android:text="Soon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textAlignment="center"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_upside_helper"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_downside_helper"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_leftside_helper"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_rightside_helper"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_container"
+        android:backgroundTint="@color/orange_300"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toStartOf="@id/gl_rightside_helper"
+        app:layout_constraintStart_toEndOf="@id/gl_leftside_helper"
+        app:layout_constraintTop_toBottomOf="@id/gl_upside_helper"
+        app:layout_constraintBottom_toTopOf="@id/gl_downside_helper"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_soon_tersedia_darurat"
+                android:text="@string/segera_tersedia"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textAlignment="center"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="12dp"
+                android:textStyle="bold"
+                android:textColor="@color/orange"
+                android:textSize="20sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+
+            <ImageView
+                android:id="@+id/iv_illustartion_darurat"
+                app:layout_constraintTop_toBottomOf="@id/tv_soon_tersedia_darurat"
+                app:layout_constraintBottom_toTopOf="@id/tv_describe_darurat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/illustration_darurat"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/tv_describe_darurat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                android:text="Dapatkan informasi dan terhubung lebih cepat dengan pihak berwajib"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

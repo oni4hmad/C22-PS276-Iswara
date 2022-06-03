@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/botnav_home"
+        android:id="@+id/berandaFragment2"
         android:title="Beranda"
         app:showAsAction="always"
         android:icon="@drawable/ic_round_home_24"/>
@@ -13,10 +13,10 @@
         android:title=""/>
 
     <item
-        android:id="@+id/botnav_profile"
+        android:id="@+id/settingsFragment"
         app:showAsAction="always"
-        android:title="Profil"
-        android:icon="@drawable/ic_baseline_account_circle_24" />
+        android:title="Setting"
+        android:icon="@drawable/ic_baseline_settings_24" />
 
 
 </menu>

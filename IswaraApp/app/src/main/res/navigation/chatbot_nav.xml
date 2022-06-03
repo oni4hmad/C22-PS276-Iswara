@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chatbot_nav"
+    app:startDestination="@id/chatbotFragment2">
+
+    <fragment
+        android:id="@+id/chatbotFragment2"
+        android:name="com.example.iswara.ui.chatbot.ChatbotFragment"
+        android:label="fragment_chatbot"
+        tools:layout="@layout/fragment_chatbot" />
+</navigation>

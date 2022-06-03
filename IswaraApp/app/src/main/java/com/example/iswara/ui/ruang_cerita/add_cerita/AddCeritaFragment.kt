@@ -1,13 +1,15 @@
 package com.example.iswara.ui.ruang_cerita.add_cerita
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.iswara.R
 import com.example.iswara.databinding.FragmentAddCeritaBinding
+import com.example.iswara.ui.ruang_cerita.cerita_tablayout.TabCeritaActivity
 import com.example.iswara.ui.ruang_cerita.detail_tanggapan.DetailTanggapanViewModel
 
 class AddCeritaFragment : Fragment() {
@@ -31,6 +33,33 @@ class AddCeritaFragment : Fragment() {
         Glide.with(binding.ivUser3.context)
             .load("https://loremflickr.com/200/100")
             .into(binding.ivUser3)
+
+
+        (activity as AppCompatActivity).supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            title = "Tambah Cerita"
+        }
+        
+        setHasOptionsMenu(true)
+
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        menu.clear()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                //findNavController().navigate(R.id.action_addCeritaFragment2_to_tabCeritaFragment2)
+                findNavController().navigateUp()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
 
 }

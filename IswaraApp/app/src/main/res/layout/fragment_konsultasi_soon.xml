@@ -6,27 +6,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.konsultasi.KonsultasiSoonFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/soonkonsultasi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:textSize="16sp"
-        android:textAlignment="center"
-        android:text="Soon Consultation" />
-
-    <TextView
-        android:id="@+id/notelatersoonkonsultasi"
-        android:text="later will add by cahya"
-        app:layout_constraintTop_toBottomOf="@id/soonkonsultasi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textAlignment="center"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_upside_helper_kons"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_downside_helper_kons"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_leftside_helper_kons"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_rightside_helper_kons"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_container_kons"
+        app:layout_constraintEnd_toStartOf="@id/gl_rightside_helper_kons"
+        app:layout_constraintStart_toEndOf="@id/gl_leftside_helper_kons"
+        app:layout_constraintTop_toBottomOf="@id/gl_upside_helper_kons"
+        app:layout_constraintBottom_toTopOf="@id/gl_downside_helper_kons"
+        android:backgroundTint="@color/orange_300"
+        app:cardCornerRadius="12dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_soon_kons"
+                android:text="@string/segera_tersedia"
+                android:textAlignment="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/orange"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+
+            <ImageView
+                android:id="@+id/iv_illustrasi_soon_konsultasi"
+                android:src="@drawable/konsultasi_illustrasi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_soon_kons"
+                app:layout_constraintBottom_toTopOf="@id/tv_describe_kons"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+
+            <TextView
+                android:id="@+id/tv_describe_kons"
+                android:text="Nantinya, disini kamu dapat bertemu dengan psikologi untuk membicarakan permasalahanmu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

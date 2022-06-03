@@ -4,9 +4,11 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.iswara.R
 import com.example.iswara.databinding.FragmentSettingsPasswordBinding
 
@@ -37,6 +39,16 @@ class SettingsPasswordFragment : Fragment() {
         binding.textinputRepeatPassword.apply {
             setValidation(this.editText)
         }
+
+
+        setHasOptionsMenu(true)
+
+        (activity as AppCompatActivity).supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            title = "Ubah Password"
+        }
+
+
     }
 
     private fun tryChangePassword() {
@@ -51,12 +63,22 @@ class SettingsPasswordFragment : Fragment() {
             isPasswordOldInvalid -> binding.edtOldPassword.requestFocus()
             isPasswordNewInvalid -> binding.edtPassword.requestFocus()
             isPasswordNewRepeatInvalid -> binding.edtRepeatPassword.requestFocus()
-            else -> showToast("change passowrd!")
+            else -> showToast("change password!")
         }
     }
 
     private fun showToast(text: String) {
         Toast.makeText(view?.context, text, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                (activity as AppCompatActivity).finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

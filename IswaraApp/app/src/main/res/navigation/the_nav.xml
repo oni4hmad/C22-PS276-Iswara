@@ -36,5 +36,26 @@
         android:id="@+id/loginFragment"
         android:name="com.example.iswara.ui.login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_berandaActivity"
+            app:destination="@id/berandaActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.iswara.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/berandaActivity"
+        android:name="com.example.iswara.ui.beranda.BerandaActivity"
+        android:label="activity_beranda"
+        tools:layout="@layout/activity_beranda" />
 </navigation>

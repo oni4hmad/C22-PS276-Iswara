@@ -1,5 +1,6 @@
 package com.example.iswara.ui.login
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.iswara.R
 import com.example.iswara.databinding.FragmentLoginBinding
+import com.example.iswara.ui.beranda.BerandaActivity
 
 class LoginFragment : Fragment() {
 
@@ -37,6 +40,11 @@ class LoginFragment : Fragment() {
         binding.btnLogin.setOnClickListener {
             tryLogin()
         }
+
+        binding.tvRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+
     }
 
     private fun tryLogin() {
@@ -47,12 +55,24 @@ class LoginFragment : Fragment() {
         when {
             isEmailInvalid -> binding.edtEmail.requestFocus()
             isPasswordInvalid -> binding.edtPassword.requestFocus()
-            else -> showToast("login!")
+            else -> {
+                showToast("login!")
+                goToBerandaActivity()
+            }
+
+
         }
     }
 
     private fun showToast(text: String) {
         Toast.makeText(view?.context, text, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun goToBerandaActivity() {
+        view?.findNavController()?.navigate(R.id.action_loginFragment_to_berandaActivity)
+        activity?.finish()
+
+
     }
 
 }

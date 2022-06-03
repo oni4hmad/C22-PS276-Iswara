@@ -6,10 +6,12 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.iswara.databinding.FragmentChatbotBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -54,6 +56,7 @@ class ChatbotFragment : Fragment() {
         binding.btnCancelLaporan.setOnClickListener {
             showDialog("Batalkan Laporan?", "Setelah dibatalkan, laporan akan dihapus.", "Laporan dibatalkan!")
         }
+
     }
 
     private fun showDialog(title: String, desc: String, respond: String) {
@@ -92,6 +95,18 @@ class ChatbotFragment : Fragment() {
 
     private fun showToast(text: String) {
         Toast.makeText(view?.context, text, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                //findNavController().navigate(R.id.action_addCeritaFragment2_to_tabCeritaFragment2)
+                //findNavController().navigateUp()
+                (activity as AppCompatActivity).finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/beranda_nav"
+    app:startDestination="@id/berandaFragment2">
+    <fragment
+        android:id="@+id/berandaFragment2"
+        android:name="com.example.iswara.ui.beranda.BerandaFragment"
+        android:label="fragment_beranda"
+        tools:layout="@layout/fragment_beranda" >
+        <action
+            android:id="@+id/action_berandaFragment2_to_daruratFragment"
+            app:destination="@id/daruratFragment" />
+        <action
+            android:id="@+id/action_berandaFragment2_to_konsultasiSoonFragment"
+            app:destination="@id/konsultasiSoonFragment" />
+        <action
+            android:id="@+id/action_berandaFragment2_to_chatbotActivity"
+            app:destination="@id/chatbotActivity" />
+        <action
+            android:id="@+id/action_berandaFragment2_to_tabCeritaActivity"
+            app:destination="@id/tabCeritaActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.iswara.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_profileSettingActivity"
+            app:destination="@id/profileSettingActivity" />
+        <action
+            android:id="@+id/action_settingsFragment_to_ubahPasswordActivity"
+            app:destination="@id/ubahPasswordActivity" />
+        <action
+            android:id="@+id/action_berandaFragment2_to_chatbotActivity"
+            app:destination="@id/chatbotActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/daruratFragment"
+        android:name="com.example.iswara.ui.darurat.DaruratFragment"
+        android:label="fragment_darurat"
+        tools:layout="@layout/fragment_darurat" />
+    <fragment
+        android:id="@+id/konsultasiSoonFragment"
+        android:name="com.example.iswara.ui.konsultasi.KonsultasiSoonFragment"
+        android:label="fragment_konsultasi_soon"
+        tools:layout="@layout/fragment_konsultasi_soon" />
+    <activity
+        android:id="@+id/chatbotActivity"
+        android:name="com.example.iswara.ui.chatbot.ChatbotActivity"
+        android:label="activity_chatbot"
+        tools:layout="@layout/activity_chatbot" />
+    <activity
+        android:id="@+id/tabCeritaActivity"
+        android:name="com.example.iswara.ui.ruang_cerita.cerita_tablayout.TabCeritaActivity"
+        android:label="activity_tab_cerita"
+        tools:layout="@layout/activity_tab_cerita" />
+    <activity
+        android:id="@+id/profileSettingActivity"
+        android:name="com.example.iswara.ui.settings_profile.ProfileSettingActivity"
+        android:label="activity_profile_setting"
+        tools:layout="@layout/activity_profile_setting" />
+    <activity
+        android:id="@+id/ubahPasswordActivity"
+        android:name="com.example.iswara.ui.settings_change_password.UbahPasswordActivity"
+        android:label="activity_ubah_password"
+        tools:layout="@layout/activity_ubah_password" />
+</navigation>

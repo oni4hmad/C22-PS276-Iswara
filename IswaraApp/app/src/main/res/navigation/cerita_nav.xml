@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cerita_nav"
+    app:startDestination="@id/tabCeritaFragment2">
+
+    <fragment
+        android:id="@+id/tabCeritaFragment2"
+        android:name="com.example.iswara.ui.ruang_cerita.cerita_tablayout.TabCeritaFragment"
+        android:label="fragment_tab_cerita"
+        tools:layout="@layout/fragment_tab_cerita" >
+        <action
+            android:id="@+id/action_tabCeritaFragment2_to_addCeritaFragment2"
+            app:destination="@id/addCeritaFragment2" />
+        <action
+            android:id="@+id/action_tabCeritaFragment2_to_detailTanggapanFragment"
+            app:destination="@id/detailTanggapanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCeritaFragment2"
+        android:name="com.example.iswara.ui.ruang_cerita.add_cerita.AddCeritaFragment"
+        android:label="fragment_add_cerita"
+        tools:layout="@layout/fragment_add_cerita" >
+        <action
+            android:id="@+id/action_addCeritaFragment2_to_tabCeritaFragment2"
+            app:destination="@id/tabCeritaFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTanggapanFragment"
+        android:name="com.example.iswara.ui.ruang_cerita.detail_tanggapan.DetailTanggapanFragment"
+        android:label="fragment_detail_tanggapan"
+        tools:layout="@layout/fragment_detail_tanggapan" />
+</navigation>
