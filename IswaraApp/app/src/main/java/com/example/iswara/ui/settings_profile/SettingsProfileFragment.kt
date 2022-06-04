@@ -9,8 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.findNavController
-import com.example.iswara.R
 import com.example.iswara.databinding.FragmentSettingsProfileBinding
 
 class SettingsProfileFragment : Fragment() {
@@ -33,16 +31,24 @@ class SettingsProfileFragment : Fragment() {
         binding.textinputEmail.apply {
             setValidation(this.editText)
         }
-        
+
         setHasOptionsMenu(true)
 
         (activity as AppCompatActivity).supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             title = "Ubah Profile"
         }
+    }
 
-
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                (activity as AppCompatActivity).finish()
+                //findNavController().navigateUp()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun tryChangeProfile() {
@@ -60,17 +66,4 @@ class SettingsProfileFragment : Fragment() {
     private fun showToast(text: String) {
         Toast.makeText(view?.context, text, Toast.LENGTH_SHORT).show()
     }
-
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            android.R.id.home -> {
-                (activity as AppCompatActivity).finish()
-                //findNavController().navigateUp()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
 }
