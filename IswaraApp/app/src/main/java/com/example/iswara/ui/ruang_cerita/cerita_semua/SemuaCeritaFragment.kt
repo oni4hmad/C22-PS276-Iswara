@@ -7,7 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.fragment.app.findFragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.iswara.R
 import com.example.iswara.databinding.FragmentSemuaCeritaBinding
 import com.example.iswara.ui.ruang_cerita.CeritaItem
 import com.example.iswara.ui.ruang_cerita.ListCeritaAdapter
@@ -43,6 +48,7 @@ class SemuaCeritaFragment : Fragment() {
         listCeritaAdapter.setOnItemClickCallback(object : ListCeritaAdapter.OnItemClickCallback {
             override fun onItemClicked(cerita: CeritaItem) {
                 cerita.apply { showToast("$idCerita, $name, $date, $cerita, $tanggapanCount, $supportCount") }
+                findNavController().navigate(R.id.action_tabCeritaFragment2_to_detailTanggapanFragment, bundleOf("cerita" to cerita), null)
             }
         })
     }

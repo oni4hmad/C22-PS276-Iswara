@@ -21,14 +21,14 @@
         android:id="@+id/addCeritaFragment2"
         android:name="com.example.iswara.ui.ruang_cerita.add_cerita.AddCeritaFragment"
         android:label="fragment_add_cerita"
-        tools:layout="@layout/fragment_add_cerita" >
-        <action
-            android:id="@+id/action_addCeritaFragment2_to_tabCeritaFragment2"
-            app:destination="@id/tabCeritaFragment2" />
-    </fragment>
+        tools:layout="@layout/fragment_add_cerita" />
     <fragment
         android:id="@+id/detailTanggapanFragment"
         android:name="com.example.iswara.ui.ruang_cerita.detail_tanggapan.DetailTanggapanFragment"
         android:label="fragment_detail_tanggapan"
-        tools:layout="@layout/fragment_detail_tanggapan" />
+        tools:layout="@layout/fragment_detail_tanggapan" >
+        <argument
+            android:name="cerita"
+            app:argType="com.example.iswara.ui.ruang_cerita.CeritaItem" />
+    </fragment>
 </navigation>

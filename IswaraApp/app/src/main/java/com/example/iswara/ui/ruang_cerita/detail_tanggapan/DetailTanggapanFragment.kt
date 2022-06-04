@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -22,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.iswara.databinding.FragmentDetailTanggapanBinding
+import com.example.iswara.ui.ruang_cerita.CeritaItem
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 
@@ -113,6 +115,19 @@ class DetailTanggapanFragment : Fragment() {
         binding.deleteTanggapan.setOnClickListener {
             showToast("delete!")
         }
+
+
+
+        val ceritaData = DetailTanggapanFragmentArgs.fromBundle(arguments as Bundle).cerita
+        setCerita(ceritaData)
+
+
+        setHasOptionsMenu(true)
+        (activity as AppCompatActivity).supportActionBar?.apply {
+            title = "Detail Cerita"
+            setDisplayHomeAsUpEnabled(true)
+        }
+
     }
 
     private fun showRecyclerList(listTanggapan: List<TanggapanItem>) {
@@ -179,6 +194,15 @@ class DetailTanggapanFragment : Fragment() {
 
     private fun showToast(text: String) {
         Toast.makeText(view?.context, text, Toast.LENGTH_SHORT).show()
+    }
+
+
+    private fun setCerita(cerita: CeritaItem) {
+        binding.tvName.text = cerita.name
+        binding.tvDate.text = cerita.date.toString()
+        binding.tvCerita.text = cerita.cerita
+        binding.tvTanggapan.text = cerita.tanggapanCount.toString()
+        binding.tvSupport.text = cerita.tanggapanCount.toString()
     }
 
 }

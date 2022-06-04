@@ -52,7 +52,6 @@ class AddCeritaFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             android.R.id.home -> {
-                //findNavController().navigate(R.id.action_addCeritaFragment2_to_tabCeritaFragment2)
                 findNavController().navigateUp()
                 return true
             }
