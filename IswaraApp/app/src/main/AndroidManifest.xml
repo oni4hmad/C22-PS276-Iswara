@@ -12,26 +12,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Iswara">
         <activity
+            android:name=".ui.settings_laporanku.LaporankuActivity"
+            android:parentActivityName=".ui.beranda.BerandaActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
             android:name=".ui.settings_profile.ProfileSettingActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".ui.beranda.BerandaActivity" />
         <activity
             android:name=".ui.settings_change_password.UbahPasswordActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:parentActivityName=".ui.beranda.BerandaActivity" />
         <activity
             android:name=".ui.ruang_cerita.cerita_tablayout.TabCeritaActivity"
+            android:screenOrientation="portrait"
             android:exported="false"
             android:parentActivityName=".ui.beranda.BerandaActivity" />
         <activity
             android:name=".ui.chatbot.ChatbotActivity"
+            android:screenOrientation="portrait"
             android:exported="false"
             android:parentActivityName=".ui.beranda.BerandaActivity" />
         <activity
             android:name=".ui.beranda.BerandaActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".ui.login.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

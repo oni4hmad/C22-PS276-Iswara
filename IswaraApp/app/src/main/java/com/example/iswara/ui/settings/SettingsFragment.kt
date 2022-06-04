@@ -46,6 +46,10 @@ class SettingsFragment : Fragment() {
             findNavController().navigate(R.id.action_settingsFragment_to_ubahPasswordActivity)
         }
 
+        settingFragBinding.showReport.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_laporankuActivity)
+        }
+
 
 
     }
