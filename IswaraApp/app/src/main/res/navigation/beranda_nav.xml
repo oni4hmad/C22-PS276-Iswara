@@ -28,14 +28,14 @@
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action
-            android:id="@+id/action_settingsFragment_to_profileSettingActivity"
-            app:destination="@id/profileSettingActivity" />
-        <action
             android:id="@+id/action_settingsFragment_to_ubahPasswordActivity"
             app:destination="@id/ubahPasswordActivity" />
         <action
             android:id="@+id/action_berandaFragment2_to_chatbotActivity"
             app:destination="@id/chatbotActivity" />
+        <action
+            android:id="@+id/action_settingsFragment_to_profileSettingActivity"
+            app:destination="@id/profileSettingActivity" />
     </fragment>
     <fragment
         android:id="@+id/daruratFragment"
@@ -58,13 +58,13 @@
         android:label="activity_tab_cerita"
         tools:layout="@layout/activity_tab_cerita" />
     <activity
-        android:id="@+id/profileSettingActivity"
-        android:name="com.example.iswara.ui.settings_profile.ProfileSettingActivity"
-        android:label="activity_profile_setting"
-        tools:layout="@layout/activity_profile_setting" />
-    <activity
         android:id="@+id/ubahPasswordActivity"
         android:name="com.example.iswara.ui.settings_change_password.UbahPasswordActivity"
         android:label="activity_ubah_password"
         tools:layout="@layout/activity_ubah_password" />
+    <activity
+        android:id="@+id/profileSettingActivity"
+        android:name="com.example.iswara.ui.settings_profile.ProfileSettingActivity"
+        android:label="activity_profile_setting"
+        tools:layout="@layout/activity_profile_setting" />
 </navigation>

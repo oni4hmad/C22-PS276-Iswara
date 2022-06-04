@@ -8,14 +8,15 @@
         app:showAsAction="always"
         android:icon="@drawable/ic_round_home_24"/>
 
+    <!-- alignment helper -->
     <item
-        android:id="@+id/helperalignment"
+        android:enabled="false"
         android:title=""/>
 
     <item
         android:id="@+id/settingsFragment"
-        app:showAsAction="always"
         android:title="Setting"
+        app:showAsAction="always"
         android:icon="@drawable/ic_baseline_settings_24" />
 
 

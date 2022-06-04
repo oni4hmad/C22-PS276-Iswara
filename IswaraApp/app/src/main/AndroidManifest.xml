@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Iswara">
         <activity
-            android:name=".ui.settings_change_password.UbahPasswordActivity"
-            android:parentActivityName=".ui.beranda.BerandaActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.settings_profile.ProfileSettingActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.beranda.BerandaActivity" />
+        <activity
+            android:name=".ui.settings_change_password.UbahPasswordActivity"
             android:exported="false"
             android:parentActivityName=".ui.beranda.BerandaActivity" />
         <activity
