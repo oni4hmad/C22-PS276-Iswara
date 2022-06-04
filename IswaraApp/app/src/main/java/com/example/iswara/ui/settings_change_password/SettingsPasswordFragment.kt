@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.iswara.R
 import com.example.iswara.databinding.FragmentSettingsPasswordBinding
 
 class SettingsPasswordFragment : Fragment() {
@@ -29,7 +28,6 @@ class SettingsPasswordFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[SettingsPasswordViewModel::class.java]
 
-
         binding.textinputOldPassword.apply {
             setValidation(this.editText)
         }
@@ -40,15 +38,22 @@ class SettingsPasswordFragment : Fragment() {
             setValidation(this.editText)
         }
 
-
         setHasOptionsMenu(true)
 
         (activity as AppCompatActivity).supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             title = "Ubah Password"
         }
+    }
 
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                (activity as AppCompatActivity).finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun tryChangePassword() {
@@ -69,16 +74,6 @@ class SettingsPasswordFragment : Fragment() {
 
     private fun showToast(text: String) {
         Toast.makeText(view?.context, text, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            android.R.id.home -> {
-                (activity as AppCompatActivity).finish()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 
 }

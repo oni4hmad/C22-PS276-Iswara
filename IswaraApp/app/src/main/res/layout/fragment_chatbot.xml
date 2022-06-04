@@ -6,6 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".ui.chatbot.ChatbotFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/line_chat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_laporan_action"
+        tools:listitem="@layout/item_message" />
+
+    <View
+        android:id="@+id/line_chat"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_grey"
+        app:layout_constraintBottom_toTopOf="@+id/layout_group_chat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_group_chat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_chat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Ketik disini..."
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="16dp"
+            android:scrollbars="vertical"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_kirim"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_kirim"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:enabled="false"
+            android:minWidth="66dip"
+            android:text="Kirim"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/bottom_shadow_gradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_laporan_action" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_laporan_action"
         android:layout_width="match_parent"
@@ -13,7 +83,6 @@
         android:background="@color/light_yellow"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -52,55 +121,73 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_chat"
-        android:layout_width="0dp"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/layout_bottom_sheet"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/line_chat"
+        android:background="#7F000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_laporan_action"
-        tools:listitem="@layout/item_message" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <View
-        android:id="@+id/line_chat"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/light_grey"
-        app:layout_constraintBottom_toTopOf="@+id/edt_chat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/intro_botom_sheet"
+            style="@style/Theme.Material3.Light.BottomSheetDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_bottom_sheet_bg"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/edt_chat"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Ketik disini..."
-        android:inputType="textMultiLine"
-        android:maxLines="5"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
-        android:paddingRight="8dp"
-        android:paddingBottom="16dp"
-        android:scrollbars="vertical"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_kirim"
-        app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/iv_icon_bottom_sheet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="0dp"
+                android:paddingTop="0dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_horizontal_rule_24"
+                app:tint="@color/light_grey" />
 
-    <Button
-        android:id="@+id/btn_kirim"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:enabled="false"
-        android:minWidth="66dip"
-        android:text="Kirim"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/tv_ara_intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4sp"
+                android:text="Ara (chatbot) adalah tempat yang aman untuk kamu dapat melaporkan tindak kekerasan seksual yang kamu alami. Semua kerahasiaan informasi mengenai kejadian akan dijaga dan akan digunakan untuk pelaporan resmi kepada pihak berwajib. "
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_icon_bottom_sheet" />
+
+            <Button
+                android:id="@+id/btn_start_chat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="Mulai Laporkan"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ara_intro" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- bottom sheet: ara introduction -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

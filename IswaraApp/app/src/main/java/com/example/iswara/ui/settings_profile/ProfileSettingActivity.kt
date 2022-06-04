@@ -9,14 +9,13 @@ import com.example.iswara.R
 import com.example.iswara.databinding.FragmentSettingsProfileBinding
 
 class ProfileSettingActivity : AppCompatActivity() {
-    
-    private lateinit var profileSettingBinding: FragmentSettingsProfileBinding
-    
+
+    private lateinit var binding: FragmentSettingsProfileBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        profileSettingBinding = FragmentSettingsProfileBinding.inflate(layoutInflater)
-        
-        setContentView(profileSettingBinding.root)
+        binding = FragmentSettingsProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
 
@@ -25,7 +24,7 @@ class ProfileSettingActivity : AppCompatActivity() {
 
         val menuItem = menu?.findItem(R.id.custom_save_button)
         menuItem?.actionView?.setOnClickListener {
-            menu.performIdentifierAction(menuItem.getItemId(), 0)
+            menu.performIdentifierAction(menuItem.itemId, 0)
         }
 
         return super.onCreateOptionsMenu(menu)
@@ -35,7 +34,10 @@ class ProfileSettingActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId) {
-            R.id.custom_save_button -> Toast.makeText(this,"Saving y",Toast.LENGTH_SHORT).show()
+            R.id.custom_save_button -> {
+                Toast.makeText(this,"Saving y",Toast.LENGTH_SHORT).show()
+                return true
+            }
         }
 
         return super.onOptionsItemSelected(item)

@@ -7,18 +7,15 @@ import android.view.MenuItem
 import android.widget.Toast
 import com.example.iswara.R
 import com.example.iswara.databinding.ActivityUbahPasswordBinding
-import com.example.iswara.databinding.FragmentSettingsPasswordBinding
 
 class UbahPasswordActivity : AppCompatActivity() {
 
-    private lateinit var settingsPasswordBinding: ActivityUbahPasswordBinding
+    private lateinit var binding: ActivityUbahPasswordBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        settingsPasswordBinding = ActivityUbahPasswordBinding.inflate(layoutInflater)
-
-        setContentView(settingsPasswordBinding.root)
+        binding = ActivityUbahPasswordBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
     }
 
@@ -27,7 +24,7 @@ class UbahPasswordActivity : AppCompatActivity() {
 
         val menuItem = menu?.findItem(R.id.custom_save_button)
         menuItem?.actionView?.setOnClickListener {
-            menu.performIdentifierAction(menuItem.getItemId(), 0)
+            menu.performIdentifierAction(menuItem.itemId, 0)
         }
 
         return super.onCreateOptionsMenu(menu)
@@ -37,7 +34,10 @@ class UbahPasswordActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId) {
-            R.id.custom_save_button -> Toast.makeText(this,"Saving password", Toast.LENGTH_SHORT).show()
+            R.id.custom_save_button -> {
+                Toast.makeText(this,"Saving password", Toast.LENGTH_SHORT).show()
+                return true
+            }
         }
 
         return super.onOptionsItemSelected(item)
