@@ -3,6 +3,7 @@ package com.example.iswara.ui.chatbot
 import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.content.Context
 import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -22,7 +23,6 @@ import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.iswara.databinding.FragmentChatbotBinding
-import com.example.iswara.ui.ruang_cerita.detail_tanggapan.DetailTanggapanFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.*
@@ -99,83 +99,7 @@ class ChatbotFragment : Fragment() {
 
             // showDialog("Akhiri Laporan?", "Setelah diakhiri, laporan tidak ada bisa ditambah dan akan diproses lebih lanjut.", "Laporan diakhiri!")
 
-            /*
-            * Simple dialog
-            * */
-
-            /*val items = arrayOf("Item 1", "Item 2", "Item 3")
-
-            MaterialAlertDialogBuilder(view?.context)
-                .setTitle("Tap untuk pilih!")
-                .setItems(items) { dialog, which ->
-                    // Respond to item chosen
-                    showToast(which.toString()) // index array -> 0/1/2
-                }
-                .show()*/
-
-            /*
-            * Confirmation dialog: radio button
-            * */
-
-            /*val singleItems = arrayOf("Item 1", "Item 2", "Item 3")
-            val checkedItem = 0 *//* -1 = tidak memilih apapun *//*
-
-            MaterialAlertDialogBuilder(view?.context)
-                .setTitle("Pilih salah satu!")
-                .setNeutralButton("Batal") { dialog, which ->
-                    // Respond to neutral button press
-                }
-                .setPositiveButton("OK") { dialog, which ->
-                    // Respond to positive button press
-                    showToast("$which") // -1 ?
-                }
-                // Single-choice items (initialized with checked item)
-                .setSingleChoiceItems(singleItems, checkedItem) { dialog, which ->
-                    // Respond to item chosen
-                    showToast("$which") // index array -> 0/1/2
-                }
-                .show()*/
-
-            /*
-            * Confirmation dialog: checkbox
-            * */
-
-            val multiItems = arrayOf("Item 1", "Item 2", "Item 3")
-            val checkedItems = booleanArrayOf(true, false, false, false)
-
-            var respond: String = ""
-
-            MaterialAlertDialogBuilder(view?.context)
-                .setTitle("Pilih beberapa!")
-                .setNeutralButton("Cancel") { dialog, which ->
-                    // Respond to neutral button press
-                }
-                .setNegativeButton("Tidak") { dialog, which ->
-                    // Respond to neutral button press
-                }
-                .setPositiveButton("OK") { dialog, which ->
-                    // Respond to positive button press
-                    showToast(Arrays.deepToString(arrayOf(checkedItems)).apply {
-                        replace("true", "1")
-                        replace("false", "0")
-                    }) /* log checkedItems */
-                    for (i in 0..checkedItems.size-1) {
-                        if (checkedItems[i]) {
-                            if (respond.isNotEmpty())
-                                respond = concat(respond, ", ${multiItems[i]}")
-                            else respond = concat(respond, "${multiItems[i]}")
-                        }
-                    }
-                    viewModel.sendChat(respond)
-                    showToast("$which") // -1 ?
-                }
-                //Multi-choice items (initialized with checked items)
-                .setMultiChoiceItems(multiItems, checkedItems) { dialog, which, checked ->
-                    // Respond to item chosen
-                    checkedItems[which] = checked
-                    showToast("$which : $checked") // index : [apakah tercheck (true) atau tidak (false)]
-                }
-                .show()
+            setOptions(view?.context)
 
         }
 
@@ -183,6 +107,126 @@ class ChatbotFragment : Fragment() {
             showDialog("Batalkan Laporan?", "Setelah dibatalkan, laporan akan dihapus.", "Laporan dibatalkan!")
         }
 
+    }
+
+    private fun setOptions(context: Context) {
+
+        /*
+        * Parse data
+        * */
+
+        val itemsOption = arrayOf("Item 1", "Item 2", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 1", "Item 2", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3")
+        val itemsState = BooleanArray(itemsOption.size) { false }
+        val radioCheckedItem = -1  /* -1 = tidak memilih apapun */
+        var respond: String = ""
+
+        /*
+        * Simple dialog
+        * */
+
+        MaterialAlertDialogBuilder(context)
+            .setTitle("Tap untuk pilih!")
+            .setItems(itemsOption) { dialog, which ->
+                // Respond to item chosen
+
+                /* log : index array -> 0/1/2 */
+                showToast(which.toString())
+
+                /* set chat */
+                setChatTo(itemsOption[which])
+
+            }
+            .show()
+
+        /*
+        * Confirmation dialog: radio button
+        * */
+
+        MaterialAlertDialogBuilder(context)
+            .setTitle("Pilih salah satu!")
+            .setNeutralButton("Batal") { dialog, which ->
+                // Respond to neutral button press
+            }
+            .setPositiveButton("OK") { dialog, which ->
+                // Respond to positive button press
+
+                /* log */
+                showToast("$which") // -1 ?
+
+                /* set chat */
+                for (i in itemsState.indices) {
+                    if (itemsState[i]) {
+                        setChatTo(itemsOption[i])
+                        break
+                    }
+                }
+            }
+            // Single-choice items (initialized with checked item)
+            .setSingleChoiceItems(itemsOption, radioCheckedItem) { dialog, which ->
+                // Respond to item chosen
+
+                /* set selected item to true */
+                Arrays.fill(itemsState, false)
+                itemsState[which] = true
+
+                /* log */
+                showToast("${itemsOption[which]} : ${itemsState[which]}")
+                showToast("$which") // index array -> 0/1/2
+            }
+            .show()
+
+        /*
+        * Confirmation dialog: checkbox
+        * */
+
+        MaterialAlertDialogBuilder(context)
+            .setTitle("Pilih beberapa!")
+            .setNeutralButton("Cancel") { dialog, which ->
+                // Respond to neutral button press
+            }
+            .setNegativeButton("Tidak") { dialog, which ->
+                // Respond to neutral button press
+            }
+            .setPositiveButton("OK") { dialog, which ->
+                // Respond to positive button press
+
+                /* log itemsState */
+
+                showToast("$which") // -1 ?
+                showToast(Arrays.deepToString(arrayOf(itemsState)).apply {
+                    replace("true", "1")
+                    replace("false", "0")
+                })
+
+                /* build chat respond */
+
+                for (i in 0..itemsState.size-1) {
+                    if (itemsState[i]) {
+                        if (respond.isNotEmpty())
+                            respond = concat(respond, ", ${itemsOption[i]}")
+                        else respond = concat(respond, itemsOption[i])
+                    }
+                }
+                setChatTo(respond)
+            }
+            //Multi-choice items (initialized with checked items)
+            .setMultiChoiceItems(itemsOption, itemsState) { dialog, which, checked ->
+                // Respond to item chosen
+
+                /* set selected item to true/false */
+                itemsState[which] = checked
+
+                /* log: index : [apakah tercheck (true) atau tidak (false)] */
+                showToast("$which : $checked")
+            }
+            .show()
+    }
+
+    private fun setChatTo(text: String) {
+        binding.edtChat.apply {
+            isEnabled = false
+            setText(text)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
