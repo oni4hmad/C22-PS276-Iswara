@@ -9,3 +9,7 @@ handlers:
 - url: /.*
   secure: always
   script: auto
+
+manual_scaling:
+  instances: 5
+
