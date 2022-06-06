@@ -12,22 +12,21 @@ import com.example.iswara.databinding.FragmentSettingsLaporankuBinding
 
 class SettingsLaporankuFragment : Fragment() {
 
-    private lateinit var laporankuBinding : FragmentSettingsLaporankuBinding
-    private lateinit var laporankuViewModel: SettingsLaporankuViewModel
+    private lateinit var binding : FragmentSettingsLaporankuBinding
+    private lateinit var viewModel: SettingsLaporankuViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        laporankuBinding = FragmentSettingsLaporankuBinding.inflate(inflater,container,false)
-        return laporankuBinding.root
+        binding = FragmentSettingsLaporankuBinding.inflate(inflater,container,false)
+        return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        laporankuViewModel = ViewModelProvider(this).get(SettingsLaporankuViewModel::class.java)
+        viewModel = ViewModelProvider(this)[SettingsLaporankuViewModel::class.java]
 
     }
 
