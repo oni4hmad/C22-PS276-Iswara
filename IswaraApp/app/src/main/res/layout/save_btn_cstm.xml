@@ -1,49 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/shape_rounded_box"
-    android:clickable="true"
-    android:focusable="true"
-    android:paddingBottom="6dp"
-    android:paddingTop="6dp"
-    android:paddingRight="12dp"
-    android:paddingStart="12dp"
-    android:layout_marginEnd="16dp"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true">
 
-
-    <ImageView
-        android:id="@+id/ic_save"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/ic_baseline_save_24"
-        android:layout_width="24dp"
-        android:layout_height="24dp"/>
-
-    <TextView
-        android:id="@+id/tv_save_btn"
-        android:text="Simpan"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/ic_save"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="8dp"
+    <Button
+        android:id="@+id/btn_simpan"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/save_thins"
-        app:constraint_referenced_ids="ic_save,tv_save_btn"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/navy"
+        android:clickable="false"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minWidth="0dip"
+        android:minHeight="34dip"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="Simpan"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_baseline_save_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
