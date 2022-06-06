@@ -1,0 +1,7 @@
+Option:
+1. tag: persetujuan
+2. tag: tidaksetuju
+3. tag: laporDiri
+4. tag: laporOrang 
+5. tag: KorbanLain
+6. tag: jenisKelamin
