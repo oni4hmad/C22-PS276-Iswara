@@ -7,6 +7,8 @@
         <entry key="..\:/Users/Oni Ahmad/AndroidStudioProjects/android-intermediate/Iswara/app/src/main/res/layout/login_fragment.xml" value="0.22" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable-v24/shape_bottom_sheet_bg.xml" value="0.139" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable-v24/shape_box.xml" value="0.139" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/blue_gradient.xml" value="0.129" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/bot_rounded.xml" value="0.129" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/form_box.xml" value="0.1375" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.101" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.139" />
@@ -14,9 +16,11 @@
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_round_mark_chat_unread_24.xml" value="0.139" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_round_warning_amber_24.xml" value="0.139" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/rounded_upside_beranda.xml" value="0.1285" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/sender_rounded.xml" value="0.129" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/shape_box_shadow.xml" value="0.13" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/shape_rounded_box.xml" value="0.13" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/font/mitr_extralight.xml" value="0.25462962962962965" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout-v23/save_btn_cstm.xml" value="0.25271739130434784" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_beranda.xml" value="0.25" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_main.xml" value="0.2767210144927536" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_profile_setting.xml" value="0.2509057971014493" />
@@ -45,6 +49,7 @@
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/material_list_item_single_line.xml" value="0.22" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/message_item.xml" value="0.33" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/register_fragment.xml" value="0.22" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/save_btn_cstm.xml" value="0.25271739130434784" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/settings_fragment.xml" value="0.2767210144927536" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/tanggapan_action_bottom_sheet.xml" value="0.25" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.278125" />
