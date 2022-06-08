@@ -22,7 +22,10 @@
         {
             "tag": "tidaksetuju",
             "patterns": ["tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju", "tidak setuju"],
-            "responses": ["Terimakasih sudah melaporkan tindakan pelecehan atau kekerasan yang terjadi. Let's being this world better, no more silence and stop the violence"]
+            "responses": ["Terimakasih sudah melaporkan tindakan pelecehan atau kekerasan yang terjadi. Let's being this world better, no more silence and stop the violence"],
+            "input": {
+                "type": -1
+            }
         },
         {
             "tag": "laporDiri",
@@ -147,7 +150,7 @@
             "patterns": ["ok", "oke Ara", "oke", "oke deh", "oke makasih ara", "oke, dah", "oke oke", "oke sip", "oke mantab", "oke jos", " ya Ara", "ya", "ya ka", "ya kakak", "iy", "iyaa", "y", "baik", "oke baik", "hooh", "heeh", "heem", "iyo", "nggih", "arigato", "yo", "Terima kasih", "Terimakasih Ara", "Thenkyou", "Thenks", "Dadah", "Selamat Tinggal", "Dah", "Daah", "Semoga harimu menyenangkan", "Ok makasih", "Ok bye"],
             "responses": ["Terimakasih sudah melaporkan tindakan pelecehan seksual yang terjadi. Let's being this world better, no more silence and stop the violence", "Kalau ada masalah dan enggan menceritakan ke orang lain, hubungi Ara lagi ya. World be better if we no more silence and stop the violence", "Semangat, semoga harimu kedepannya lebih baik! I believe you can be best version person"],
             "input": {
-                "type": 0
+                "type": -1
             }
         }
     ]
