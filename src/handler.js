@@ -53,17 +53,17 @@ const loginHandler = (request, h) => {
         timeSkewSec: 15,
     }, 'some_shared_secret');
     
-    let temp = user;
+    // let temp = user;
 
-    if (email !== undefined) {
-        temp = temp.findIndex((user) => user.email === email);
-    }
+    // if (email !== undefined) {
+    //     temp = temp.findIndex((user) => user.email === email);
+    // }
 
-    if (password !== undefined) {
-        temp = temp.findIndex((user) => user.password === password);
-    }
+    // if (password !== undefined) {
+    //     temp = temp.findIndex((user) => user.password === password);
+    // }
 
-    // const index = user.findIndex((user) => { user.name === email, user.password = password });
+    const index = user.findIndex((user) => { user.name === email, user.password = password });
 
     
 
@@ -73,7 +73,7 @@ const loginHandler = (request, h) => {
             error: false,
             message: 'Anda berhasil masuk',
             data: {
-                index
+                // index
             },
             token: token
         });

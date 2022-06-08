@@ -1,12 +1,16 @@
 runtime: nodejs16
 
-# env_variables:
-#   MY_VAR: "my value"
-
 instance_class: F2
 
 handlers:
 - url: /.*
   secure: always
   script: auto
+
+env_variables:
+  SQL_CONNECTION: iswara-project:asia-southeast1:iswara ,
+  SQL_DATABASE: iswara,
+  SQL_USERNAME: root,
+  SQL_PASSWORD: admin-iswara276,
+
   

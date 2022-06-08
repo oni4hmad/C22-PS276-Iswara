@@ -2,6 +2,7 @@ const server = require('@hapi/hapi');
 const Hapi = require('@hapi/hapi');
 const Jwt = require('@hapi/jwt');
 const routes = require('./routes');
+const mysql = require('mysql');
 
 const init = async () => {
     const server = Hapi.server({

@@ -1,4 +1,5 @@
 const { handler } = require("@hapi/hapi/lib/cors");
+const { response } = require("@hapi/hapi/lib/validation");
 const Joi = require("joi");
 const { 
     addAccountHandler,
@@ -25,6 +26,27 @@ const routes = [
             auth: false,
             handler: (request, h) => {
                 return `Selamat Datang di Aplikasi Iswara`;
+            },
+        }
+    },
+    {
+        method: 'GET',
+        path: '/:pengguna',
+        config: {
+            auth: false,
+            handler: (request, h) => {
+                const query = "SELECT * FROM pengguna WHERE name = ?";
+                pool.query(query, [ request.params.pengguna ], (error, results) => {
+                    if (!results[0]) {
+                        const response = h.response ({
+                            status: "Not found!"
+                        });
+                    } else {
+                        const response = h.response ({
+                            results
+                        });
+                    }
+                })
             },
         }
     },
@@ -186,5 +208,12 @@ const routes = [
         
     },
 ];
+
+const pool = mysql.createPool({
+    user: process.env.DB_USER,
+    passsword: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
+});
 
 module.exports = routes;
