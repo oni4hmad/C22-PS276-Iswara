@@ -51,3 +51,10 @@ const init = async () => {
         });
 
 init();
+
+const pool = mysql.createPool({
+    user: process.env.DB_USER,
+    passsword: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
+});
