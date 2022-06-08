@@ -6,7 +6,7 @@
             "responses": ["Halo, disini Ara untuk ChatBot Pelaporan Pelecehan Seksual. Dengan melaporan pelecehan seksual di Iswara, maka kamu mengizinkan kepada Iswara untuk membagikan identitas dan gambaran kasus untuk penanganan kasus yang kamu laporkan."],
             "input": {
                 "type": 1,
-                "title": "Persetujuan",
+                "title": "Pilih persetujuan",
                 "options": ["Setuju", "Tidak Setuju"]
             }
         },
@@ -46,7 +46,7 @@
             "responses": ["Selanjutnya, apa jenis kelamin korban?"],
             "input": {
                 "type": 1,
-                "judul": "Pilih Jenis Kelamin",
+                "title": "Pilih jenis kelamin",
                 "options": ["Laki-laki", "Perempuan"]
             }
         },
@@ -95,8 +95,8 @@
             "patterns": ["gatau", "tidak tau", "Pendidikan terakhir korban SMA", "seorang siswi SMP usia 13 tahun", "Pendidikan korban SD", "Tidak tahu pendidikannya", "Ga ngerti pendidikan korban", "sepertinya lulusan SMP", "korban sudah sarjana", "gak tau pendidikannya", "gak tau lah", "sepertinya lulusan SMA", "sepertinya korban gak sekolah", "korban masih dibangku SMP", "korban dibangku kuliah", "korban dibangku SMA", "korban lulus SMA", "korban lulusan SMP", "korban seorang mahasiswi", "waktu itu aku masih SMA", "kuliah", "masih kuliah", "sedang kuliah", "masih SMP", "masih SMA", "SMP", "SMA", "masih kelas 9 SMP", "masih kelas 8 SMP", "masih kelas 7 SMP", "baru lulus SMP", "baru lulus SMA", "kelas 10 SMA", "kelas 11 SMA", "kelas 12 SMA", "aku anak pondok", "korban baru lulus sarjana", "aku baru lulus kuliah", "korban lulusan S1", "aku lulusan S2", "korban lulusan S3", "korban lulusan SMK", "aku baru lulus SMK", "korban masih SMK", "korban tidak sekolah", "korban bukan lulusan dari perguruan tinggi", "aku gak sekolah", "aku sudah putus sekolah", "korban putus sekolah", "korban sudah bekerja", "aku sudah bekerja", "pas aku masih kelas 10 SMK", "korban kelas 11 SMK", "pas aku kelas 12 SMK", "ketika kelas 10 SMA", "aku kelas 11 SMA", "ketika aku kelas 12 SMA", "korban masih SMP", "pendidikan terakhir korbanu SMA", "pendidikan terakhir korban SMK", "pendidikan terakhir korban SMP", "pendidikan korban SMA", "pendidikan korban SMP", "pendidikan korban SMK", "tidak tahu pendidikannya", "gak ngerti pendidikannya", "tidak tahu pendidikan korban", "gak tau pendidikan korban", "gatau pendidikannya", "gatau pendidikan korban", "gak tau lah", "tidak tau", "gak ngerti lah", "gak tau", "gak tau pendidikannya", "gak ngerti pendidikannya", "sepertinya masih SMP", "sepertinya masih SMA", "sepertinya masih SMK", "sepertinya anak SMA", "sepertinya anak SMK", "sepertinya anak SMP", "paling masih SMP", "paling masih SMA", "paling masih kuliah", "kayaknya masih kuliah", "kayaknya masih SMP", "kayaknya masih SMA", "kayaknya masih SMK", "kayaknya masih SD", "paling masih SD", "kayaknya gak sekolah", "kayaknya tidak sekolah", "kira-kira seumuran anak SMP", "kira-kira seumuran anak SMA", "kayae masih SMA", "kayae masih SMP", "sepertinya pelaku tidak sekolah", "Korban berusia 19 tahun", "Korban berusia 17 tahun", "usia yang relatif muda yaitu 21 tahun", "Korban berumur masih SD", "Korban duduk di bangku SD", "Korban masih dibangku SMP", "Korban dibangku kuliah", "Korban dibangku SMA", "Korban lulus SMA", "korban lulusan SMP", "Korban masih SD", "Korban berumur masih SD", "korban lulusan SMP", "Korban masih SD", "korbannya seorang mahasiswi", "korbannya masih SMA", "korbannya masih SD", "korbannya adalah siswa SD", "korbannya adalah anak TK", "korbannya anak SD", "kuliah", "masih kuliah", "sedang kuliah", "masih SD", "masih SMP", "masih SMA", "masih kelas 6 SD", "masih kelas 5 SD", "masih kelas 4 SD", "masih kelas 3 SD", "masih kelas 2 SD", "masih kelas 1 SD","kelas 6 SD", "kelas 5 SD", "kelas 4 SD", "kelas 3 SD", "kelas 2 SD", "kelas 1 SD", "SD", "SMP", "SMA", "masih kelas 9 SMP", "masih kelas 8 SMP", "masih kelas 7 SMP", "baru lulus SD", "baru lulus SMP", "baru lulus SMA", "kelas 10 SMA", "kelas 11 SMA", "kelas 12 SMA", "korban anak MI", "korban anak MTS", "korban anak pondok", "korban baru lulus sarjana", "korban baru lulus kuliah", "korban lulusan S1", "korban lulusan S2", "korban lulusan S3", "korban lulusan SMK", "korban baru lulus SMK", "korban masih SMK", "korban tidak sekolah", "korban bukan lulusan dari perguruan tinggi", "korban gak sekolah", "korban sudah putus sekolah", "korban putus sekolah", "korban sudah bekerja", "korban bekerja", "korban kelas 10 SMK", "korban kelas 11 SMK", "korban kelas 12 SMK", "korban kelas 10 SMA", "korban kelas 11 SMA", "korban kelas 12 SMA", "korbannya masih SMP", "korbannya masih SD", "pendidikan terakhir korban SMA", "pendidikan terakhir korban SMK", "pendidikan terakhir korban SMP", "pendidikan korban SD", "pendidikan korban SMA", "pendidikan korban SMP", "pendidikan korban SMK", "tidak tahu pendidikannya", "gak ngerti pendidikannya", "tidak tahu pendidikan korban", "gak tau pendidikan korban", "gatau pendidikannya", "gatau pendidikan korban", "gak tau lah", "tidak tau", "gak ngerti lah", "gak tau", "gak tau pendidikannya", "gak ngerti pendidikannya", "sepertinya masih SD", "sepertinya masih SMP", "sepertinya masih SMA", "sepertinya masih SMK", "sepertinya anak SMA", "sepertinya anak SMK", "sepertinya anak SMP", "sepertinya anak SD", "paling masih SMP", "paling masih SMA", "paling masih kuliah", "kayaknya masih kuliah", "kayaknya masih SMP", "kayaknya masih SMA", "kayaknya masih SMK", "kayaknya masih SD", "paling masih SD", "kayaknya gak sekolah", "kayaknya tidak sekolah", "kira-kira seumuran anak SD", "kira-kira seumuran anak SMP", "kira-kira seumuran anak SMA", "kayae masih SMA", "kayae masih SMP", "kayae masih SD", "sepertinya korban gak sekolah", "sepertinya korban tidak sekolah"],
             "responses": ["Apakah ada korban lain dan apa kamu mengenalnya?"],
             "input": {
-                "judul": "Keberadaan Korban Lain",
                 "type": 1,
+                "title": "Pilih keberadaan korban lain",
                 "options":["Ada Korban Lain", "Tidak Ada Korban Lain", "Tidak Tahu"]
             }
         },
@@ -122,7 +122,7 @@
             "responses": ["Perlakuan apa yang diperoleh korban dari si pelaku (seperti Mengomentari, Melirik/Ekspresi Wajah/ Menatap, Eksposur Tidak Senonoh, Menyentuh/Meraba-raba, Menguntit, Pemerkosaan)"],
             "input": {
                 "type": 2,
-                "title": "Bentuk Perlakuan Pelaku",
+                "title": "Pilih bentuk perlakuan pelaku",
                 "options":["Mengomentari", "Melirik/Ekspresi Wajah", "Eksposur Tidak Senonoh", "Menguntit", "Pemerkosaan", "Menyentuh", "Mengambil Gambar", "Pelecehan Seksual"]
             }
         },
