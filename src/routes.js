@@ -35,18 +35,28 @@ const routes = [
         config: {
             auth: false,
             handler: (request, h) => {
-                const query = "SELECT * FROM pengguna WHERE name = ?";
-                pool.query(query, [ request.params.pengguna ], (error, results) => {
+                const query = "SELECT * FROM try WHERE name = ?";
+                pool.query(query, [ request.params.try ], (error, results) => {
                     if (!results[0]) {
+                        console.log("Not found!");
                         const response = h.response ({
                             status: "Not found!"
                         });
+                        return response;
                     } else {
+                        console.log(results[0]);
                         const response = h.response ({
                             results
                         });
+                        return response;
                     }
-                })
+                });
+                const pool = myql.createPool({
+                    user: process.env.DB_USER,
+                    password: process.env.DB_PASS,
+                    database: process.env.DB_NAME,
+                    socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`
+                });
             },
         }
     },

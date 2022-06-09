@@ -8,9 +8,14 @@ handlers:
   script: auto
 
 env_variables:
-  SQL_CONNECTION: iswara-project:asia-southeast1:iswara ,
-  SQL_DATABASE: iswara,
-  SQL_USERNAME: root,
-  SQL_PASSWORD: admin-iswara276,
+  GOOGLE_PROJECT_ID: iswara-project,
+  INSTANCE_CONNECTION_NAME: iswara-project:asia-southeast1:iswara,
+  DB_USER: root,
+  DB_PASS: admin-iswara276,
+  DB_NAME: iswara_data
+  # SQL_CONNECTION: iswara-project:asia-southeast1:iswara,
+  # SQL_DATABASE: iswara,
+  # SQL_USERNAME: root,
+  # SQL_PASSWORD: admin-iswara276,
 
   
