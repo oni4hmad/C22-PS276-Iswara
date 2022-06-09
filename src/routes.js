@@ -31,20 +31,20 @@ const routes = [
     },
     {
         method: 'GET',
-        path: '/:try',
+        path: '/id',
         config: {
             auth: false,
             handler: (request, h) => {
                 const query = "SELECT * FROM try WHERE name = ?";
-                pool.query(query, [ request.params.try ], (error, results) => {
+                pool.query(query, [ request.params.id ], (error, results) => {
                     if (!results[0]) {
-                        console.log("Not found!");
+                        // console.log("Not found!");
                         const response = h.response ({
-                            status: "Not found!"
+                            status: "Not found! Bye"
                         });
                         return response;
                     } else {
-                        console.log(results[0]);
+                        // console.log(results[0]);
                         const response = h.response ({
                             results
                         });
