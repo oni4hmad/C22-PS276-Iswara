@@ -31,7 +31,7 @@ const routes = [
     },
     {
         method: 'GET',
-        path: '/:pengguna',
+        path: '/:try',
         config: {
             auth: false,
             handler: (request, h) => {
