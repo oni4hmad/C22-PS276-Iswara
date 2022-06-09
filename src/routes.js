@@ -156,7 +156,6 @@ const routes = [
             auth: false,
             handler: deleteStoryByIdHandler,
         }
-        
     },
 
     //laporan
@@ -167,7 +166,6 @@ const routes = [
             auth: false,
             handler: addReportHandler,
         }
-        
     },
     {
         method: 'GET',
@@ -176,7 +174,6 @@ const routes = [
             auth: false,
             handler: getAllReportHandler,
         }
-        
     },
     {
         method: 'GET',
@@ -185,7 +182,6 @@ const routes = [
             auth: false,
             handler: getReportByIdHandler,
         }
-        
     },
 
     //profile
@@ -196,7 +192,6 @@ const routes = [
             auth: false,
             handler: getProfileHandler,
         }
-        
     },
     {
         method: 'PUT',
@@ -205,8 +200,14 @@ const routes = [
             auth: false,
             handler: putProfileHandler,
         }
-        
     },
 ];
+
+const pool = mysql.createPool({
+    user: process.env.DB_USER,
+    passsword: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
+});
 
 module.exports = routes;

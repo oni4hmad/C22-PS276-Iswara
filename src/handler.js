@@ -1,9 +1,19 @@
 const { nanoid } = require("nanoid");
 const jwt = require("jsonwebtoken");
-// const Boom = require("boom");
 const report = require("./report");
 const story = require("./story");
 const user = require("./user");
+
+// Initialize Firestore
+const admin = require("firebase-admin");
+
+const serviceAccount = require('./serviceAccountKey.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+const db = admin.firestore();
 
 //register
 const addAccountHandler = (request, h) => {
@@ -15,7 +25,7 @@ const addAccountHandler = (request, h) => {
         userId, name, email, password, phoneNum,
     };
 
-    user.push(newUser);
+    user.push(newUser); //fs
 
     const isSuccess = user.filter((user) => user.userId === userId).length > 0;
 
@@ -34,11 +44,11 @@ const addAccountHandler = (request, h) => {
     }
 
     const response = h.response({
-            error: true,
-            message: 'Akun gagal ditambahkan',
-        });
-        response.code(500);
-        return response;
+        error: true,
+        message: 'Akun gagal ditambahkan',
+    });
+    response.code(500);
+    return response;
 };
 
 //login
@@ -52,20 +62,7 @@ const loginHandler = (request, h) => {
         maxAgeSec: 14400,
         timeSkewSec: 15,
     }, 'some_shared_secret');
-    
-    // let temp = user;
-
-    // if (email !== undefined) {
-    //     temp = temp.findIndex((user) => user.email === email);
-    // }
-
-    // if (password !== undefined) {
-    //     temp = temp.findIndex((user) => user.password === password);
-    // }
-
     const index = user.findIndex((user) => { user.name === email, user.password = password });
-
-    
 
     if (index !== undefined) {
         if (email || user.password === password) {
