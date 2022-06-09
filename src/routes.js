@@ -1,6 +1,7 @@
 const { handler } = require("@hapi/hapi/lib/cors");
 const { response } = require("@hapi/hapi/lib/validation");
 const Joi = require("joi");
+const mysql = require("mysql")
 const { 
     addAccountHandler,
     loginHandler,
@@ -53,7 +54,7 @@ const routes = [
                         return response;
                     }
                 });
-                const pool = myql.createPool({
+                const pool = mysql.createPool({
                     user: process.env.DB_USER,
                     password: process.env.DB_PASS,
                     database: process.env.DB_NAME,
