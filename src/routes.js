@@ -26,9 +26,9 @@ const routes = [
         config: {
             auth: false,
             handler: (request, h) => {
-                const query = "SELECT * FROM try";
-                // return `Selamat Datang di Aplikasi Iswara`;
-                return query;
+                // const query = "SELECT * FROM try";
+                return `Selamat Datang di Aplikasi Iswara`;
+                // return query;
             },
         }
     },
