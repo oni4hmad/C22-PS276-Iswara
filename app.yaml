@@ -15,5 +15,5 @@ env_variables:
   DB_PASS: admin-iswara276,
   DB_NAME: iswara_data
 
-beta_settings:
-  cloud_sql_instances: iswara-project:asia-southeast1:iswara
+# beta_settings:
+#   cloud_sql_instances: iswara-project:asia-southeast1:iswara

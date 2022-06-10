@@ -4,13 +4,15 @@ const report = require("./report");
 const story = require("./story");
 const user = require("./user");
 const mysql = require("mysql");
+
 // Initialize Firestore
 const admin = require("firebase-admin");
 
 const serviceAccount = require('./serviceAccountKey.json');
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://iswara-project-default-rtdb.asia-southeast1.firebasedatabase.app"
 });
 
 const db = admin.firestore();

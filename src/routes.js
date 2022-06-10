@@ -34,12 +34,12 @@ const routes = [
     },
     {
         method: 'GET',
-        path: '/id',
+        path: '/name',
         config: {
             auth: false,
             handler: (request, h) => {
-                const query = "SELECT * FROM try WHERE name = ?";
-                pool.query(query, [ request.params.id ], (error, results) => {
+                const query = "SELECT * FROM try";
+                pool.query(query, [ request.params.name ], (error, results) => {
                     if (!results[0]) {
                         // console.log("Not found!");
                         const response = h.response ({
