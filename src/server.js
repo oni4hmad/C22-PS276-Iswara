@@ -4,19 +4,19 @@ const Jwt = require('@hapi/jwt');
 const routes = require('./routes');
 const mysql = require('mysql');
 
-const config = {
-    user: process.env.DB_USER,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASS
-}
+// const config = {
+//     user: process.env.DB_USER,
+//     database: process.env.DB_NAME,
+//     password: process.env.DB_PASS
+// }
 
-if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
-    config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
-  }
+// if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
+//     config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
+//   }
 
-var connection = mysql.createConnection(config);
+// const connection = mysql.createConnection(config);
 
-connection.connect();
+// connection.connect();
 
 const init = async () => {
     const server = Hapi.server({
