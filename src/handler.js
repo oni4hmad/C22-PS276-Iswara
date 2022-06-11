@@ -27,18 +27,23 @@ const addAccountHandler = (request, h) => {
         userId, name, email, password, phoneNum,
     };
 
-    user.push(newUser); //fs
+    db.collection("Users").doc(newUser.email.toString()).set(newUser);
 
-    const isSuccess = user.filter((user) => user.userId === userId).length > 0;
+    const saveByPath = async() => {
+    await FirestoreClient.saveByPath('restaurants/burgerHut/reviews/secondReview', burgerHutSecondReview);
+    }
+
+    const x = saveByPath()
+    // user.push(newUser); //fs
+
+    // const isSuccess = user.filter((user) => user.userId === userId).length > 0;
 
     if (isSuccess) {
         const response = h.response({
             error: false,
             message: 'Akun berhasil ditambahkan',
             data: {
-                userId: userId,
-                nama: name,
-                email: email,
+                x
             },
         });
         response.code(201);
@@ -96,15 +101,24 @@ const loginHandler = (request, h) => {
         return response;
 };
 
-const getAllUserHandler = () => ({
-    error: false,
-    data: {
-        user,
-    },
-});
+const getAllUserHandler = () => {
+    const usersRef = db.collection("Users");
+    usersRef.get().then((querySnapshot) => {
+        querySnapshot.forEach(document => {
+            console.log(document.data());
+        })
+    })
+};
+// ({
+//     error: false,
+//     data: {
+//         user,
+//     },
+// });
 
 //confession room
 const addStoryHandler = (request, h) => {
+    
     const { userId } = request.params;
     const { body } = request.payload;
     
@@ -119,6 +133,8 @@ const addStoryHandler = (request, h) => {
         // tanggapanCount, 
         // supportCount
     };
+
+    db.collection('Users').doc('Account').subCollection('Story'). set(newStory);
 
     story.push(newStory);
 
@@ -400,6 +416,8 @@ const putProfileHandler = (request, h) => {
     return response;
 
 };
+
+// cloud sql
 
 const pool = mysql.createPool({
                     user: process.env.DB_USER,

@@ -20,6 +20,7 @@ const {
 } = require("./handler");
 
 const routes = [
+    // cloud sql try
     {
         method: 'GET',
         path: '/',
@@ -32,6 +33,7 @@ const routes = [
             },
         }
     },
+    // cloud sql try 2
     {
         method: 'GET',
         path: '/name',
@@ -216,6 +218,7 @@ const routes = [
     },
 ];
 
+// //cloud sql
 // const pool = mysql.createPool({
 //     user: process.env.DB_USER,
 //     passsword: process.env.DB_PASS,

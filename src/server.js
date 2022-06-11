@@ -4,6 +4,7 @@ const Jwt = require('@hapi/jwt');
 const routes = require('./routes');
 const mysql = require('mysql');
 
+// //using cloud sql
 // const config = {
 //     user: process.env.DB_USER,
 //     database: process.env.DB_NAME,
@@ -60,6 +61,7 @@ const init = async () => {
 
 };
 
+// cloud sql
 const createUnixSocketPool = async config => {
   const dbSocketPath = process.env.DB_SOCKET_PATH || '/cloudsql';
 

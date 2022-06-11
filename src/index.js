@@ -18,123 +18,133 @@ customerRef.get().then((querySnapshot) => {
 
 // write to firestore
 const data = {
-  id: 1,
-  name: "Jeon Cooky"
+  Email: "Okta@gmail.com",
+  Body: "Cerita blablabla",
 }
 
 const data1 = {
-  id: 2,
-  name: "Jeon Bam"
+  Name: "Viaa",
+  Email: "Via@gmail.com",
+  Password: "Via123",
+  PhoneNum: 75434567
 }
 
-db.collection("Users").doc(data.id.toString()).set(data);
-db.collection("Users").doc(data1.id.toString()).set(data1);
+const data2 = {
+  Name: "Rahma",
+  Email: "Rahma@gmail.com",
+  Password: "Rahma123",
+  PhoneNum: 75434567
+}
 
-// const customerRef = db.collection("CUstomers");
+const data3 = {
+  Name: "Cala",
+  Email: "Cala@gmail.com",
+  Password: "Cala123",
+  PhoneNum: 75434567
+}
 
-// customerRef.get().then((querySnapshot) => {
-//   querySnapshot.forEach(document => {
-//     console.log(document.data());
-//   })
-// })
-// close connect to firestore
+const data4 = {
+  Name: "Safitri",
+  Email: "Safitri@gmail.com",
+  Password: "Safitri123",
+  PhoneNum: 75434567
+}
 
-// write to firestore
-// const data = {
-//   id: 222,
-//   name: "Jeon Cooky"
-// }
+const newStory = {
+  Name: "Safitri",
+  Body: "blablablablabla"
+}
 
-// const data1 = {
-//   id: 200,
-//   name: "Jeon Bam"
-// }
+db.collection('Story').add;
 
-// db.collection("Customers").doc(data.id.toString()).set(data);
-// db.collection("Customers").doc(data1.id.toString()).set(data1);
+db.collection("Story").doc(data.Email.toString()).set(data);
+db.collection("Users").doc(data1.Email.toString()).set(data1);
+db.collection("Users").doc(data2.Email.toString()).set(data2);
+db.collection("Users").doc(data3.Email.toString()).set(data3);
+db.collection("Users").doc(data4.Email.toString()).set(data4);
 
-// // create a new write batch
-// const batch = db.batch();
+// create a new write batch
+const batch = db.batch();
 
-// const customer3 = db.collection("Customers").doc("3");
-// const customer4 = db.collection("Customers").doc("4");
-// const customer5 = db.collection("Customers").doc("5");
-// const customer6 = db.collection("Customers").doc("6");
-// const customer7 = db.collection("Customers").doc("7");
-// const customer8 = db.collection("Customers").doc("8");
-// const customer9 = db.collection("Customers").doc("2");
+const customer3 = db.collection("Customers").doc("3");
+const customer4 = db.collection("Customers").doc("4");
+const customer5 = db.collection("Customers").doc("5");
+const customer6 = db.collection("Customers").doc("6");
+const customer7 = db.collection("Customers").doc("7");
+const customer8 = db.collection("Customers").doc("8");
+const customer9 = db.collection("Customers").doc("2");
 
-// batch.set(customer3, { age: 3, name: "RM"});
-// batch.set(customer4, { age: 4, name: "Jin"});
-// batch.set(customer5, { age: 5, name: "Suga"});
-// batch.set(customer6, { age: 6, name: "J-Hope"});
-// batch.set(customer7, { age: 7, name: "Jimin"});
-// batch.set(customer8, { age: 7, name: "V"});
-// batch.set(customer9, { age: 7, name: "Jungkook"});
+batch.set(customer3, { age: 3, name: "RM"});
+batch.set(customer4, { age: 4, name: "Jin"});
+batch.set(customer5, { age: 5, name: "Suga"});
+batch.set(customer6, { age: 6, name: "J-Hope"});
+batch.set(customer7, { age: 7, name: "Jimin"});
+batch.set(customer8, { age: 7, name: "V"});
+batch.set(customer9, { age: 7, name: "Jungkook"});
 
-// //run the batch
-// batch.commit().then(res => {
-//   console.log("BATCH RUN SUCCESFULLY")
-// })
+//run the batch
+batch.commit().then(res => {
+  console.log("BATCH RUN SUCCESFULLY")
+})
 
 delete document
-db.collection("Customers").doc("7").delete().then(res => {
+
+db.collection("Users").doc("Calala").delete().then(res => {
   console.log("document deleted succedfully")
 })
 
-// // get a document
-// db.collection("Customers").doc("2").get().then(doc => {
-//   console.log(doc.data());
-// })
+// get a document
+db.collection("Users").doc("Account").get().then(doc => {
+  console.log(doc.data());
+})
 
-// // get all collection
-// db.collection("Customers").get().then(snapshot => {
-//   snapshot.forEach(element => {
-//     console.log(element.data());
-//   });
-// })
+// get all collection
+db.collection("Users").get().then(snapshot => {
+  snapshot.forEach(element => {
+    console.log(element.data());
+  });
+})
 
-// // listen for real time changes
-// db.collection("Customers").doc("7").onSnapshot(docSnapshot => {
-//   console.log(docSnapshot.data());
-// })
+// listen for real time changes
+db.collection("Users").doc("Account").onSnapshot(docSnapshot => {
+  console.log(docSnapshot.data());
+})
 
-// // sorting and paginating collection
-// // create 100 records
-// for (let index = 0; index < Array.length; index++) {
-//   const element = array[index];
-// };
+// sorting and paginating collection
+// create 100 records
+for (let index = 0; index < Array.length; index++) {
+  const element = array[index];
+};
 
-// for (let index = 0; index < 100; index++) {
-//   db.collection("Customers").doc(index.toString()).set({
-//     id: index,
-//     name: faker.name.firstName() + " " + faker.name.lastName()
-//   })
-// };
+for (let index = 0; index < 100; index++) {
+  db.collection("Customers").doc(index.toString()).set({
+    id: index,
+    name: faker.name.firstName() + " " + faker.name.lastName()
+  })
+};
 
-// // read the first 10 elements sorted by name
-// db.collection("Customers").orderBy("name")
-//   .startAt(0).limit(10).get().then(snapshot => {
-//     snapshot.forEach(element => {
-//       console.log(element.data().name)
-//     });
-//   })
+// read the first 10 elements sorted by name
+db.collection("Customers").orderBy("name")
+  .startAt(0).limit(10).get().then(snapshot => {
+    snapshot.forEach(element => {
+      console.log(element.data().name)
+    });
+  })
 
-// // read the second 10 elements sorted by name
-// db.collection("Customers").orderBy("name")
-//   .startAt(10).limit(10).get().then(snapshot => {
-//     snapshot.forEach(element => {
-//       console.log(element.data().name)
-//     });
-//   })
+// read the second 10 elements sorted by name
+db.collection("Customers").orderBy("name")
+  .startAt(10).limit(10).get().then(snapshot => {
+    snapshot.forEach(element => {
+      console.log(element.data().name)
+    });
+  })
 
-// //read the rest
-// db.collection("Customers").orderBy("name")
-//   .startAt(20).get().then(snapshot => {
-//     snapshot.forEach(element => {
-//       console.log(element.data().name)
-//     });
-//   })
+//read the rest
+db.collection("Users").orderBy("name").get().then(snapshot => {
+    snapshot.forEach(element => {
+      console.log(element.data().name)
+    });
+  })
 
 router.get('/data', (req, res)=>{
     db.settings({
