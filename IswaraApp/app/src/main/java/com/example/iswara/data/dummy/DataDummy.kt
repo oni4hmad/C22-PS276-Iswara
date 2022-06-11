@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.iswara.ui.chatbot.ChatItem
 import com.example.iswara.ui.ruang_cerita.CeritaItem
 import com.example.iswara.ui.ruang_cerita.detail_tanggapan.TanggapanItem
+import com.example.iswara.ui.settings_laporanku.LaporanItem
 import io.github.serpro69.kfaker.Faker
 import java.util.*
 import kotlin.collections.ArrayList
@@ -73,6 +74,19 @@ object DataDummy {
                 val chat = getRandomText(1, 4)
                 Log.d("faker_chat", "$id, $chat")
                 add(ChatItem(id, isUser, chat))
+            }
+        }
+    }
+
+    fun getListLaporan(size: Int): ArrayList<LaporanItem> {
+        val data = ArrayList<LaporanItem>()
+        val cal = getCalendarDate()
+        return data.apply {
+            for (i in 1..size) {
+                val id = "$i"
+                val date = cal.time
+                Log.d("faker_laporan", "$id, $date")
+                add(LaporanItem(id, date))
             }
         }
     }
