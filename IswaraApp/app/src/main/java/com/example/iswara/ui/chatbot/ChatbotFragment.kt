@@ -23,6 +23,8 @@ import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.iswara.databinding.FragmentChatbotBinding
+import com.example.test_tflite_app_simple.chatbot.Chatbot
+import com.example.test_tflite_app_simple.chatbot.InputFormat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.*
@@ -33,6 +35,8 @@ class ChatbotFragment : Fragment() {
     private lateinit var binding: FragmentChatbotBinding
     private lateinit var viewModel: ChatbotViewModel
     private lateinit var mBottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+    private lateinit var mChatbot: Chatbot
+    private var dialog: MaterialAlertDialogBuilder? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,9 +49,25 @@ class ChatbotFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setHasOptionsMenu(true)
+        (activity as AppCompatActivity).supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            title = "Ara (Chatbot)"
+        }
+
         viewModel = ViewModelProvider(this)[ChatbotViewModel::class.java]
         viewModel.listChat.observe(viewLifecycleOwner) { listChat ->
             showRecyclerList(listChat)
+        }
+
+        mChatbot = Chatbot(view.context)
+        mChatbot.setOnChatbotResponded { respond, input, inputFormat ->
+            setInputUI(view.context, input, inputFormat)
+            viewModel.sendBotChat(respond)
+        }
+
+        binding.btnChooseOption.setOnClickListener {
+            dialog?.show()
         }
 
         mBottomSheetBehavior = BottomSheetBehavior.from(binding.introBotomSheet).apply {
@@ -92,15 +112,11 @@ class ChatbotFragment : Fragment() {
         binding.btnKirim.setOnClickListener {
             val chatToSend = binding.edtChat.text.toString()
             binding.edtChat.setText(String(), TextView.BufferType.EDITABLE)
-            viewModel.sendChat(chatToSend)
+            sendUserChat(chatToSend)
         }
 
         binding.btnEndLaporan.setOnClickListener {
-
-            // showDialog("Akhiri Laporan?", "Setelah diakhiri, laporan tidak ada bisa ditambah dan akan diproses lebih lanjut.", "Laporan diakhiri!")
-
-            setOptions(view?.context)
-
+            showDialog("Akhiri Laporan?", "Setelah diakhiri, laporan tidak ada bisa ditambah dan akan diproses lebih lanjut.", "Laporan diakhiri!")
         }
 
         binding.btnCancelLaporan.setOnClickListener {
@@ -109,117 +125,144 @@ class ChatbotFragment : Fragment() {
 
     }
 
-    private fun setOptions(context: Context) {
+    private fun setInputUI(context: Context, input: Chatbot.Input, inputFormat: InputFormat) {
 
         /*
         * Parse data
         * */
 
-        val itemsOption = arrayOf("Item 1", "Item 2", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 1", "Item 2", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3", "Item 3")
+        val itemsOption = inputFormat.options?.toTypedArray() ?: arrayOf("null")
         val itemsState = BooleanArray(itemsOption.size) { false }
         val radioCheckedItem = -1  /* -1 = tidak memilih apapun */
-        var respond: String = ""
 
-        /*
-        * Simple dialog
-        * */
-
-        MaterialAlertDialogBuilder(context)
-            .setTitle("Tap untuk pilih!")
-            .setItems(itemsOption) { dialog, which ->
-                // Respond to item chosen
-
-                /* log : index array -> 0/1/2 */
-                showToast(which.toString())
-
-                /* set chat */
-                setChatTo(itemsOption[which])
-
+        when(input) {
+            Chatbot.Input.ENDED -> {
+                setToEnded(true)
             }
-            .show()
-
-        /*
-        * Confirmation dialog: radio button
-        * */
-
-        MaterialAlertDialogBuilder(context)
-            .setTitle("Pilih salah satu!")
-            .setNeutralButton("Batal") { dialog, which ->
-                // Respond to neutral button press
+            Chatbot.Input.CHAT -> {
+                setToOption(false)
             }
-            .setPositiveButton("OK") { dialog, which ->
-                // Respond to positive button press
+            Chatbot.Input.RADIO_BUTTON -> {
 
-                /* log */
-                showToast("$which") // -1 ?
+                /*
+                * Confirmation dialog: radio button
+                * */
 
-                /* set chat */
-                for (i in itemsState.indices) {
-                    if (itemsState[i]) {
-                        setChatTo(itemsOption[i])
-                        break
+                dialog = MaterialAlertDialogBuilder(context)
+                    .setTitle(inputFormat.title)
+                    .setNeutralButton("Batal") { dialog, which ->
+                        // Respond to neutral button press
                     }
-                }
-            }
-            // Single-choice items (initialized with checked item)
-            .setSingleChoiceItems(itemsOption, radioCheckedItem) { dialog, which ->
-                // Respond to item chosen
+                    .setPositiveButton("Kirim") { dialog, which ->
+                        // Respond to positive button press
 
-                /* set selected item to true */
-                Arrays.fill(itemsState, false)
-                itemsState[which] = true
+                        /* log */
+                        showToast("$which") // -1 ?
 
-                /* log */
-                showToast("${itemsOption[which]} : ${itemsState[which]}")
-                showToast("$which") // index array -> 0/1/2
-            }
-            .show()
-
-        /*
-        * Confirmation dialog: checkbox
-        * */
-
-        MaterialAlertDialogBuilder(context)
-            .setTitle("Pilih beberapa!")
-            .setNeutralButton("Cancel") { dialog, which ->
-                // Respond to neutral button press
-            }
-            .setNegativeButton("Tidak") { dialog, which ->
-                // Respond to neutral button press
-            }
-            .setPositiveButton("OK") { dialog, which ->
-                // Respond to positive button press
-
-                /* log itemsState */
-
-                showToast("$which") // -1 ?
-                showToast(Arrays.deepToString(arrayOf(itemsState)).apply {
-                    replace("true", "1")
-                    replace("false", "0")
-                })
-
-                /* build chat respond */
-
-                for (i in 0..itemsState.size-1) {
-                    if (itemsState[i]) {
-                        if (respond.isNotEmpty())
-                            respond = concat(respond, ", ${itemsOption[i]}")
-                        else respond = concat(respond, itemsOption[i])
+                        /* set chat */
+                        for (i in itemsState.indices) {
+                            if (itemsState[i]) {
+                                sendUserChat(itemsOption[i])
+                                break
+                            }
+                        }
                     }
-                }
-                setChatTo(respond)
-            }
-            //Multi-choice items (initialized with checked items)
-            .setMultiChoiceItems(itemsOption, itemsState) { dialog, which, checked ->
-                // Respond to item chosen
+                    // Single-choice items (initialized with checked item)
+                    .setSingleChoiceItems(itemsOption, radioCheckedItem) { dialog, which ->
+                        // Respond to item chosen
 
-                /* set selected item to true/false */
-                itemsState[which] = checked
+                        /* set selected item to true */
+                        Arrays.fill(itemsState, false)
+                        itemsState[which] = true
 
-                /* log: index : [apakah tercheck (true) atau tidak (false)] */
-                showToast("$which : $checked")
+                        /* log */
+                        showToast("${itemsOption[which]} : ${itemsState[which]}")
+                        showToast("$which") // index array -> 0/1/2
+                    }
+
+                setToOption(true, inputFormat.title.toString())
+
             }
-            .show()
+            Chatbot.Input.CHECK_BOX -> {
+
+                /*
+                * Confirmation dialog: checkbox
+                * */
+
+                dialog = MaterialAlertDialogBuilder(context)
+                    .setTitle(inputFormat.title)
+                    .setNeutralButton("Batal") { dialog, which ->
+                        // Respond to neutral button press
+                    }
+                    .setPositiveButton("Kirim") { dialog, which ->
+                        // Respond to positive button press
+
+                        /* log itemsState */
+
+                        showToast("$which") // -1 ?
+                        showToast(Arrays.deepToString(arrayOf(itemsState)).apply {
+                            replace("true", "1")
+                            replace("false", "0")
+                        })
+
+                        /* build chat respond */
+
+                        var respond = String()
+                        for (i in 0..itemsState.size-1) {
+                            if (itemsState[i]) {
+                                if (respond.isNotEmpty())
+                                    respond = concat(respond, ", ${itemsOption[i]}")
+                                else respond = concat(respond, itemsOption[i])
+                            }
+                        }
+                        sendUserChat(respond)
+                    }
+                    //Multi-choice items (initialized with checked items)
+                    .setMultiChoiceItems(itemsOption, itemsState) { dialog, which, checked ->
+                        // Respond to item chosen
+
+                        /* set selected item to true/false */
+                        itemsState[which] = checked
+
+                        /* log: index : [apakah tercheck (true) atau tidak (false)] */
+                        showToast("$which : $checked")
+                    }
+
+                setToOption(true, inputFormat.title.toString())
+
+            }
+        }
+
+    }
+
+    private fun setToEnded(isEnd: Boolean) {
+        if(isEnd) {
+            binding.edtChat.visibility = View.GONE
+            binding.btnKirim.visibility = View.GONE
+            binding.btnChooseOption.visibility = View.GONE
+        } else {
+            binding.edtChat.visibility = View.VISIBLE
+            binding.btnKirim.visibility = View.VISIBLE
+        }
+    }
+
+    private fun setToOption(isOption: Boolean, title: String = "null") {
+        if (isOption) {
+            binding.edtChat.visibility = View.GONE
+            binding.btnKirim.visibility = View.GONE
+            binding.btnChooseOption.text = title
+            binding.btnChooseOption.visibility = View.VISIBLE
+        } else {
+            binding.edtChat.visibility = View.VISIBLE
+            binding.btnKirim.visibility = View.VISIBLE
+            binding.btnChooseOption.text = title
+            binding.btnChooseOption.visibility = View.GONE
+        }
+    }
+
+    private fun sendUserChat(chat: String) {
+        viewModel.sendUserChat(chat)
+        mChatbot.chat(chat)
     }
 
     private fun setChatTo(text: String) {
@@ -232,8 +275,6 @@ class ChatbotFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             android.R.id.home -> {
-                //findNavController().navigate(R.id.action_addCeritaFragment2_to_tabCeritaFragment2)
-                //findNavController().navigateUp()
                 (activity as AppCompatActivity).finish()
                 return true
             }
@@ -265,7 +306,7 @@ class ChatbotFragment : Fragment() {
 
         listChatAdapter.setOnItemClickCallback(object : ChatAdapter.OnItemClickCallback {
             override fun onItemClicked(chat: ChatItem) {
-                chat.apply { showToast("$id, $isUser, ${this.chat}") }
+                chat.apply { showToast("${this.chat}, $id, $isUser") }
             }
         })
 

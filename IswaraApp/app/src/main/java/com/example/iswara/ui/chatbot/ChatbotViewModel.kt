@@ -15,7 +15,7 @@ class ChatbotViewModel : ViewModel() {
 
     init {
         /* get dummy chat */
-        _listChat.value = DataDummy.getChat(false, 1)
+        // _listChat.value = DataDummy.getChat(false, 1)
     }
 
     private fun generateBalasan() {
@@ -28,7 +28,7 @@ class ChatbotViewModel : ViewModel() {
         }
     }
 
-    fun sendChat(chat: String) {
+    fun sendUserChat(chat: String) {
         val id = _listChat.value?.count().toString()
         val chatBaru = ChatItem(id, true, chat)
         _listChat.value?.let { list ->
@@ -39,7 +39,21 @@ class ChatbotViewModel : ViewModel() {
             temp.add(chatBaru)
             _listChat.value = temp
         }
-        generateBalasan()
+//        generateBalasan()
+    }
+
+    fun sendBotChat(chat: String) {
+        val id = _listChat.value?.count().toString()
+        val chatBaru = ChatItem(id, false, chat)
+        _listChat.value?.let { list ->
+            list.add(chatBaru)
+            _listChat.value = list
+        } ?: run {
+            val temp = ArrayList<ChatItem>()
+            temp.add(chatBaru)
+            _listChat.value = temp
+        }
+//        generateBalasan()
     }
 
 }
