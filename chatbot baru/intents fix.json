@@ -7,7 +7,7 @@
             "input": {
                 "type": 1,
                 "title": "Pilih persetujuan",
-                "options": ["Setuju", "Tidak Setuju"]
+                "options": ["Menyetujui Pembagian Identitas", "Menolak Pembagian Identitas"]
             }
         },
         {
@@ -31,17 +31,8 @@
         },
         {
             "tag": "laporDiri",
-            "patterns": ["korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor"],
-            "responses": ["Ara ingin membantu, dengan siapa ini? (sebutkan nama lengkap)"],
-            "input": {
-                "type": 0,
-                "title": "Identitas Nama"
-            }
-        },
-        {
-            "tag": "laporOrang",
-            "patterns": ["korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain"],
-            "responses": ["Ara ingin membantu, siapa nama korban? (sebutkan nama lengkap)"],
+            "patterns": ["korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah oranglain", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor", "korban adalah pelapor"],
+            "responses": ["Ara ingin membantu, siapa nama korban tersebut?"],
             "input": {
                 "type": 0,
                 "title": "Identitas Nama"
@@ -80,7 +71,7 @@
             "patterns": ["kenal, ayah tirinya", "tidak kenal identitasnya, pelakunya seorang pengendara sepeda motor datang dari arah belakang langsung memegang pantat korban", "iya aku mengenal identitasnya, pelaku pelecehan seksualnya tetangganya sendiri", "tidak kenal identitasnya, tapi pelakunya salah satu tokoh warga masyarakat desa", "pelakunya memiliki kelainan seks karena menyukai sesama jenis", "tidak mengenal identitasnya, pelaku seorang pria penumpang bus", "tentu mengenal, pelakunya tetangganya sendiri", "tidak mengenal, pelakunya pengemudi ojek online ojol", "kenal betul, pelakunya ayah tirinya", "kenal, pelakunya ayahku", "kenal, pelakunya ayahnya", "pelakunya kakeknya sendiri", "pelakunya salah satu Kru TV, Rekan kerja", "pelakunya pengendara pengemudi sepeda motor tidak dikenal", "kenal, pelakunya Asisten Pengajar Singapore American School", "kenal, pelakunya adalah guru di sekolah", "iya, pelakunya dosen pembimbing", "kenal, pelakunya adalah teman sekelas", "pelakunya adalah pacarku sendiri", "pelakunya ayahnya sendiri", "pelakunya pamanya sendiri", "pelakunya om nya sendiri", "pelaku adalah ayah tirinya", "pelaku adalah ayah kandungnya", "pelaku adalah dosennya", "pelaku adalah kepala sekolahnya", "pelaku tetangga sebelah rumahnya", "pelakunya adalah dosenku di kampus", "pelakunya adalah omku", "pelakunya adalah pamanku", "pelakunya adalah pakde ku", "pelakunya adalah kakak ku", "pelakunya adalah temanku", "pelakunya adalah saudaraku", "pelakunya adalah pacarnya", "pelakunya adalah bestie ku"],
             "responses": ["Okai, selanjutnya coba beri tahu Ara apa pekerjaan pelaku?"],
             "input": {
-                "type": 0
+                "type": 0,
                 "title": "Pekerjaan Pelaku"
             }
         },
