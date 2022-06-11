@@ -253,6 +253,7 @@ class ChatbotFragment : Fragment() {
             binding.btnChooseOption.text = title
             binding.btnChooseOption.visibility = View.VISIBLE
         } else {
+            binding.edtChat.setText(String(), TextView.BufferType.EDITABLE)
             binding.edtChat.visibility = View.VISIBLE
             binding.btnKirim.visibility = View.VISIBLE
             binding.btnChooseOption.text = title
