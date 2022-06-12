@@ -12,7 +12,10 @@
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/form_box.xml" value="0.1375" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.101" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.139" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.129" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_baseline_layers_24.xml" value="0.139" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.129" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.129" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_round_mark_chat_unread_24.xml" value="0.139" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/ic_round_warning_amber_24.xml" value="0.139" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/drawable/rounded_upside_beranda.xml" value="0.1285" />
@@ -26,7 +29,7 @@
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_profile_setting.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_tab_cerita.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_ubah_password.xml" value="0.2509057971014493" />
-        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_add_cerita.xml" value="0.33" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_add_cerita.xml" value="0.1" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_beranda.xml" value="0.22" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_change_password.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_chatbot.xml" value="0.33" />
@@ -57,6 +60,7 @@
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/save_btn_cstm.xml" value="0.25271739130434784" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/settings_fragment.xml" value="0.2767210144927536" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/tanggapan_action_bottom_sheet.xml" value="0.25" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/menu/add_cerita_menu.xml" value="0.278125" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.278125" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/menu/save_menu.xml" value="0.278125" />
         <entry key="..\:/kuliah/BANGKIT2022/team/capstone_github/IswaraApp/app/src/main/res/drawable-v24/ic_launcher_background_iswara.xml" value="0.1" />
