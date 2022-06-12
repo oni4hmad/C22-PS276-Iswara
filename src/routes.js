@@ -1,7 +1,8 @@
 const { handler } = require("@hapi/hapi/lib/cors");
 const { response } = require("@hapi/hapi/lib/validation");
 const Joi = require("joi");
-const mysql = require("mysql")
+// const mysql = require("mysql")
+
 const { 
     addAccountHandler,
     loginHandler,
@@ -14,54 +15,18 @@ const {
     deleteStoryByIdHandler,
     addReportHandler,
     getAllReportHandler,
-    getReportByIdHandler,
     getProfileHandler,
     putProfileHandler,
 } = require("./handler");
 
 const routes = [
-    // cloud sql try
     {
         method: 'GET',
         path: '/',
         config: {
             auth: false,
-            handler: (request, h) => {
-                // const query = "SELECT * FROM try";
+            handler: () => {
                 return `Selamat Datang di Aplikasi Iswara`;
-                // return query;
-            },
-        }
-    },
-    // cloud sql try 2
-    {
-        method: 'GET',
-        path: '/name',
-        config: {
-            auth: false,
-            handler: (request, h) => {
-                const query = "SELECT * FROM try";
-                pool.query(query, [ request.params.name ], (error, results) => {
-                    if (!results[0]) {
-                        // console.log("Not found!");
-                        const response = h.response ({
-                            status: "Not found! Bye"
-                        });
-                        return response;
-                    } else {
-                        // console.log(results[0]);
-                        const response = h.response ({
-                            results
-                        });
-                        return response;
-                    }
-                });
-                const pool = mysql.createPool({
-                    user: process.env.DB_USER,
-                    password: process.env.DB_PASS,
-                    database: process.env.DB_NAME,
-                    socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`
-                });
             },
         }
     },
@@ -117,7 +82,6 @@ const routes = [
             auth: false,
             handler: getAllUserHandler,
         }
-        
     },
 
     //confession room
@@ -128,7 +92,6 @@ const routes = [
             auth: false,
             handler: addStoryHandler,
         }
-        
     },
     {
         method: 'GET',
@@ -153,7 +116,6 @@ const routes = [
             auth: false,
             handler: getStoryByIdHandler,
         }
-        
     },
     {
         method: 'PUT',
@@ -162,7 +124,6 @@ const routes = [
             auth: false,
             handler: editStoryByIdHandler,
         }
-        
     },
     {
         method: 'DELETE',
@@ -190,14 +151,6 @@ const routes = [
             handler: getAllReportHandler,
         }
     },
-    {
-        method: 'GET',
-        path: '/report/{reportId}',
-        config: {
-            auth: false,
-            handler: getReportByIdHandler,
-        }
-    },
 
     //profile
     {
@@ -217,13 +170,5 @@ const routes = [
         }
     },
 ];
-
-// //cloud sql
-// const pool = mysql.createPool({
-//     user: process.env.DB_USER,
-//     passsword: process.env.DB_PASS,
-//     database: process.env.DB_NAME,
-//     socketPath: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`,
-// });
 
 module.exports = routes;

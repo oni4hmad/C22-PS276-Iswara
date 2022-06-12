@@ -1,5 +1,4 @@
 runtime: nodejs16
-
 instance_class: F2
 
 handlers:
@@ -7,7 +6,7 @@ handlers:
   secure: always
   script: auto
 
-# to connect cloud sql
+# to connect cloud
 env_variables:
   GOOGLE_PROJECT_ID: iswara-project,
   INSTANCE_CONNECTION_NAME: iswara-project:asia-southeast1:iswara,

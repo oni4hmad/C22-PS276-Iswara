@@ -2,22 +2,7 @@ const server = require('@hapi/hapi');
 const Hapi = require('@hapi/hapi');
 const Jwt = require('@hapi/jwt');
 const routes = require('./routes');
-const mysql = require('mysql');
-
-// //using cloud sql
-// const config = {
-//     user: process.env.DB_USER,
-//     database: process.env.DB_NAME,
-//     password: process.env.DB_PASS
-// }
-
-// if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
-//     config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
-//   }
-
-// const connection = mysql.createConnection(config);
-
-// connection.connect();
+// const mysql = require('mysql');
 
 const init = async () => {
     const server = Hapi.server({
@@ -44,7 +29,7 @@ const init = async () => {
             maxAgeSec: 14400,
             timeSkewSec: 15
         },
-        validate: (artifacts, request, h) => {
+        validate: (artifacts) => {
             return {
                 isValid: true,
                 credentials: { user: artifacts.decoded.payload.user }
@@ -58,29 +43,11 @@ const init = async () => {
     console.log(`Server berjalan pada ${server.info.uri}`);
 
     server.auth.default('my_jwt_strategy');
-
 };
 
-// cloud sql
-const createUnixSocketPool = async config => {
-  const dbSocketPath = process.env.DB_SOCKET_PATH || '/cloudsql';
-
-  // Establish a connection to the database
-  return mysql.createPool({
-    user: process.env.DB_USER, // e.g. 'my-db-user'
-    password: process.env.DB_PASS, // e.g. 'my-db-password'
-    database: process.env.DB_NAME, // e.g. 'my-database'
-    // If connecting via unix domain socket, specify the path
-    socketPath: `${dbSocketPath}/${process.env.INSTANCE_CONNECTION_NAME}`,
-    // Specify additional properties here.
-    ...config,
-  });
-};
-    
 process.on('unhandledRejection', (err) => {
     console.log(err);
     process.exit(1);
 });
 
 init();
-createUnixSocketPool();
