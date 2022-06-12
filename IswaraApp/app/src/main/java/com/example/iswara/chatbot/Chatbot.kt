@@ -145,6 +145,14 @@ class Chatbot (private val context: Context) {
         this.onChatbotResponded = callback
     }
 
+    fun getRemainingIntentClassesJson(): String {
+        return Gson().toJson(remainingIntentClasses)
+    }
+
+    fun setRemainingIntentClasses(json: String) {
+        this.remainingIntentClasses = rawJsonToArrayList(json)
+    }
+
     /*
     * Reset remaining intents, so all bot responses can be called again
     * */
