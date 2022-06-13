@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_laporan_nav"
+    app:startDestination="@id/settingsLaporankuFragment2">
+
+    <fragment
+        android:id="@+id/settingsLaporankuFragment2"
+        android:name="com.example.iswara.ui.settings_laporanku.SettingsLaporankuFragment"
+        android:label="fragment_settings_laporanku"
+        tools:layout="@layout/fragment_settings_laporanku" >
+        <action
+            android:id="@+id/action_settingsLaporankuFragment2_to_chatbotFragment"
+            app:destination="@id/chatbotFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatbotFragment"
+        android:name="com.example.iswara.ui.chatbot.ChatbotFragment"
+        android:label="fragment_chatbot"
+        tools:layout="@layout/fragment_chatbot" >
+        <argument
+            android:name="laporan"
+            app:argType="com.example.iswara.data.database.Report"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

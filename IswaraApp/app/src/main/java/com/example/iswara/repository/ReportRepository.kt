@@ -20,4 +20,6 @@ class ReportRepository(private val reportDao: ReportDao) {
     suspend fun updateBotState(botState: BotState) = reportDao.updateBotState(botState)
     fun getBotStateByReportId(reportId: Int): BotState? = reportDao.getBotStateByReportId(reportId)
 
+    suspend fun updateReport(report: Report) = reportDao.updateReport(report)
+
 }

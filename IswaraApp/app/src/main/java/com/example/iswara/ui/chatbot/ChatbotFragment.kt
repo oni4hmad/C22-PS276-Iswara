@@ -28,18 +28,14 @@ import com.example.iswara.data.database.Chat
 import com.example.iswara.data.preferences.Session
 import com.example.iswara.data.preferences.SessionPreference
 import com.example.iswara.databinding.FragmentChatbotBinding
-import com.example.iswara.ui.ruang_cerita.cerita_user.UserCeritaViewModel
-import com.example.iswara.ui.ruang_cerita.cerita_user.UserCeritaViewModelFactory
 import com.example.test_tflite_app_simple.chatbot.Chatbot
 import com.example.test_tflite_app_simple.chatbot.InputFormat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ChatbotFragment : Fragment() {
 
@@ -86,35 +82,60 @@ class ChatbotFragment : Fragment() {
         }
 
         viewModel = ViewModelProvider(this, ChatbotViewModelModelFactory(view.context, session))[ChatbotViewModel::class.java]
-        viewModel.getOnGoingReport().observe(viewLifecycleOwner) { report ->
-            report?.let {
+        arguments?.let { arg ->
+            ChatbotFragmentArgs.fromBundle(arg as Bundle).laporan?.also {
                 viewModel.setReport(it)
-                viewModel.getChatHistory().removeObservers(viewLifecycleOwner)
-                viewModel.getChatHistory().observe(viewLifecycleOwner) { listChat ->
-                    Log.d("ChatbotFragment", listChat.joinToString())
-                    if (listChat.isNotEmpty()) showRecyclerList(listChat)
+                if (it.isFinish) fixJustUIEnded()
+                viewModel.getChatHistory().observe(viewLifecycleOwner) {
+                    viewModel.getChatHistory().removeObservers(viewLifecycleOwner)
+                    viewModel.getChatHistory().observe(viewLifecycleOwner) { listChat ->
+                        Log.d("ChatbotFragment", listChat.joinToString())
+                        if (listChat.isNotEmpty()) showRecyclerList(listChat)
+                    }
+                    showLoading(false)
                 }
-                showLoading(false)
-            } ?: run {
                 lifecycleScope.launch(Dispatchers.IO) {
-                    viewModel.addReport {
-                        lifecycleScope.launch(Dispatchers.Main) {
-                            viewModel.getChatHistory().removeObservers(viewLifecycleOwner)
-                            viewModel.getChatHistory().observe(viewLifecycleOwner) { listChat ->
-                                Log.d("ChatbotFragment", listChat.joinToString())
-                                if (listChat.isNotEmpty()) showRecyclerList(listChat)
-                            }
-                            showLoading(false)
+                    viewModel.getBotState()?.let { state ->
+                        Log.d("ChatbotFragment", state.remainClassJson)
+                        mChatbot.setRemainingIntentClasses(state.remainClassJson)
+                        if (state.isEnded) {
+                            withContext(Dispatchers.Main) { setToEnded(true) }
                         }
                     }
                 }
             }
-            lifecycleScope.launch(Dispatchers.IO) {
-                viewModel.getBotState()?.let { state ->
-                    Log.d("ChatbotFragment", state.remainClassJson)
-                    mChatbot.setRemainingIntentClasses(state.remainClassJson)
-                    if (state.isEnded) {
-                        withContext(Dispatchers.Main) { setToEnded(true) }
+        } ?: run {
+            viewModel.getOnGoingReport().observe(viewLifecycleOwner) { report ->
+                report?.let {
+                    viewModel.setReport(it)
+                    if (it.isFinish) fixJustUIEnded()
+                    viewModel.getChatHistory().removeObservers(viewLifecycleOwner)
+                    viewModel.getChatHistory().observe(viewLifecycleOwner) { listChat ->
+                        Log.d("ChatbotFragment", listChat.joinToString())
+                        if (listChat.isNotEmpty()) showRecyclerList(listChat)
+                    }
+                    showLoading(false)
+                } ?: run {
+                    lifecycleScope.launch(Dispatchers.IO) {
+                        viewModel.addReport {
+                            lifecycleScope.launch(Dispatchers.Main) {
+                                viewModel.getChatHistory().removeObservers(viewLifecycleOwner)
+                                viewModel.getChatHistory().observe(viewLifecycleOwner) { listChat ->
+                                    Log.d("ChatbotFragment", listChat.joinToString())
+                                    if (listChat.isNotEmpty()) showRecyclerList(listChat)
+                                }
+                                showLoading(false)
+                            }
+                        }
+                    }
+                }
+                lifecycleScope.launch(Dispatchers.IO) {
+                    viewModel.getBotState()?.let { state ->
+                        Log.d("ChatbotFragment", state.remainClassJson)
+                        mChatbot.setRemainingIntentClasses(state.remainClassJson)
+                        if (state.isEnded) {
+                            withContext(Dispatchers.Main) { setToEnded(true) }
+                        }
                     }
                 }
             }
@@ -170,11 +191,11 @@ class ChatbotFragment : Fragment() {
         }
 
         binding.btnEndLaporan.setOnClickListener {
-            showDialog("Akhiri Laporan?", "Setelah diakhiri, laporan tidak ada bisa ditambah dan akan diproses lebih lanjut.", "Laporan diakhiri!")
+            showDialogAkhiri("Akhiri Laporan?", "Setelah diakhiri, laporan tidak ada bisa ditambah dan akan diproses lebih lanjut.", "Laporan diakhiri!")
         }
 
         binding.btnCancelLaporan.setOnClickListener {
-            showDialog("Batalkan Laporan?", "Setelah dibatalkan, laporan akan dihapus.", "Laporan dibatalkan!")
+            showDialogBatalkan("Batalkan Laporan?", "Setelah dibatalkan, laporan akan dihapus.", "Laporan dibatalkan!")
         }
 
     }
@@ -211,7 +232,7 @@ class ChatbotFragment : Fragment() {
                         // Respond to positive button press
 
                         /* log */
-                        showToast("$which") // -1 ?
+                        // showToast("$which") // -1 ?
 
                         /* set chat */
                         for (i in itemsState.indices) {
@@ -230,8 +251,8 @@ class ChatbotFragment : Fragment() {
                         itemsState[which] = true
 
                         /* log */
-                        showToast("${itemsOption[which]} : ${itemsState[which]}")
-                        showToast("$which") // index array -> 0/1/2
+                        //showToast("${itemsOption[which]} : ${itemsState[which]}")
+                        //showToast("$which") // index array -> 0/1/2
                     }
 
                 setToOption(true, inputFormat.title.toString())
@@ -253,11 +274,11 @@ class ChatbotFragment : Fragment() {
 
                         /* log itemsState */
 
-                        showToast("$which") // -1 ?
-                        showToast(Arrays.deepToString(arrayOf(itemsState)).apply {
+                        //showToast("$which") // -1 ?
+                        /*showToast(Arrays.deepToString(arrayOf(itemsState)).apply {
                             replace("true", "1")
                             replace("false", "0")
-                        })
+                        })*/
 
                         /* build chat respond */
 
@@ -279,7 +300,7 @@ class ChatbotFragment : Fragment() {
                         itemsState[which] = checked
 
                         /* log: index : [apakah tercheck (true) atau tidak (false)] */
-                        showToast("$which : $checked")
+                        //showToast("$which : $checked")
                     }
 
                 setToOption(true, inputFormat.title.toString())
@@ -341,7 +362,23 @@ class ChatbotFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun showDialog(title: String, desc: String, respond: String) {
+    private fun showDialogAkhiri(title: String, desc: String, respond: String) {
+        view?.context?.let {
+            MaterialAlertDialogBuilder(it)
+                .setTitle(title)
+                .setMessage(desc)
+                .setNegativeButton("Tidak") { dialog, which ->
+                    // Respond to negative button press
+                }
+                .setPositiveButton("Ya") { dialog, which ->
+                    // Respond to positive button press
+                    setReportEndedUI()
+                }
+                .show()
+        }
+    }
+
+    private fun showDialogBatalkan(title: String, desc: String, respond: String) {
         view?.context?.let {
             MaterialAlertDialogBuilder(it)
                 .setTitle(title)
@@ -426,6 +463,25 @@ class ChatbotFragment : Fragment() {
         }
 
         return sb.toString()
+    }
+
+    fun setReportEndedUI() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            viewModel.setLaporanEnded {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    fixJustUIEnded()
+                }
+            }
+        }
+    }
+
+    fun fixJustUIEnded() {
+        setToEnded(true)
+        val dateEnded = viewModel.getReportDate()
+        binding.tvEndedReport.text = "Laporan berhasil dibuat pada tanggal " + dateEnded
+        binding.tvEndedReport.visibility = View.VISIBLE
+        binding.btnEndLaporan.visibility = View.GONE
+        binding.btnCancelLaporan.visibility = View.GONE
     }
 
 }

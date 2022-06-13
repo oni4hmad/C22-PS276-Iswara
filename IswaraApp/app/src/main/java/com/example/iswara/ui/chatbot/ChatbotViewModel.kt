@@ -16,6 +16,7 @@ import com.example.iswara.repository.ReportRepository
 import com.example.iswara.ui.ruang_cerita.cerita_user.UserCeritaViewModel
 import com.example.iswara.ui.ruang_cerita.detail_tanggapan.TanggapanItem
 import com.example.iswara.utils.dateToString
+import com.example.iswara.utils.formatDateString
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.*
@@ -39,6 +40,7 @@ class ChatbotViewModel(private val reportRepository: ReportRepository, private v
     private val userId get() = session.id ?: ""
     private var report: Report? = null
     private val reportId get() = report?.reportId ?: -1
+    private val repDate get() = report?.date ?: "2022-05-28T12:30:47.476Z"
 
     init {
         /* get dummy chat */
@@ -131,5 +133,17 @@ class ChatbotViewModel(private val reportRepository: ReportRepository, private v
     }
 
     fun getBotState(): BotState? = reportRepository.getBotStateByReportId(reportId)
+
+    suspend fun setLaporanEnded(callback: (() -> Unit)? = null) {
+        report?.let {
+            val endedReport = Report(it.reportId, it.userId, it.date, true)
+            reportRepository.updateReport(endedReport)
+            callback?.invoke()
+        }
+    }
+
+    fun getReportDate(): String {
+        return formatDateString(repDate)
+    }
 
 }

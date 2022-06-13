@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.iswara.data.database.Report
 import com.example.iswara.databinding.ItemMyLaporanBinding
+import com.example.iswara.utils.formatDateString
 import java.text.SimpleDateFormat
 
-class LaporanAdapter(private val listLaporan: List<LaporanItem>) : RecyclerView.Adapter<LaporanAdapter.ListViewHolder>() {
+class LaporanAdapter(private val listLaporan: List<Report>) : RecyclerView.Adapter<LaporanAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -26,18 +28,15 @@ class LaporanAdapter(private val listLaporan: List<LaporanItem>) : RecyclerView.
     override fun getItemCount(): Int = listLaporan.size
 
     inner class ListViewHolder(private var binding: ItemMyLaporanBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(laporan: LaporanItem) {
+        fun bind(laporan: Report) {
 
-            binding.tvDayName.text = laporan.date.let {
-                val formatter = SimpleDateFormat("EEE, d MMMM yyyy")
-                formatter.format(it)
-            }
+            binding.tvDayName.text = formatDateString(laporan.date)
             binding.clLaporan.setOnClickListener { onItemClickCallback.onItemClicked(laporan) }
         }
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(laporan: LaporanItem)
+        fun onItemClicked(laporan: Report)
     }
 
 }

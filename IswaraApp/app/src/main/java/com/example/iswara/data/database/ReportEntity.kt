@@ -1,10 +1,13 @@
 package com.example.iswara.data.database
 
+import android.os.Parcelable
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Relation
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity
 data class Report(
     @PrimaryKey(autoGenerate = true)
@@ -12,7 +15,7 @@ data class Report(
     val userId: String,
     val date: String,
     val isFinish: Boolean
-)
+) : Parcelable
 
 @Entity
 data class Chat(

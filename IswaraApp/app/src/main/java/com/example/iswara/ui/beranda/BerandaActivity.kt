@@ -21,7 +21,6 @@ class BerandaActivity : AppCompatActivity() {
         binding.bottomNavViewMenu.setupWithNavController(theNavController)
 
         binding.fabChatbotAra.setOnClickListener {
-            Toast.makeText(this,"Chatbot here", Toast.LENGTH_SHORT).show()
             theNavController.navigate(R.id.action_berandaFragment2_to_chatbotActivity)
         }
 

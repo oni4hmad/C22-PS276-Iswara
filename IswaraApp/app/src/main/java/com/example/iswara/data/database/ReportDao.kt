@@ -8,6 +8,9 @@ interface ReportDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertReport(report: Report)
 
+    @Update
+    suspend fun updateReport(report: Report)
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertChat(chat: Chat)
 
