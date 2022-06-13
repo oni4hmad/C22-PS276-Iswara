@@ -103,6 +103,7 @@ class ChatbotFragment : Fragment() {
                         }
                     }
                 }
+                binding.layoutBottomSheet.visibility = View.GONE
             }
         } ?: run {
             viewModel.getOnGoingReport().observe(viewLifecycleOwner) { report ->

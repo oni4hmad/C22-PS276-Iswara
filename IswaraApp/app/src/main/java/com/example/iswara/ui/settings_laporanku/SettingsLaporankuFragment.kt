@@ -8,9 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.iswara.R
 import com.example.iswara.data.database.Report
@@ -54,6 +53,11 @@ class SettingsLaporankuFragment : Fragment() {
 
     }
 
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        binding.rvAllLaporanku.visibility = View.VISIBLE
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             android.R.id.home -> {
@@ -72,7 +76,10 @@ class SettingsLaporankuFragment : Fragment() {
 
         listLaporanAdapter.setOnItemClickCallback(object : LaporanAdapter.OnItemClickCallback {
             override fun onItemClicked(laporan: Report) {
-                findNavController().navigate(R.id.action_settingsLaporankuFragment2_to_chatbotFragment, bundleOf("laporan" to laporan), null)
+                binding.rvAllLaporanku.visibility = View.GONE
+                val toChatbotFragment = SettingsLaporankuFragmentDirections.actionSettingsLaporankuFragment2ToChatbotFragment(laporan)
+                val navController = Navigation.findNavController((activity as AppCompatActivity), R.id.nav_host_laporanku)
+                navController.navigate(toChatbotFragment)
             }
         })
     }
