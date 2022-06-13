@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -21,12 +22,22 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.iswara.data.database.Chat
+import com.example.iswara.data.preferences.Session
+import com.example.iswara.data.preferences.SessionPreference
 import com.example.iswara.databinding.FragmentChatbotBinding
+import com.example.iswara.ui.ruang_cerita.cerita_user.UserCeritaViewModel
+import com.example.iswara.ui.ruang_cerita.cerita_user.UserCeritaViewModelFactory
 import com.example.test_tflite_app_simple.chatbot.Chatbot
 import com.example.test_tflite_app_simple.chatbot.InputFormat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -36,6 +47,7 @@ class ChatbotFragment : Fragment() {
     private lateinit var viewModel: ChatbotViewModel
     private lateinit var mBottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private lateinit var mChatbot: Chatbot
+    private lateinit var session: Session
     private var dialog: MaterialAlertDialogBuilder? = null
 
     override fun onCreateView(
@@ -55,15 +67,57 @@ class ChatbotFragment : Fragment() {
             title = "Ara (Chatbot)"
         }
 
-        viewModel = ViewModelProvider(this)[ChatbotViewModel::class.java]
-        viewModel.listChat.observe(viewLifecycleOwner) { listChat ->
-            showRecyclerList(listChat)
+        SessionPreference(view.context).getSession()?.also {
+            session = it
         }
 
         mChatbot = Chatbot(view.context)
         mChatbot.setOnChatbotResponded { respond, input, inputFormat ->
             setInputUI(view.context, input, inputFormat)
-            viewModel.sendBotChat(respond)
+            lifecycleScope.launch(Dispatchers.IO) {
+                val botState = mChatbot.getRemainingIntentClassesJson()
+                viewModel.insertOrUpdateBotState(botState)
+                viewModel.sendBotChat(respond)
+                when (input) {
+                    Chatbot.Input.ENDED -> viewModel.setBotStateEnded()
+                    else -> {}
+                }
+            }
+        }
+
+        viewModel = ViewModelProvider(this, ChatbotViewModelModelFactory(view.context, session))[ChatbotViewModel::class.java]
+        viewModel.getOnGoingReport().observe(viewLifecycleOwner) { report ->
+            report?.let {
+                viewModel.setReport(it)
+                viewModel.getChatHistory().removeObservers(viewLifecycleOwner)
+                viewModel.getChatHistory().observe(viewLifecycleOwner) { listChat ->
+                    Log.d("ChatbotFragment", listChat.joinToString())
+                    if (listChat.isNotEmpty()) showRecyclerList(listChat)
+                }
+                showLoading(false)
+            } ?: run {
+                lifecycleScope.launch(Dispatchers.IO) {
+                    viewModel.addReport {
+                        lifecycleScope.launch(Dispatchers.Main) {
+                            viewModel.getChatHistory().removeObservers(viewLifecycleOwner)
+                            viewModel.getChatHistory().observe(viewLifecycleOwner) { listChat ->
+                                Log.d("ChatbotFragment", listChat.joinToString())
+                                if (listChat.isNotEmpty()) showRecyclerList(listChat)
+                            }
+                            showLoading(false)
+                        }
+                    }
+                }
+            }
+            lifecycleScope.launch(Dispatchers.IO) {
+                viewModel.getBotState()?.let { state ->
+                    Log.d("ChatbotFragment", state.remainClassJson)
+                    mChatbot.setRemainingIntentClasses(state.remainClassJson)
+                    if (state.isEnded) {
+                        withContext(Dispatchers.Main) { setToEnded(true) }
+                    }
+                }
+            }
         }
 
         binding.btnChooseOption.setOnClickListener {
@@ -262,8 +316,12 @@ class ChatbotFragment : Fragment() {
     }
 
     private fun sendUserChat(chat: String) {
-        viewModel.sendUserChat(chat)
-        mChatbot.chat(chat)
+        lifecycleScope.launch(Dispatchers.IO) {
+            viewModel.sendUserChat(chat)
+            withContext(Dispatchers.Main) {
+                mChatbot.chat(chat)
+            }
+        }
     }
 
     private fun setChatTo(text: String) {
@@ -299,14 +357,14 @@ class ChatbotFragment : Fragment() {
         }
     }
 
-    private fun showRecyclerList(listChat: ArrayList<ChatItem>) {
+    private fun showRecyclerList(listChat: List<Chat>) {
         binding.rvChat.layoutManager = LinearLayoutManager(view?.context)
 
         val listChatAdapter = ChatAdapter(listChat)
         binding.rvChat.adapter = listChatAdapter
 
         listChatAdapter.setOnItemClickCallback(object : ChatAdapter.OnItemClickCallback {
-            override fun onItemClicked(chat: ChatItem) {
+            override fun onItemClicked(chat: Chat) {
                 chat.apply { showToast("${this.chat}, $id, $isUser") }
             }
         })
@@ -347,6 +405,14 @@ class ChatbotFragment : Fragment() {
 
     enum class Anim {
         FadeIn, FadeOut
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.layoutBgLoading.visibility = View.VISIBLE
+        } else {
+            binding.layoutBgLoading.visibility = View.GONE
+        }
     }
 
     private fun showToast(text: String) {

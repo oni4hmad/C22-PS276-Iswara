@@ -3,10 +3,11 @@ package com.example.iswara.ui.chatbot
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.iswara.data.database.Chat
 import com.example.iswara.databinding.ItemMsgBotBinding
 import com.example.iswara.databinding.ItemMsgUserBinding
 
-class ChatAdapter(private val listChat: List<ChatItem>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ChatAdapter(private val listChat: List<Chat>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val BOT_MESSAGE_VIEW = 0
@@ -76,6 +77,6 @@ class ChatAdapter(private val listChat: List<ChatItem>) : RecyclerView.Adapter<R
     override fun getItemCount(): Int = listChat.size
 
     interface OnItemClickCallback {
-        fun onItemClicked(tanggapan: ChatItem)
+        fun onItemClicked(tanggapan: Chat)
     }
 }
