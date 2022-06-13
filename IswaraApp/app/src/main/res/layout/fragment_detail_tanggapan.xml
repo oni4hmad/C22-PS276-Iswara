@@ -178,6 +178,7 @@
         android:minWidth="66dip"
         android:text="Kirim"
         android:textAllCaps="false"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -209,11 +210,11 @@
                 android:paddingTop="0dp"
                 android:paddingEnd="0dp"
                 android:paddingBottom="0dp"
-                app:tint="@color/light_grey"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_baseline_horizontal_rule_24" />
+                app:srcCompat="@drawable/ic_baseline_horizontal_rule_24"
+                app:tint="@color/light_grey" />
 
             <!-- Edit Tanggapan -->
 
@@ -284,11 +285,11 @@
                     android:paddingTop="8dp"
                     android:paddingEnd="16dp"
                     android:paddingBottom="8dp"
-                    app:tint="@color/red_700"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_baseline_delete_24" />
+                    app:srcCompat="@drawable/ic_baseline_delete_24"
+                    app:tint="@color/red_700" />
 
                 <TextView
                     android:id="@+id/tv_delete_tanggapan"
@@ -310,6 +311,28 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/layout_bg_loading"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#7F000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/pb_login"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
