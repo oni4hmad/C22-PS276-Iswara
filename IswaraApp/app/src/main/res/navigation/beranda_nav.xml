@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_laporankuActivity"
             app:destination="@id/laporankuActivity" />
+        <action
+            android:id="@+id/action_settingsFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/daruratFragment"
@@ -75,4 +78,9 @@
         android:name="com.example.iswara.ui.settings_laporanku.LaporankuActivity"
         android:label="activity_laporanku"
         tools:layout="@layout/activity_laporanku" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.iswara.ui.login.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
 </navigation>
