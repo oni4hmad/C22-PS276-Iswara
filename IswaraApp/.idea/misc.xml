@@ -25,6 +25,7 @@
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/font/mitr_extralight.xml" value="0.25462962962962965" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout-v23/save_btn_cstm.xml" value="0.25271739130434784" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_beranda.xml" value="0.25" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_laporanku.xml" value="0.1" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_main.xml" value="0.2767210144927536" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_profile_setting.xml" value="0.2509057971014493" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/activity_tab_cerita.xml" value="0.2509057971014493" />
@@ -32,7 +33,7 @@
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_add_cerita.xml" value="0.1" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_beranda.xml" value="0.22" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_change_password.xml" value="0.18541666666666667" />
-        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_chatbot.xml" value="0.33" />
+        <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_chatbot.xml" value="0.25" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_detail_tanggapan.xml" value="0.25" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/Oni Ahmad/Desktop/bangkit/capstone/C22-PS276-Iswara/IswaraApp/app/src/main/res/layout/fragment_login.xml" value="0.33" />

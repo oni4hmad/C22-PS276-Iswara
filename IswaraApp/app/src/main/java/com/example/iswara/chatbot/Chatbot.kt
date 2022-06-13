@@ -86,7 +86,7 @@ class Chatbot (private val context: Context) {
 
                     if (isExistInRemainingClasses && !isThisEntryEndedClass || !makeEndedRespondLast) {
 
-                        showToast("tag: ${classPrediction.key}")
+                        //showToast("tag: ${classPrediction.key}")
 
                         remainingIntentClasses.remove(classPrediction.key)
 
@@ -103,7 +103,7 @@ class Chatbot (private val context: Context) {
                         break
                     } else if (isRemainingClassesEmpty && isThisEntryEndedClass) {
 
-                        showToast("tag: ${classPrediction.key}")
+                        //showToast("tag: ${classPrediction.key}")
 
                         val botResponse = getBotResponseRandomize(classPrediction.key)
                         val userInput = getUserInput(classPrediction.key)
