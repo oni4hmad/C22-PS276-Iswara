@@ -16,12 +16,23 @@
         <action
             android:id="@+id/action_tabCeritaFragment2_to_detailTanggapanFragment"
             app:destination="@id/detailTanggapanFragment" />
+        <argument
+            android:name="msg"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/addCeritaFragment2"
         android:name="com.example.iswara.ui.ruang_cerita.add_cerita.AddCeritaFragment"
         android:label="fragment_add_cerita"
-        tools:layout="@layout/fragment_add_cerita" />
+        tools:layout="@layout/fragment_add_cerita" >
+        <action
+            android:id="@+id/action_addCeritaFragment2_to_tabCeritaFragment2"
+            app:destination="@id/tabCeritaFragment2"
+            app:popUpTo="@id/tabCeritaFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/detailTanggapanFragment"
         android:name="com.example.iswara.ui.ruang_cerita.detail_tanggapan.DetailTanggapanFragment"
@@ -29,6 +40,6 @@
         tools:layout="@layout/fragment_detail_tanggapan" >
         <argument
             android:name="cerita"
-            app:argType="com.example.iswara.ui.ruang_cerita.CeritaItem" />
+            app:argType="com.example.iswara.data.network.Cerita" />
     </fragment>
 </navigation>
