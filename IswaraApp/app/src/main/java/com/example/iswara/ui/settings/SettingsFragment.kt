@@ -8,19 +8,21 @@ import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.iswara.R
+import com.example.iswara.data.preferences.SessionPreference
 import com.example.iswara.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var settingFragBinding: FragmentSettingsBinding
+    private lateinit var binding: FragmentSettingsBinding
     private lateinit var viewModel: SettingsViewModel
+    private lateinit var mSessionPreference: SessionPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        settingFragBinding = FragmentSettingsBinding.inflate(inflater,container,false)
-        return settingFragBinding.root
+        binding = FragmentSettingsBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
 
@@ -31,20 +33,24 @@ class SettingsFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.apply {
             title = "Pengaturan"
             show()
-
         }
 
-        settingFragBinding.changeProfile.setOnClickListener {
+        binding.changeProfile.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_profileSettingActivity)
         }
 
-        settingFragBinding.changePassword.setOnClickListener {
+        binding.changePassword.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_ubahPasswordActivity)
         }
 
-
-        settingFragBinding.showReport.setOnClickListener {
+        binding.showReport.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_laporankuActivity)
+        }
+
+        binding.logout.setOnClickListener {
+            SessionPreference(view.context).clearSession()
+            findNavController().navigate(R.id.action_settingsFragment_to_mainActivity)
+            (activity as AppCompatActivity).finish()
         }
 
     }
