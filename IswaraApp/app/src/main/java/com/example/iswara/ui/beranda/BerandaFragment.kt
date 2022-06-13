@@ -9,13 +9,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.iswara.R
+import com.example.iswara.data.preferences.SessionPreference
 import com.example.iswara.databinding.FragmentBerandaBinding
 
 
 class BerandaFragment : Fragment() {
 
     private lateinit var binding : FragmentBerandaBinding
+    private lateinit var mSessionPreference: SessionPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,8 +37,16 @@ class BerandaFragment : Fragment() {
             hide()
         }
 
+        mSessionPreference = SessionPreference(view.context)
+        if (mSessionPreference.getSession() != null) {
+            val name = mSessionPreference.getSession()?.name
+            Glide.with(binding.ivUserPhoto.context)
+                .load("https://loremflickr.com/200/100")
+                .into(binding.ivUserPhoto)
+            binding.tvUserName.text = getString(R.string.hai_ambar_text_holder, name)
+        }
+
         binding.cvRuangan.setOnClickListener {
-            Toast.makeText(activity,"Ruangan will available soon \uD83E\uDD70", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_berandaFragment2_to_tabCeritaActivity)
         }
 
