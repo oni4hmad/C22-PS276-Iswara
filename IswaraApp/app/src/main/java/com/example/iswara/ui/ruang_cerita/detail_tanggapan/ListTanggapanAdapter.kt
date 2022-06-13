@@ -1,18 +1,12 @@
 package com.example.iswara.ui.ruang_cerita.detail_tanggapan
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.iswara.data.network.Tanggapan
-import com.example.iswara.databinding.ItemRowCeritaBinding
 import com.example.iswara.databinding.ItemRowTanggapanBinding
-import com.example.iswara.ui.ruang_cerita.CeritaItem
-import com.example.iswara.ui.ruang_cerita.ListCeritaAdapter
 import com.example.iswara.utils.formatDateString
-import java.text.SimpleDateFormat
-import java.util.*
 
 class ListTanggapanAdapter(private val listTanggapan: List<Tanggapan>) : RecyclerView.Adapter<ListTanggapanAdapter.ListViewHolder>() {
 

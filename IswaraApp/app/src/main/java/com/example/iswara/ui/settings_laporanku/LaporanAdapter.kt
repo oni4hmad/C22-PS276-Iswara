@@ -1,13 +1,11 @@
 package com.example.iswara.ui.settings_laporanku
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.iswara.data.database.Report
 import com.example.iswara.databinding.ItemMyLaporanBinding
 import com.example.iswara.utils.formatDateString
-import java.text.SimpleDateFormat
 
 class LaporanAdapter(private val listLaporan: List<Report>) : RecyclerView.Adapter<LaporanAdapter.ListViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback

@@ -5,11 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.iswara.data.dummy.DataDummy
 import com.example.iswara.data.network.ApiConfig
 import com.example.iswara.data.network.Cerita
 import com.example.iswara.data.preferences.Session
-import com.example.iswara.ui.ruang_cerita.CeritaItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,7 +16,7 @@ class UserCeritaViewModelFactory(private val session: Session): ViewModelProvide
     override fun <T : ViewModel> create(modelClass: Class<T>): T = UserCeritaViewModel(session) as T
 }
 
-class UserCeritaViewModel(private val session: Session) : ViewModel() {
+class UserCeritaViewModel(session: Session) : ViewModel() {
 
     companion object {
         private const val TAG = "UserCeritaViewModel"

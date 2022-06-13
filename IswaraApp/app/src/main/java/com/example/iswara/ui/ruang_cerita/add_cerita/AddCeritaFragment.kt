@@ -1,6 +1,5 @@
 package com.example.iswara.ui.ruang_cerita.add_cerita
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -15,7 +14,6 @@ import com.example.iswara.data.preferences.Session
 import com.example.iswara.data.preferences.SessionPreference
 import com.example.iswara.databinding.FragmentAddCeritaBinding
 import com.example.iswara.utils.dateToString
-import java.text.SimpleDateFormat
 import java.util.*
 
 class AddCeritaFragment : Fragment() {

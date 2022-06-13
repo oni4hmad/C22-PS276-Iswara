@@ -83,7 +83,7 @@ class ChatbotFragment : Fragment() {
 
         viewModel = ViewModelProvider(this, ChatbotViewModelModelFactory(view.context, session))[ChatbotViewModel::class.java]
         arguments?.let { arg ->
-            ChatbotFragmentArgs.fromBundle(arg as Bundle).laporan?.also {
+            ChatbotFragmentArgs.fromBundle(arg).laporan?.also {
                 viewModel.setReport(it)
                 if (it.isFinish) fixJustUIEnded()
                 viewModel.getChatHistory().observe(viewLifecycleOwner) {

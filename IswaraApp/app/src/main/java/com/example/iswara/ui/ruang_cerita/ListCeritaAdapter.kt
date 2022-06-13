@@ -1,19 +1,13 @@
 package com.example.iswara.ui.ruang_cerita
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.iswara.data.network.Cerita
 import com.example.iswara.databinding.ItemRowCeritaBinding
 import com.example.iswara.utils.formatDateString
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 class ListCeritaAdapter(private val listCerita: List<Cerita>) : RecyclerView.Adapter<ListCeritaAdapter.ListViewHolder>() {
 

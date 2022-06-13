@@ -30,7 +30,6 @@ import com.example.iswara.databinding.FragmentDetailTanggapanBinding
 import com.example.iswara.utils.dateToString
 import com.example.iswara.utils.formatDateString
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import java.text.SimpleDateFormat
 import java.util.*
 
 

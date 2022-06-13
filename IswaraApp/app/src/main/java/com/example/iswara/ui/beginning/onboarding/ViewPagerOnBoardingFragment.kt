@@ -1,11 +1,10 @@
 package com.example.iswara.ui.beginning.onboarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.iswara.R
+import androidx.fragment.app.Fragment
 import com.example.iswara.databinding.FragmentViewPagerOnBoardingBinding
 
 
@@ -22,7 +21,7 @@ class ViewPagerOnBoardingFragment : Fragment() {
         _viewPagerOnBoardingBinding = FragmentViewPagerOnBoardingBinding.inflate(inflater,container,false)
         val view = viewPagerOnBoardingBinding.root
 
-        val fragmentList = arrayListOf<Fragment>(
+        val fragmentList = arrayListOf(
             FirstOnBoardingFragment(),
             SecondOnBoardingFragment(),
             ThirdOnBoardingFragment()

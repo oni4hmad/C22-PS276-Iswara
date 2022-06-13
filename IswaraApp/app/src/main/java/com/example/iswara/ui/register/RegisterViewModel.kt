@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.example.iswara.data.network.ApiConfig
 import com.example.iswara.data.network.User
 import com.example.iswara.ui.Event
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

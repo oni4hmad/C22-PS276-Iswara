@@ -17,12 +17,6 @@
     </style>
 
 
-
-    <style name="MyCardView" parent="@style/Widget.MaterialComponents.CardView">
-        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.Cut</item>
-    </style>
-
-
     <style name="ShapeAppearanceOverlay.MaterialCardView.Cut" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopRight">28dp</item>
@@ -34,23 +28,6 @@
 
 
     <!-- custom save button -->
-    <style name="save_actionbar_style" parent="android:Widget.ActionBar">
-        <item name="background">@color/navy</item>
-        <item name="titleTextStyle">@style/SaveTextActionBar</item>
-        <item name="displayOptions">showTitle</item>
-    </style>
-    <style name="SaveTextActionBar">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">20sp</item>
-    </style>
-    <style name="TheSaveButton">
-        <item name="background">@drawable/shape_rounded_box</item>
-        <item name="android:width">80dp</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:layout_marginRight">16dp</item>
-    </style>
 
 
 </resources>

@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.iswara.data.dummy.DataDummy
 import com.example.iswara.data.network.ApiConfig
 import com.example.iswara.data.network.Cerita
 import com.example.iswara.data.network.Tanggapan
@@ -12,8 +11,6 @@ import com.example.iswara.ui.Event
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
-import kotlin.collections.ArrayList
 
 class DetailTanggapanViewModel : ViewModel() {
 

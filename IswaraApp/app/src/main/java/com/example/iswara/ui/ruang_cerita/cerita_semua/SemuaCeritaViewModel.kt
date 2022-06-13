@@ -4,10 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.iswara.data.network.Cerita
 import com.example.iswara.data.network.ApiConfig
-import com.example.iswara.ui.ruang_cerita.cerita_user.UserCeritaViewModel
-import org.json.JSONObject
+import com.example.iswara.data.network.Cerita
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

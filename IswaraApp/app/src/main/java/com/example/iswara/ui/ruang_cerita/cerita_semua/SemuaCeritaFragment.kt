@@ -1,22 +1,18 @@
 package com.example.iswara.ui.ruang_cerita.cerita_semua
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
-import androidx.fragment.app.findFragment
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.iswara.R
 import com.example.iswara.data.network.Cerita
-import com.example.iswara.data.preferences.SessionPreference
 import com.example.iswara.databinding.FragmentSemuaCeritaBinding
-import com.example.iswara.ui.ruang_cerita.CeritaItem
 import com.example.iswara.ui.ruang_cerita.ListCeritaAdapter
 import com.example.iswara.ui.ruang_cerita.cerita_tablayout.TabCeritaFragmentArgs
 

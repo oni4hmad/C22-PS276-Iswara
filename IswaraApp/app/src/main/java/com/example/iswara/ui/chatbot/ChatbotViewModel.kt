@@ -3,24 +3,17 @@ package com.example.iswara.ui.chatbot
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.iswara.data.database.BotState
 import com.example.iswara.data.database.Chat
 import com.example.iswara.data.database.Report
-import com.example.iswara.data.dummy.DataDummy
 import com.example.iswara.data.preferences.Session
 import com.example.iswara.di.Injection
 import com.example.iswara.repository.ReportRepository
-import com.example.iswara.ui.ruang_cerita.cerita_user.UserCeritaViewModel
-import com.example.iswara.ui.ruang_cerita.detail_tanggapan.TanggapanItem
 import com.example.iswara.utils.dateToString
 import com.example.iswara.utils.formatDateString
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ChatbotViewModelModelFactory(private val context: Context, private val session: Session): ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
