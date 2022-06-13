@@ -9,7 +9,8 @@ Bangkit Capstone 2022 Repository for Iswara App
 * Stored data using cloud firestore database service from google cloud platform
 
 ### Endpoint
-iswara-project.as.r.appspot.com 
+> <P> iswara-project.as.r.appspot.com </P>
+
 
 ## Architecture
 ![Architecture](https://user-images.githubusercontent.com/99736711/173267356-eddf3a2c-0db0-4d10-a67f-5d8c7ed0a1c0.png)
