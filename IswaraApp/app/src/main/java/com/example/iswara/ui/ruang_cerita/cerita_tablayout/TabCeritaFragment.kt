@@ -48,20 +48,15 @@ class TabCeritaFragment : Fragment() {
 
         /* fab: add cerita */
         binding.fabAddCerita.setOnClickListener {
-            showToast("add cerita!")
             findNavController().navigate(R.id.action_tabCeritaFragment2_to_addCeritaFragment2)
         }
 
+        setHasOptionsMenu(true)
         (activity as AppCompatActivity).supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
-
             title = "Ruang Cerita"
         }
 
-    }
-
-    private fun showToast(text: String) {
-        Toast.makeText(view?.context, text, Toast.LENGTH_SHORT).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -74,6 +69,9 @@ class TabCeritaFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun showToast(text: String) {
+        Toast.makeText(view?.context, text, Toast.LENGTH_SHORT).show()
+    }
 
 
     companion object {

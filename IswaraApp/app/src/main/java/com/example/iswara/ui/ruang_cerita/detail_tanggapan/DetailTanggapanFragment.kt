@@ -7,9 +7,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,12 +18,20 @@ import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.iswara.R
+import com.example.iswara.data.network.Cerita
+import com.example.iswara.data.network.Tanggapan
+import com.example.iswara.data.preferences.Session
+import com.example.iswara.data.preferences.SessionPreference
 import com.example.iswara.databinding.FragmentDetailTanggapanBinding
-import com.example.iswara.ui.ruang_cerita.CeritaItem
+import com.example.iswara.utils.dateToString
+import com.example.iswara.utils.formatDateString
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class DetailTanggapanFragment : Fragment() {
@@ -33,6 +39,8 @@ class DetailTanggapanFragment : Fragment() {
     private lateinit var binding: FragmentDetailTanggapanBinding
     private lateinit var viewModel: DetailTanggapanViewModel
     private lateinit var mBottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+    private lateinit var session: Session
+    private var flagNewTanggapan = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,9 +53,34 @@ class DetailTanggapanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        SessionPreference(view.context).getSession()?.also {
+            session = it
+        }
+
         viewModel = ViewModelProvider(this).get(DetailTanggapanViewModel::class.java)
         viewModel.listTanggapan.observe(viewLifecycleOwner) { listTanggapan ->
             showRecyclerList(listTanggapan)
+            if (flagNewTanggapan) {
+                flagNewTanggapan = false
+                doNewTanggapanAnimation()
+            }
+        }
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            showLoading(it)
+        }
+        viewModel.toastText.observe(viewLifecycleOwner) {
+            it.getContentIfNotHandled()?.let { toastText ->
+                showToast(toastText)
+            }
+        }
+        viewModel.isSucceed.observe(viewLifecycleOwner) {
+            it.getContentIfNotHandled()?.let { isSucceed ->
+                if (isSucceed) {
+                    viewModel.getTanggapan(callback = {
+                        flagNewTanggapan = true
+                    })
+                }
+            }
         }
 
         Glide.with(binding.ivUser.context)
@@ -77,31 +110,10 @@ class DetailTanggapanFragment : Fragment() {
         })
 
         binding.btnKirim.setOnClickListener {
-            binding.apply {
-                btnKirim.isEnabled = false
-                edtTanggapan.isEnabled = false
-                val textToSend = edtTanggapan.text.toString()
-                viewModel.addTanggapan(textToSend)
-                edtTanggapan.setText(String(), TextView.BufferType.EDITABLE)
-                btnKirim.isEnabled = true
-                edtTanggapan.isEnabled = true
 
-                /* scroll to top nestedScrollView */
-                val x = lineCerita.x.toInt()
-                val y = lineCerita.y.toInt()
-                nsvTanggapan.fling(500)
-                nsvTanggapan.smoothScrollTo(x, y)
-
-                /* blink the new tanggapan */
-                rvTanggapan.post {
-                    /* itemCount = lastPostition karena rv dibalik (sementara) */
-                    rvTanggapan.adapter?.itemCount?.also { itemCount ->
-                        rvTanggapan.findViewHolderForAdapterPosition(itemCount-1)?.itemView?.also {
-                            animateCard(it as CardView)
-                        }
-                    }
-                }
-            }
+            val tanggapan = binding.edtTanggapan.text.toString()
+            val name = session.name ?: ""
+            viewModel.postTanggapan(name, dateToString(Date()), tanggapan)
         }
 
         binding.layoutBottomSheet.setOnClickListener {
@@ -116,11 +128,11 @@ class DetailTanggapanFragment : Fragment() {
             showToast("delete!")
         }
 
-
-
-        val ceritaData = DetailTanggapanFragmentArgs.fromBundle(arguments as Bundle).cerita
-        setCerita(ceritaData)
-
+        DetailTanggapanFragmentArgs.fromBundle(arguments as Bundle).cerita.also {
+            viewModel.setCerita(it)
+            viewModel.getTanggapan()
+            setCerita(it)
+        }
 
         setHasOptionsMenu(true)
         (activity as AppCompatActivity).supportActionBar?.apply {
@@ -130,7 +142,70 @@ class DetailTanggapanFragment : Fragment() {
 
     }
 
-    private fun showRecyclerList(listTanggapan: List<TanggapanItem>) {
+    private fun doNewTanggapanAnimation() {
+        binding.apply {
+            binding.edtTanggapan.setText(String())
+
+            btnKirim.isEnabled = false
+            edtTanggapan.isEnabled = false
+            val textToSend = edtTanggapan.text.toString()
+            // viewModel.addTanggapan(textToSend)
+            edtTanggapan.setText(String(), TextView.BufferType.EDITABLE)
+            btnKirim.isEnabled = true
+            edtTanggapan.isEnabled = true
+
+            /* scroll to top nestedScrollView */
+            val x = lineCerita.x.toInt()
+            val y = lineCerita.y.toInt()
+            nsvTanggapan.fling(500)
+            nsvTanggapan.smoothScrollTo(x, y)
+
+            /* blink the new tanggapan */
+            rvTanggapan.post {
+                /* itemCount = lastPostition karena rv dibalik (sementara) */
+                rvTanggapan.adapter?.itemCount?.also { itemCount ->
+                    rvTanggapan.findViewHolderForAdapterPosition(itemCount-1)?.itemView?.also {
+                        animateCard(it as CardView)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.edtTanggapan.isEnabled = false
+            binding.layoutBgLoading.visibility = View.VISIBLE
+        } else {
+            binding.edtTanggapan.isEnabled = true
+            binding.layoutBgLoading.visibility = View.GONE
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.tanggapan_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            android.R.id.home -> {
+                findNavController().navigateUp()
+                return true
+            }
+            R.id.edit_story -> {
+                showToast("edit story!")
+                return true
+            }
+            R.id.delete_story -> {
+                showToast("delete story!")
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun showRecyclerList(listTanggapan: List<Tanggapan>) {
         binding.rvTanggapan.layoutManager = LinearLayoutManager(view?.context)
 
         /* sementara: soalnya kalau dari API bisa langsung urutannya mulai dari yang paling baru */
@@ -140,7 +215,7 @@ class DetailTanggapanFragment : Fragment() {
         binding.rvTanggapan.adapter = listTanggapanAdapter
 
         listTanggapanAdapter.setOnItemClickCallback(object : ListTanggapanAdapter.OnItemClickCallback {
-            override fun onItemClicked(tanggapan: TanggapanItem) {
+            override fun onItemClicked(tanggapan: Tanggapan) {
                 /* show bottom sheet */
                 animateBtmSheet(binding.layoutBottomSheet, Anim.FadeIn)
             }
@@ -196,10 +271,9 @@ class DetailTanggapanFragment : Fragment() {
         Toast.makeText(view?.context, text, Toast.LENGTH_SHORT).show()
     }
 
-
-    private fun setCerita(cerita: CeritaItem) {
+    private fun setCerita(cerita: Cerita) {
         binding.tvName.text = cerita.name
-        binding.tvDate.text = cerita.date.toString()
+        binding.tvDate.text = formatDateString(cerita.date)
         binding.tvCerita.text = cerita.cerita
         binding.tvTanggapan.text = cerita.tanggapanCount.toString()
         binding.tvSupport.text = cerita.tanggapanCount.toString()

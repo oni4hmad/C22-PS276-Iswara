@@ -13,9 +13,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.iswara.R
+import com.example.iswara.data.network.Cerita
+import com.example.iswara.data.preferences.SessionPreference
 import com.example.iswara.databinding.FragmentSemuaCeritaBinding
 import com.example.iswara.ui.ruang_cerita.CeritaItem
 import com.example.iswara.ui.ruang_cerita.ListCeritaAdapter
+import com.example.iswara.ui.ruang_cerita.cerita_tablayout.TabCeritaFragmentArgs
 
 class SemuaCeritaFragment : Fragment() {
 
@@ -33,21 +36,60 @@ class SemuaCeritaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(SemuaCeritaViewModel::class.java)
+        viewModel = ViewModelProvider(this)[SemuaCeritaViewModel::class.java]
         viewModel.listCerita.observe(viewLifecycleOwner) { listCerita ->
             showRecyclerList(listCerita)
         }
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            showLoading(isLoading)
+        }
+        viewModel.error.observe(viewLifecycleOwner) { error ->
+            when {
+                error.isError && error.type == SemuaCeritaViewModel.ErrorType.NO_DATA ->
+                    showError(true, "Tidak ada data")
+                error.isError ->
+                    error.errorMsg?.let { showError(true, it) }
+                else -> showError(false)
+            }
+        }
+
+        arguments?.let {
+            TabCeritaFragmentArgs.fromBundle(it).msg?.let { msg ->
+                showToast(msg)
+            }
+        }
+
+        binding.srlCerita.setOnRefreshListener {
+            loadStory()
+        }
     }
 
-    private fun showRecyclerList(listCerita: List<CeritaItem>) {
+    private fun showError(isError: Boolean, msg: String = "") {
+        if (isError) showToast(msg)
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.srlCerita.isRefreshing = true
+            binding.rvAllCerita.visibility = View.GONE
+        } else {
+            binding.srlCerita.isRefreshing = false
+            binding.rvAllCerita.visibility = View.VISIBLE
+        }
+    }
+
+    private fun loadStory() {
+        viewModel.getStory(1, 10)
+    }
+
+    private fun showRecyclerList(listCerita: List<Cerita>) {
         binding.rvAllCerita.layoutManager = LinearLayoutManager(view?.context)
 
         val listCeritaAdapter = ListCeritaAdapter(listCerita)
         binding.rvAllCerita.adapter = listCeritaAdapter
 
         listCeritaAdapter.setOnItemClickCallback(object : ListCeritaAdapter.OnItemClickCallback {
-            override fun onItemClicked(cerita: CeritaItem) {
-                cerita.apply { showToast("$idCerita, $name, $date, $cerita, $tanggapanCount, $supportCount") }
+            override fun onItemClicked(cerita: Cerita) {
                 findNavController().navigate(R.id.action_tabCeritaFragment2_to_detailTanggapanFragment, bundleOf("cerita" to cerita), null)
             }
         })

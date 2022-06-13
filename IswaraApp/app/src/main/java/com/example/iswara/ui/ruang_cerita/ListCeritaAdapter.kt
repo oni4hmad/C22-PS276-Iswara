@@ -1,14 +1,21 @@
 package com.example.iswara.ui.ruang_cerita
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.iswara.data.network.Cerita
 import com.example.iswara.databinding.ItemRowCeritaBinding
+import com.example.iswara.utils.formatDateString
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
-class ListCeritaAdapter(private val listCerita: List<CeritaItem>) : RecyclerView.Adapter<ListCeritaAdapter.ListViewHolder>() {
+class ListCeritaAdapter(private val listCerita: List<Cerita>) : RecyclerView.Adapter<ListCeritaAdapter.ListViewHolder>() {
 
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -28,7 +35,7 @@ class ListCeritaAdapter(private val listCerita: List<CeritaItem>) : RecyclerView
     override fun getItemCount(): Int = listCerita.size
 
     inner class ListViewHolder(private var binding: ItemRowCeritaBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(cerita: CeritaItem) {
+        fun bind(cerita: Cerita) {
 
 //            binding.ivUser.setBackgroundColor(Color.rgb(255, 0, 0))
 //            binding.ivUser.setBackgroundResource(R.color.orange)
@@ -37,10 +44,9 @@ class ListCeritaAdapter(private val listCerita: List<CeritaItem>) : RecyclerView
                 .into(binding.ivUser)
 
             binding.tvName.text = cerita.name
-            binding.tvDate.text = cerita.date.let {
-                val formatter = SimpleDateFormat("d MMMM yyyy")
-                formatter.format(it)
-            }
+
+            binding.tvDate.text = formatDateString(cerita.date)
+
             binding.tvCerita.text = cerita.cerita.let {
                 if (it.length > 300) {
                     binding.tvReadMore.visibility = View.VISIBLE
@@ -59,6 +65,6 @@ class ListCeritaAdapter(private val listCerita: List<CeritaItem>) : RecyclerView
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(cerita: CeritaItem)
+        fun onItemClicked(cerita: Cerita)
     }
 }
