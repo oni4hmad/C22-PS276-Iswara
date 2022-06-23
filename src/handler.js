@@ -26,9 +26,7 @@ const addAccountHandler = (request, h) => {
 
     const usersRef = db.collection("Users").doc(newUser.email.toString());
     usersRef.set(newUser);
-
-    // db.collection("Users").doc(newUser.email.toString()).set(newUser);
-
+    
     const hasil = usersRef.get().then(doc => {
         const cekhasil = () => {
             return new Promise ((resolve, reject) => {
@@ -58,22 +56,6 @@ const addAccountHandler = (request, h) => {
             return response;
         }
         return cekhasil().then(handleSuccess,handleFailure);
-        // if (doc.exists) {
-        //     const response = h.response({
-        //         error: true,
-        //         message: 'Akun berhasil ditambahkan',
-        //         data: doc.data()
-        //     })
-        //     response.code(201);
-        //     return response;
-        // } else {
-        //     const response = h.response({
-        //         error: true,
-        //         message: 'Akun gagal ditambahkan'
-        //     })
-        //     response.code(500);
-        //     return response;
-        // }
     })
     return hasil;
 };
