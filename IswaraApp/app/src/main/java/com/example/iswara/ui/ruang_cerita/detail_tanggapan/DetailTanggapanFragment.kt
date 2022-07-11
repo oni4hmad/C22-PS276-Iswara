@@ -275,7 +275,7 @@ class DetailTanggapanFragment : Fragment() {
         binding.tvDate.text = formatDateString(cerita.date)
         binding.tvCerita.text = cerita.cerita
         binding.tvTanggapan.text = cerita.tanggapanCount.toString()
-        binding.tvSupport.text = cerita.tanggapanCount.toString()
+        binding.tvSupport.text = cerita.supportCount.toString()
     }
 
 }
